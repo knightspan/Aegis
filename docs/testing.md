@@ -79,6 +79,22 @@ powershell -ExecutionPolicy Bypass -File tools\aegis-e2e.ps1 -Out <dir> -Source 
 python tools\make-demo-evidence.py
 ```
 
+### Installer
+
+`AEGIS-1.0.0-Setup.exe` (1,419,007,086 bytes, SHA-256
+`467f51fa468ebe8e88bbeafe45f9775519b97fbf1fbf77eaec6dedef73331b69`):
+
+- silent per-user install in 107 s: 13,566 files, engine bytecode precompiled, Start-menu shortcuts
+  (the *AEGIS (Administrator)* shortcut carries the run-as-administrator flag), uninstall entry
+  "AEGIS 1.0.0 / knightspan";
+- the installed `AEGIS.exe` starts with its own bundled Java (`<install>\jre`) and reports AEGIS 1.0.0;
+  the installed engine passes `health` with every native module and E01 writing available;
+- the full end-to-end rehearsal on the **installed** copy: 44/44 steps, 0 failures;
+- silent uninstall removes the folder, shortcuts and uninstall entry, and keeps `%APPDATA%\AEGIS`.
+
+A machine-wide install to `Program Files` (administrator) was not exercised by the automated test,
+which ran without elevation.
+
 ### Physical USB acquisition (operator run, elevated)
 
 On 4 October 2026 an operator acquired a 61.5 GB USB stick (`\\.\PhysicalDrive1`, FAT32, removable,
