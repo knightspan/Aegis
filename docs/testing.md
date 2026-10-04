@@ -18,6 +18,7 @@ on Windows 11 x64.
 | Native sanitizer `engine_tests.exe` | Overwrite patterns, verification, error paths | pass |
 | End-to-end rehearsal (`AegisUiDriver`) | The whole product flow inside the packaged app (below) | 44/44 steps, 0 failures, 0 timeouts |
 | Recovery equivalence | Performance patches vs. the unpatched engine on a 768 MB slice of a real pendrive image | 546/546 candidates identical |
+| Recovery equivalence after the progress hooks | Full 8.6 GB pendrive image, list-only, on the 1.0.0 package | 8,380/8,380 candidates identical; 28 minutes |
 
 ### Real pendrive image (`PendriveImagesSelfTest`)
 
