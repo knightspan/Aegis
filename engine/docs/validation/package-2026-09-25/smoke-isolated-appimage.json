@@ -1,0 +1,275 @@
+{
+  "executable": "/var/tmp/sanctum-unpack-76dde42/appimage/squashfs-root/usr/lib/sanctum/Sanctum",
+  "size_bytes": 11741528,
+  "platform": "Linux-6.19.10-300.fc44.x86_64-x86_64-with-glibc2.43",
+  "machine": "x86_64",
+  "date": "2026-09-25T18:39:56Z",
+  "isolated": true,
+  "sandbox": [
+    "--unshare-all",
+    "--share-net",
+    "--die-with-parent",
+    "--new-session",
+    "--ro-bind",
+    "/usr",
+    "/usr",
+    "--symlink",
+    "usr/lib64",
+    "/lib64",
+    "--symlink",
+    "usr/lib",
+    "/lib",
+    "--symlink",
+    "usr/bin",
+    "/bin",
+    "--symlink",
+    "usr/sbin",
+    "/sbin",
+    "--ro-bind",
+    "/etc",
+    "/etc",
+    "--proc",
+    "/proc",
+    "--dev",
+    "/dev",
+    "--tmpfs",
+    "/tmp",
+    "--tmpfs",
+    "/run",
+    "--bind",
+    "/tmp/sanctum-smoke-0jukafk5",
+    "/tmp/sanctum-smoke-0jukafk5",
+    "--ro-bind",
+    "/var/tmp/sanctum-unpack-76dde42/appimage/squashfs-root/usr/lib/sanctum",
+    "/var/tmp/sanctum-unpack-76dde42/appimage/squashfs-root/usr/lib/sanctum",
+    "--setenv",
+    "HOME",
+    "/tmp/sanctum-smoke-0jukafk5/home",
+    "--setenv",
+    "TMPDIR",
+    "/tmp",
+    "--unsetenv",
+    "DISPLAY",
+    "--unsetenv",
+    "WAYLAND_DISPLAY",
+    "--unsetenv",
+    "XDG_RUNTIME_DIR",
+    "--unsetenv",
+    "DBUS_SESSION_BUS_ADDRESS",
+    "--chdir",
+    "/tmp/sanctum-smoke-0jukafk5"
+  ],
+  "sandbox_view": {
+    "ok": true,
+    "dev": [
+      "core",
+      "fd",
+      "full",
+      "null",
+      "ptmx",
+      "pts",
+      "random",
+      "shm",
+      "stderr",
+      "stdin",
+      "stdout",
+      "tty",
+      "urandom",
+      "zero"
+    ],
+    "block_nodes": [],
+    "present_but_should_not_be": [],
+    "removable_media_mounts": [],
+    "mount_count": 16
+  },
+  "checks": [
+    {
+      "check": "the sandbox exposes no block device, sysfs or removable media",
+      "result": "PASS",
+      "detail": {
+        "ok": true,
+        "dev": [
+          "core",
+          "fd",
+          "full",
+          "null",
+          "ptmx",
+          "pts",
+          "random",
+          "shm",
+          "stderr",
+          "stdin",
+          "stdout",
+          "tty",
+          "urandom",
+          "zero"
+        ],
+        "block_nodes": [],
+        "present_but_should_not_be": [],
+        "removable_media_mounts": [],
+        "mount_count": 16
+      }
+    },
+    {
+      "check": "health refused without the session cookie",
+      "result": "PASS",
+      "detail": 401
+    },
+    {
+      "check": "session link accepted",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "health answers with the cookie",
+      "result": "PASS",
+      "detail": {
+        "status": "ok",
+        "tool_version": "sanctum-forensics/0.0.0",
+        "state_dir": "/tmp/sanctum-smoke-0jukafk5/state",
+        "ui_bundled": true,
+        "build": {
+          "architecture": "x86_64",
+          "branch": "HEAD",
+          "build_date": "2026-09-25T18:38:40Z",
+          "builder": "local build",
+          "commit": "76dde4246338f4cc5ca261d3b8fa1a275d0dbeaa",
+          "node": "not recorded",
+          "platform": "linux",
+          "python": "3.11.13",
+          "signed": "no",
+          "version": "0.0.0"
+        },
+        "launcher": true,
+        "session_protected": true,
+        "limitations": [
+          "HELPER_IN_PROCESS: no helper socket was configured, so privileged operations run with this process's own privileges rather than through the root daemon. On an unprivileged process the device operations will fail; nothing is silently escalated.",
+          "NO_SIGNING_KEY: no report signing key exists under /tmp/sanctum-smoke-0jukafk5/state/keys and no ledger chain has been started. The first job will start the chain with no key fingerprint in its genesis, and fingerprint_matches_genesis will then be SKIP on every report that chain carries. Create the key before the first job: .venv/bin/python scripts/hardware_validation.py keygen --key-dir /tmp/sanctum-smoke-0jukafk5/state/keys"
+        ]
+      }
+    },
+    {
+      "check": "session protection is on",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "launcher mode",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "UI bundle served from the package",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "non-loopback Host refused",
+      "result": "PASS",
+      "detail": 400
+    },
+    {
+      "check": "platform matrix served",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "every capability row has a source",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "device discovery in the sandbox finds no device",
+      "result": "PASS",
+      "detail": {
+        "status": 200,
+        "devices": 0
+      }
+    },
+    {
+      "check": "every device assessed",
+      "result": "NOT RUN",
+      "detail": "isolated: the sandbox exposes no device to assess"
+    },
+    {
+      "check": "protected devices are NOT AVAILABLE",
+      "result": "NOT RUN",
+      "detail": "isolated: the sandbox exposes no device to assess"
+    },
+    {
+      "check": "erase accepted",
+      "result": "PASS",
+      "detail": {
+        "job_id": "erase-files-684c191ba152",
+        "kind": "erase-files",
+        "state": "running",
+        "dry_run": false,
+        "stream_url": "/jobs/erase-files-684c191ba152/stream",
+        "notice": ""
+      }
+    },
+    {
+      "check": "erase completed",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "check": "target folder is gone",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nothing outside the target was touched",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "one record per path",
+      "result": "PASS",
+      "detail": 6
+    },
+    {
+      "check": "verification is never invented",
+      "result": "PASS",
+      "detail": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "check": "certificate issued",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "certificate verifies",
+      "result": "PASS",
+      "detail": true
+    },
+    {
+      "check": "quit refused without the session",
+      "result": "PASS",
+      "detail": 401
+    },
+    {
+      "check": "quit accepted",
+      "result": "PASS",
+      "detail": 0
+    },
+    {
+      "check": "app exited on quit",
+      "result": "PASS",
+      "detail": 0
+    }
+  ],
+  "result": "PASS",
+  "not_run": [
+    "every device assessed",
+    "protected devices are NOT AVAILABLE"
+  ],
+  "app_output_tail": "dger_append                  operation=erase.file.residual.result seq=45\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=513\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.verify.result seq=46\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=514\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.inspect.result seq=47\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=514\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.cleanse.result seq=48\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=516\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.overwrite.result seq=49\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=514\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.streams.result seq=50\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=515\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.truncate.result seq=51\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=513\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.rename.result seq=52\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=513\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.unlink.result seq=53\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=515\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.residual.result seq=54\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=513\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.verify.result seq=55\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=506\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=erase.file.traces seq=56\n2026-09-26 00:09:55 [info     ] trace_sweep_complete           dry_run=False found=0 job_id=erase-files-684c191ba152 removed=0\n2026-09-26 00:09:55 [info     ] file_erase_complete            failed=0 highest_severity=HIGH job_id=erase-files-684c191ba152 succeeded=6 targets=6\n2026-09-26 00:09:55 [info     ] job_finished                   job_id=erase-files-684c191ba152 state=complete\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=511\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=job.outcome seq=57\n2026-09-26 00:09:55 [info     ] signing_key_created            path=/tmp/sanctum-smoke-0jukafk5/state/keys/sanctum-signing.key.pem\n2026-09-26 00:09:55 [info     ] report_written                 json=/tmp/sanctum-smoke-0jukafk5/state/reports/erase-files-684c191ba152/erase-files-684c191ba152.forensic.json pdf=/tmp/sanctum-smoke-0jukafk5/state/reports/erase-files-684c191ba152/erase-files-684c191ba152.forensic.pdf\n2026-09-26 00:09:55 [debug    ] ledger_line_appended           path=/tmp/sanctum-smoke-0jukafk5/state/ledger/ledger/chain.jsonl size=516\n2026-09-26 00:09:55 [debug    ] ledger_append                  operation=report.generated seq=58\n"
+}

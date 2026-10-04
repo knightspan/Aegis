@@ -1,0 +1,151 @@
+{
+ "population": "SYNTHETIC",
+ "seed": 26149,
+ "image_bytes": 675840,
+ "image_sha256": "6b70f41c04af13bb75897f7a8b91daea611abfd15d0e672b012f80dddaeaba86",
+ "candidates_total": 5,
+ "rows": [
+  {
+   "label": "png split by a 32 KiB gap",
+   "offset": 16384,
+   "expect": "reassembled from two runs, below HIGH",
+   "sha256": "d76c9319bab605e9057a0c238a9cbc84dc26fa81803567871cbcd164ec65cc78",
+   "found": true,
+   "duplicate_of": null,
+   "validation": "valid",
+   "bucket": "MEDIUM",
+   "evidence_score": 7999,
+   "runs": [
+    [
+     16384,
+     12288
+    ],
+    [
+     61440,
+     98659
+    ]
+   ],
+   "digest_matches_ground_truth": true,
+   "score_components": {
+    "header": 2000,
+    "exact_length": 1500,
+    "decoder": 4000,
+    "entropy": 1000,
+    "fs_metadata": 0,
+    "no_overlap": 500,
+    "reassembly": -1001
+   }
+  },
+  {
+   "label": "jpeg split by a 32 KiB gap",
+   "offset": 172032,
+   "expect": "reassembled from two runs, below HIGH",
+   "sha256": "e90b047522004a161e4100d9bb1a9e215d9cb51f8b1373e0d2dca72984f7f0a9",
+   "found": true,
+   "duplicate_of": null,
+   "validation": "valid",
+   "bucket": "MEDIUM",
+   "evidence_score": 7999,
+   "runs": [
+    [
+     172032,
+     8192
+    ],
+    [
+     212992,
+     25529
+    ]
+   ],
+   "digest_matches_ground_truth": true,
+   "score_components": {
+    "header": 2000,
+    "exact_length": 1500,
+    "decoder": 4000,
+    "entropy": 1000,
+    "fs_metadata": 0,
+    "no_overlap": 500,
+    "reassembly": -1001
+   }
+  },
+  {
+   "label": "intact png",
+   "offset": 249856,
+   "expect": "recovered whole, HIGH",
+   "sha256": "5d23dbb660f136f9e9385d2f39dace42c6a4ca73e93656a4fdc707c968f593d7",
+   "found": true,
+   "duplicate_of": null,
+   "validation": "valid",
+   "bucket": "HIGH",
+   "evidence_score": 9000,
+   "runs": [],
+   "digest_matches_ground_truth": true,
+   "score_components": {
+    "header": 2000,
+    "exact_length": 1500,
+    "decoder": 4000,
+    "entropy": 1000,
+    "fs_metadata": 0,
+    "no_overlap": 500,
+    "reassembly": 0
+   }
+  },
+  {
+   "label": "duplicate of the intact png",
+   "offset": 372736,
+   "expect": "same digest as the intact png",
+   "sha256": "5d23dbb660f136f9e9385d2f39dace42c6a4ca73e93656a4fdc707c968f593d7",
+   "found": false,
+   "duplicate_of": 249856,
+   "validation": null,
+   "bucket": null,
+   "evidence_score": null,
+   "runs": [],
+   "digest_matches_ground_truth": false,
+   "score_components": {}
+  },
+  {
+   "label": "png whose tail was overwritten",
+   "offset": 495616,
+   "expect": "not rebuilt, not valid",
+   "sha256": null,
+   "found": true,
+   "duplicate_of": null,
+   "validation": "corrupt",
+   "bucket": "LOW",
+   "evidence_score": 3500,
+   "runs": [],
+   "digest_matches_ground_truth": false,
+   "score_components": {
+    "header": 2000,
+    "exact_length": 0,
+    "decoder": 0,
+    "entropy": 1000,
+    "fs_metadata": 0,
+    "no_overlap": 500,
+    "reassembly": 0
+   }
+  },
+  {
+   "label": "decoy png signature",
+   "offset": 651264,
+   "expect": "never HIGH",
+   "sha256": null,
+   "found": true,
+   "duplicate_of": null,
+   "validation": "corrupt",
+   "bucket": "LOW",
+   "evidence_score": 2500,
+   "runs": [],
+   "digest_matches_ground_truth": false,
+   "score_components": {
+    "header": 2000,
+    "exact_length": 0,
+    "decoder": 0,
+    "entropy": 0,
+    "fs_metadata": 0,
+    "no_overlap": 500,
+    "reassembly": 0
+   }
+  }
+ ]
+}

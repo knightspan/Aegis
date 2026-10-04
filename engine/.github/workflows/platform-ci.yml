@@ -1,0 +1,260 @@
+# Cross-platform validation. Three jobs, three operating systems, no hardware.
+#
+#   gate      - lint, four strict typecheck passes, the whole suite, the UI.
+#   platform  - on Linux, Windows and macOS: the whole Python suite, then the
+#               real platform adapter against that runner's own disks
+#               (scripts/platform_smoke.py), recorded as evidence.
+#   package   - on each OS: build the real installer, install it where the
+#               platform has one, and drive the installed application through
+#               a file erase and a signed certificate
+#               (scripts/package_smoke.py).
+#
+# What this cannot do: touch a physical device, or perform any whole-drive
+# operation. Those stay HARDWARE NOT AVAILABLE; see
+# docs/validation/hardware-platform-matrix.md. Every job's evidence is
+# uploaded, and scripts/record_platform_validation.py turns it into the
+# validation record the application reads when deciding whether a capability
+# is SUPPORTED or UNVERIFIED.
+name: platform-ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: python scripts/ci_install.py dev
+      - name: UI (typecheck, build, unit tests)
+        working-directory: ui
+        run: npm ci --no-audit --no-fund && npm run build && npx oxlint && npm test
+      - run: python -m ruff check .
+      - run: python -m mypy --strict core/ helper/ api/
+      - run: python -m mypy --strict --platform win32 core/erase/_platform/win.py
+      - name: typecheck as Windows
+        run: python -m mypy --strict --platform win32 core/platform api/security.py api/deps.py api/desktop.py core/erase/files.py core/device/win core/carve/win_source.py core/carve/acquire.py core/erase/blockclear.py core/erase/devicesanitize.py
+      - name: typecheck as macOS
+        run: python -m mypy --strict --platform darwin core/platform api/desktop.py core/device/mac core/carve/mac_source.py core/carve/acquire.py core/erase/blockclear.py
+      - name: full suite
+        run: python -m pytest -o addopts="" -q
+
+  platform:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-latest, name: Linux }
+          - { os: windows-latest, name: Windows }
+          - { os: macos-14, name: macOS }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - run: python scripts/ci_install.py dev
+      - name: UI bundle (the offline-serving tests read it)
+        working-directory: ui
+        run: npm ci --no-audit --no-fund && npm run build
+      # Before the suite: the adapter evidence is the point of this job, and a
+      # failing test elsewhere must not cost us the record of what the
+      # adapter did on this runner.
+      - name: Platform adapter against this runner's real disks
+        run: python scripts/platform_smoke.py --out platform-smoke-${{ matrix.name }}.json
+      # Read-only: one read handle, identity IOCTLs and one sector read through
+      # the real kernel32 / raw-device bindings. No write handle is opened and
+      # no destructive command exists in the script.
+      - name: Native disk layer, read-only (Windows)
+        if: runner.os == 'Windows'
+        run: python scripts/native_smoke.py --out native-smoke-${{ matrix.name }}.json
+      - name: Native disk layer, read-only (macOS, root for /dev/rdisk0)
+        if: runner.os == 'macOS'
+        continue-on-error: true
+        run: sudo -E "$(command -v python)" scripts/native_smoke.py --out native-smoke-${{ matrix.name }}.json
+      - name: Full Python suite on this platform
+        run: python -m pytest -o addopts="" -q
+      - name: Record the suites and features this platform validated
+        if: always()
+        run: >
+          python scripts/record_platform_validation.py file_erase api platform_backends
+          --smoke platform-smoke-${{ matrix.name }}.json
+          --out validation-${{ matrix.name }}.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidence-${{ matrix.name }}
+          path: |
+            platform-smoke-${{ matrix.name }}.json
+            native-smoke-${{ matrix.name }}.json
+            validation-${{ matrix.name }}.json
+
+  package:
+    needs: platform
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-22.04, name: Linux }
+          - { os: windows-latest, name: Windows }
+          - { os: macos-14, name: macOS }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      # The outer Python here has nothing installed beyond the interpreter -
+      # that is the point (package_smoke.py is deliberately pure stdlib, so
+      # it proves the *packaged app* needs no dev environment). Pillow is for
+      # this job's own test harness: scripts/package_carve_smoke.py needs
+      # scripts/demo_fragmented.py:build() to construct its synthetic image,
+      # and that needs Pillow to write a PNG/JPEG. Nothing else - build()'s
+      # only import beyond stdlib is PIL.
+      - name: Pillow, for this job's carving-fixture builder only
+        run: python -m pip install --quiet --constraint constraints.txt Pillow
+      - name: Inno Setup
+        if: runner.os == 'Windows'
+        run: if (-not (Get-Command iscc.exe -ErrorAction SilentlyContinue)) { choco install innosetup -y --no-progress }
+      - name: appimagetool prerequisites
+        if: runner.os == 'Linux'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq desktop-file-utils file
+
+      - name: Build the Linux packages
+        if: runner.os == 'Linux'
+        env: { PYTHON: python }
+        run: bash scripts/build-linux.sh
+      - name: Build SanctumSetup.exe
+        if: runner.os == 'Windows'
+        run: pwsh scripts/build-windows.ps1 -Python python
+      - name: Build Sanctum.dmg
+        if: runner.os == 'macOS'
+        env: { PYTHON: python }
+        run: bash scripts/build-macos.sh
+
+      # Linux: the AppImage itself is what a user runs. console=False is
+      # ignored on Linux (packaging/sanctum.spec), so no no-console check
+      # here - only that carving survives the same signature-table
+      # relocation as every other platform.
+      - name: Drive the packaged Linux app
+        if: runner.os == 'Linux'
+        run: |
+          APP=$(ls dist/Sanctum-*-x86_64.AppImage)
+          python scripts/package_smoke.py "$APP" --arg=--appimage-extract-and-run \
+            --out package-smoke-Linux.json
+      - name: Packaged carving - the signature table loads from the packaged location
+        if: runner.os == 'Linux'
+        run: |
+          APP=$(ls dist/Sanctum-*-x86_64.AppImage)
+          python scripts/package_carve_smoke.py "$APP" --arg=--appimage-extract-and-run \
+            --out carve-smoke-Linux.json
+
+      # Windows: install silently, drive the *installed* application, uninstall.
+      - name: Install, drive and uninstall on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $setup = "dist\SanctumSetup.exe"
+          Start-Process -FilePath $setup -ArgumentList "/VERYSILENT","/SUPPRESSMSGBOXES","/NORESTART","/CURRENTUSER","/LOG=install.log" -Wait
+          $installed = "$env:LOCALAPPDATA\Programs\Sanctum\Sanctum.exe"
+          if (-not (Test-Path $installed)) { Get-Content install.log -Tail 40; throw "installer did not place $installed" }
+          python scripts/package_smoke.py $installed --out package-smoke-Windows.json
+          $code = $LASTEXITCODE
+          $uninstall = "$env:LOCALAPPDATA\Programs\Sanctum\unins000.exe"
+          if (Test-Path $uninstall) {
+            Start-Process -FilePath $uninstall -ArgumentList "/VERYSILENT","/SUPPRESSMSGBOXES" -Wait
+            Start-Sleep -Seconds 5
+          }
+          if (Test-Path "$env:LOCALAPPDATA\Programs\Sanctum\Sanctum.exe") { throw "uninstall left the application behind" }
+          exit $code
+      # Reinstall: the uninstall step above just removed it, and both checks
+      # below need a real installed copy, independent of package_smoke's exit.
+      - name: Reinstall for the no-console and carving checks
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          Start-Process -FilePath "dist\SanctumSetup.exe" -ArgumentList "/VERYSILENT","/SUPPRESSMSGBOXES","/NORESTART","/CURRENTUSER" -Wait
+          $installed = "$env:LOCALAPPDATA\Programs\Sanctum\Sanctum.exe"
+          if (-not (Test-Path $installed)) { throw "reinstall did not place $installed" }
+      - name: Genuine no-console launch (the actual double-click / Start Menu condition)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: python scripts/package_no_console_smoke.py "$env:LOCALAPPDATA\Programs\Sanctum\Sanctum.exe" --out no-console-smoke-Windows.json
+      - name: Packaged carving - the signature table loads from the packaged location
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: python scripts/package_carve_smoke.py "$env:LOCALAPPDATA\Programs\Sanctum\Sanctum.exe" --out carve-smoke-Windows.json
+
+      # macOS: mount the DMG and run the app from a copy, as a user would.
+      - name: Mount the DMG and drive the app
+        if: runner.os == 'macOS'
+        run: |
+          hdiutil attach dist/Sanctum.dmg -mountpoint /Volumes/SanctumCI -nobrowse
+          cp -R /Volumes/SanctumCI/Sanctum.app "$RUNNER_TEMP/Sanctum.app"
+          hdiutil detach /Volumes/SanctumCI
+          python scripts/package_smoke.py "$RUNNER_TEMP/Sanctum.app/Contents/MacOS/Sanctum" \
+            --out package-smoke-macOS.json
+      - name: Genuine no-console launch (the actual double-click / Dock condition)
+        if: runner.os == 'macOS'
+        run: |
+          python scripts/package_no_console_smoke.py "$RUNNER_TEMP/Sanctum.app/Contents/MacOS/Sanctum" \
+            --out no-console-smoke-macOS.json
+      - name: Packaged carving - the signature table loads from the packaged location
+        if: runner.os == 'macOS'
+        run: |
+          python scripts/package_carve_smoke.py "$RUNNER_TEMP/Sanctum.app/Contents/MacOS/Sanctum" \
+            --out carve-smoke-macOS.json
+
+      - name: Record what the package validated
+        if: always()
+        shell: bash
+        run: >
+          python scripts/record_platform_validation.py --record-only
+          --package package-smoke-${{ matrix.name }}.json
+          --out validation-package-${{ matrix.name }}.json
+      - name: Artifact facts
+        if: always()
+        shell: bash
+        run: |
+          echo "## ${{ matrix.name }} artifacts" >> "$GITHUB_STEP_SUMMARY"
+          ls -la dist >> "$GITHUB_STEP_SUMMARY" || true
+          cat core/platform/build_info.json >> "$GITHUB_STEP_SUMMARY" || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sanctum-${{ matrix.name }}
+          path: |
+            dist/
+            package-smoke-${{ matrix.name }}.json
+            no-console-smoke-${{ matrix.name }}.json
+            carve-smoke-${{ matrix.name }}.json
+            validation-package-${{ matrix.name }}.json
+            core/platform/build_info.json
+          if-no-files-found: warn
+      # The same evidence again, on its own: merging the record back into the
+      # repository should not mean downloading a hundred megabytes of installer.
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidence-package-${{ matrix.name }}
+          path: |
+            package-smoke-${{ matrix.name }}.json
+            no-console-smoke-${{ matrix.name }}.json
+            carve-smoke-${{ matrix.name }}.json
+            validation-package-${{ matrix.name }}.json
+            core/platform/build_info.json
+          if-no-files-found: warn

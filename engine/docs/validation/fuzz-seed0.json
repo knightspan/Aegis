@@ -1,0 +1,342 @@
+{
+  "case_timeout_seconds": 2.0,
+  "clean": true,
+  "elapsed_seconds": 681.23,
+  "findings": [],
+  "iterations": 2000,
+  "max_case_bytes": 524288,
+  "results": [
+    {
+      "accepted": 140,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 1860,
+      "slowest_seconds": 0.0001,
+      "target": "structure.ZIP",
+      "timeouts": 0
+    },
+    {
+      "accepted": 0,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 2000,
+      "slowest_seconds": 0.0001,
+      "target": "structure.PDF",
+      "timeouts": 0
+    },
+    {
+      "accepted": 1733,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 267,
+      "slowest_seconds": 0.0001,
+      "target": "structure.JPEG",
+      "timeouts": 0
+    },
+    {
+      "accepted": 0,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 2000,
+      "slowest_seconds": 0.0,
+      "target": "structure.SQLite",
+      "timeouts": 0
+    },
+    {
+      "accepted": 1670,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 330,
+      "slowest_seconds": 0.0001,
+      "target": "structure.PNG",
+      "timeouts": 0
+    },
+    {
+      "accepted": 1996,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 4,
+      "slowest_seconds": 0.0,
+      "target": "structure.MP4",
+      "timeouts": 0
+    },
+    {
+      "accepted": 1681,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 319,
+      "slowest_seconds": 0.0003,
+      "target": "structure.TIFF-LE",
+      "timeouts": 0
+    },
+    {
+      "accepted": 1689,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 311,
+      "slowest_seconds": 0.0001,
+      "target": "structure.TIFF-BE",
+      "timeouts": 0
+    },
+    {
+      "accepted": 0,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 2000,
+      "slowest_seconds": 0.0,
+      "target": "structure.BMP",
+      "timeouts": 0
+    },
+    {
+      "accepted": 1110,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 890,
+      "slowest_seconds": 0.0001,
+      "target": "structure.WebP",
+      "timeouts": 0
+    },
+    {
+      "accepted": 1127,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 873,
+      "slowest_seconds": 0.0001,
+      "target": "structure.WAV",
+      "timeouts": 0
+    },
+    {
+      "accepted": 434,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 1566,
+      "slowest_seconds": 0.0226,
+      "target": "structure.GZIP",
+      "timeouts": 0
+    },
+    {
+      "accepted": 0,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 2000,
+      "slowest_seconds": 0.0001,
+      "target": "structure.TAR",
+      "timeouts": 0
+    },
+    {
+      "accepted": 1721,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 279,
+      "slowest_seconds": 0.0006,
+      "target": "structure.RTF",
+      "timeouts": 0
+    },
+    {
+      "accepted": 0,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 2000,
+      "slowest_seconds": 0.0001,
+      "target": "structure.HTML",
+      "timeouts": 0
+    },
+    {
+      "accepted": 0,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 2000,
+      "slowest_seconds": 0.0001,
+      "target": "structure.HTML-tag",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0196,
+      "target": "validate.bmp",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0006,
+      "target": "validate.doc",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0263,
+      "target": "validate.docx",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0006,
+      "target": "validate.gif",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0379,
+      "target": "validate.gz",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0004,
+      "target": "validate.jpg",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0002,
+      "target": "validate.mp4",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.019,
+      "target": "validate.pdf",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0003,
+      "target": "validate.png",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0311,
+      "target": "validate.pptx",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0002,
+      "target": "validate.sqlite",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0002,
+      "target": "validate.tar",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0031,
+      "target": "validate.tiff",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0001,
+      "target": "validate.wav",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0004,
+      "target": "validate.webp",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0275,
+      "target": "validate.xlsx",
+      "timeouts": 0
+    },
+    {
+      "accepted": 2000,
+      "cases": 2000,
+      "crashes": 0,
+      "memory_failures": 0,
+      "refused": 0,
+      "slowest_seconds": 0.0271,
+      "target": "validate.zip",
+      "timeouts": 0
+    }
+  ],
+  "seed": 0,
+  "total_cases": 66000
+}

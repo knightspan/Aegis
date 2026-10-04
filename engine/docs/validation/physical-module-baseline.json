@@ -1,0 +1,188 @@
+{
+  "captured_utc": "2026-09-24T17:10:03.551509+00:00",
+  "files": [
+    {
+      "mode": "0o755",
+      "mtime_ns": 1789986558000000000,
+      "path": "System Volume Information",
+      "size": 4096,
+      "type": "dir"
+    },
+    {
+      "mode": "0o644",
+      "mtime_ns": 1789986562000000000,
+      "path": "System Volume Information/IndexerVolumeGuid",
+      "sha256": "4362cff0869fc1a6e98dbb73ba5e051ea7320742694b58b3721c33ff43d08526",
+      "size": 76,
+      "type": "file"
+    },
+    {
+      "mode": "0o644",
+      "mtime_ns": 1789986558000000000,
+      "path": "System Volume Information/WPSettings.dat",
+      "sha256": "79b325bac2648c8a0083528e155f3be826b5bb24d2bba3efb6a31c18e72f34b4",
+      "size": 12,
+      "type": "file"
+    },
+    {
+      "mode": "0o644",
+      "mtime_ns": 1788719352000000000,
+      "path": "img01.jpg",
+      "sha256": "cec2bea2f4553eeea42f196a050b690d023764c6412b09423bf13901f7be5f15",
+      "size": 22973,
+      "type": "file"
+    },
+    {
+      "mode": "0o644",
+      "mtime_ns": 1788719354000000000,
+      "path": "img03.jpg",
+      "sha256": "2a7f24e559da47a305fbd596cc461ec78797306079f7bb3ef408d8ddf8798a23",
+      "size": 28472,
+      "type": "file"
+    },
+    {
+      "mode": "0o644",
+      "mtime_ns": 1788719354000000000,
+      "path": "img05.jpg",
+      "sha256": "5f6eac80d3ba96c15d24722c1f4f88453eb6a8edb7b367afed2145e5120b62c5",
+      "size": 34532,
+      "type": "file"
+    },
+    {
+      "mode": "0o644",
+      "mtime_ns": 1788719354000000000,
+      "path": "img07.jpg",
+      "sha256": "589d5a83f3b3e2c5fdf2b6079e1d6720fe84454f76f209ea9624c534533c19e0",
+      "size": 41182,
+      "type": "file"
+    },
+    {
+      "mode": "0o644",
+      "mtime_ns": 1788719354000000000,
+      "path": "img09.jpg",
+      "sha256": "bac01a3a92d08238572efd9b05a19db2753833eb503a1953037f5d9dc877dc6f",
+      "size": 48478,
+      "type": "file"
+    }
+  ],
+  "identity": {
+    "by_id_path": "/dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0",
+    "by_id_resolves_to_informational": "/dev/sda",
+    "logical_block_size": "512",
+    "model": "TransMemory",
+    "physical_block_size": "512",
+    "read_only_flag": "0",
+    "removable": "1",
+    "serial_from_by_id_name": "B103B9C19DE1CCC1BD535ACB",
+    "serial_sysfs_lsblk": "B103B9C19DE1CCC1BD535ACB",
+    "size_bytes": 7759462400,
+    "vendor": "TOSHIBA"
+  },
+  "io_counters_end": {
+    "io_in_flight": 0,
+    "ms_io": 378,
+    "ms_reading": 570,
+    "ms_writing": 1,
+    "reads_completed": 259,
+    "reads_merged": 13991,
+    "sectors_read": 21325,
+    "sectors_written": 1,
+    "weighted_ms_io": 572,
+    "writes_completed": 1,
+    "writes_merged": 0
+  },
+  "io_counters_start": {
+    "io_in_flight": 0,
+    "ms_io": 370,
+    "ms_reading": 562,
+    "ms_writing": 1,
+    "reads_completed": 252,
+    "reads_merged": 13991,
+    "sectors_read": 20978,
+    "sectors_written": 1,
+    "weighted_ms_io": 563,
+    "writes_completed": 1,
+    "writes_merged": 0
+  },
+  "io_write_counters_unchanged": true,
+  "lsblk": {
+    "blockdevices": [
+      {
+        "children": [
+          {
+            "fstype": "vfat",
+            "label": "SANCTUMREC",
+            "log-sec": 512,
+            "model": null,
+            "mountpoints": [
+              "/run/media/v0idsai/SANCTUMREC"
+            ],
+            "name": "sda1",
+            "path": "/dev/sda1",
+            "phy-sec": 512,
+            "pttype": "dos",
+            "rm": true,
+            "ro": false,
+            "serial": null,
+            "size": 7758413824,
+            "tran": null,
+            "uuid": "0F65-8CF8",
+            "vendor": null
+          }
+        ],
+        "fstype": null,
+        "label": null,
+        "log-sec": 512,
+        "model": "TransMemory",
+        "mountpoints": [],
+        "name": "sda",
+        "path": "/dev/sda",
+        "phy-sec": 512,
+        "pttype": "dos",
+        "rm": true,
+        "ro": false,
+        "serial": "B103B9C19DE1CCC1BD535ACB",
+        "size": 7759462400,
+        "tran": "usb",
+        "uuid": null,
+        "vendor": "TOSHIBA "
+      }
+    ]
+  },
+  "mount": {
+    "filesystems": [
+      {
+        "fstype": "vfat",
+        "options": "rw,nosuid,nodev,relatime,uid=1000,gid=1000,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,showexec,utf8,flush,errors=remount-ro",
+        "source": "/dev/sda1",
+        "target": "/run/media/v0idsai/SANCTUMREC"
+      }
+    ]
+  },
+  "os": {
+    "kernel": "6.19.10-300.fc44.x86_64",
+    "platform": "Linux-6.19.10-300.fc44.x86_64-x86_64-with-glibc2.43"
+  },
+  "permissions": {
+    "block_device_mode": "0o660",
+    "can_open_block_device_readonly": false,
+    "can_open_block_device_write": false,
+    "euid": 1000,
+    "groups": [
+      [
+        10,
+        1000
+      ]
+    ]
+  },
+  "population": "PHYSICAL",
+  "schema": "sanctum.validation.physical-module-baseline/1",
+  "software": {
+    "branch": "docs/readme-redesign",
+    "commit": "ec73747ae284bec86263d28a540d75217833a0fc",
+    "git_status_porcelain": "?? scripts/validation_baseline.py",
+    "python": "3.11.16",
+    "python_required": "==3.11.*",
+    "tool_version": "sanctum-forensics/0.0.0 (api/deps.py default; pyproject version 0.0.0)"
+  }
+}

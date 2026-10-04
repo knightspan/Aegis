@@ -1,0 +1,24 @@
+# Target platform is Linux/Docker. Force LF so shell scripts and the Makefile
+# stay executable regardless of the checkout OS.
+* text=auto eol=lf
+*.sh text eol=lf
+*.py text eol=lf
+Makefile text eol=lf
+
+# Ledger and blob store. These are hash-chained: every entry commits to the
+# SHA-256 of the one before it, and a blob's filename IS its digest. A single
+# CRLF inserted by newline translation on a Windows checkout changes those
+# bytes, breaks the chain, and makes the tool report tampering against an
+# operator who did nothing wrong. Never translate them.
+# Layout comes from core/ledger/store.py: <root>/ledger/chain.jsonl and
+# <root>/blobs/<digest>.
+ledger/** binary
+blobs/** binary
+chain.jsonl binary
+
+# Evidence images and their acquisition artefacts. Byte-exact by definition.
+*.E01 binary
+*.Ex01 binary
+*.dd binary
+*.raw binary
+*.img binary

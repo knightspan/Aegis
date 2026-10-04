@@ -1,0 +1,65 @@
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 1. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 6. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Truncated File Read
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 2 bytes but only got 0. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 2. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 5. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 3. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 9. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 11. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 0. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 10. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 7. 
+  warnings.warn(str(msg))
+/home/v0idsai/Projects/sanctum-forensics/.venv/lib64/python3.11/site-packages/PIL/TiffImagePlugin.py:950: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 8. 
+  warnings.warn(str(msg))
+target                      cases  refused  accepted  crash  timeout  oom   slowest
+-----------------------------------------------------------------------------------
+structure.BMP                 500      500         0      0        0    0    0.000s
+structure.GZIP                500      381       119      0        0    0    0.026s
+structure.HTML                500      500         0      0        0    0    0.000s
+structure.HTML-tag            500      500         0      0        0    0    0.000s
+structure.JPEG                500       72       428      0        0    0    0.000s
+structure.MP4                 500        2       498      0        0    0    0.000s
+structure.PDF                 500      500         0      0        0    0    0.000s
+structure.PNG                 500       87       413      0        0    0    0.000s
+structure.RTF                 500       74       426      0        0    0    0.001s
+structure.SQLite              500      500         0      0        0    0    0.000s
+structure.TAR                 500      500         0      0        0    0    0.000s
+structure.TIFF-BE             500       74       426      0        0    0    0.000s
+structure.TIFF-LE             500       86       414      0        0    0    0.000s
+structure.WAV                 500      234       266      0        0    0    0.000s
+structure.WebP                500      234       266      0        0    0    0.000s
+structure.ZIP                 500      461        39      0        0    0    0.000s
+validate.bmp                  500        0       500      0        0    0    0.019s
+validate.doc                  500        0       500      0        0    0    0.001s
+validate.docx                 500        0       500      0        0    0    0.022s
+validate.gif                  500        0       500      0        0    0    0.000s
+validate.gz                   500        0       500      0        0    0    0.023s
+validate.jpg                  500        0       500      0        0    0    0.000s
+validate.mp4                  500        0       500      0        0    0    0.000s
+validate.pdf                  500        0       500      0        0    0    0.019s
+validate.png                  500        0       500      0        0    0    0.000s
+validate.pptx                 500        0       500      0        0    0    0.023s
+validate.sqlite               500        0       500      0        0    0    0.000s
+validate.tar                  500        0       500      0        0    0    0.000s
+validate.tiff                 500        0       500      0        0    0    0.003s
+validate.wav                  500        0       500      0        0    0    0.000s
+validate.webp                 500        0       500      0        0    0    0.000s
+validate.xlsx                 500        0       500      0        0    0    0.022s
+validate.zip                  500        0       500      0        0    0    0.022s
+
+No crashes, timeouts or memory failures in 16500 cases.

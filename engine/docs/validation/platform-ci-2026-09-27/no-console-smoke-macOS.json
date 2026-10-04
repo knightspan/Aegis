@@ -1,0 +1,76 @@
+{
+  "executable": "/Users/runner/work/_temp/Sanctum.app/Contents/MacOS/Sanctum",
+  "state_dir": "/var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/sanctum-noconsole-ci09ajwf/state",
+  "launcher_log_tail": "",
+  "checks": [
+    {
+      "check": "process is still running (did not crash on startup)",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "check": "session URL was written",
+      "result": "PASS",
+      "detail": "http://127.0.0.1:49217/session/Tx2xnHk51lWYuhoNnt2lV-XkyCKjzrggYoEZum73MZE"
+    },
+    {
+      "check": "health refused without the session cookie",
+      "result": "PASS",
+      "detail": 401
+    },
+    {
+      "check": "session link accepted",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "health answers with the cookie",
+      "result": "PASS",
+      "detail": {
+        "status": "ok",
+        "tool_version": "sanctum-forensics/0.0.0",
+        "state_dir": "/var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/sanctum-noconsole-ci09ajwf/state",
+        "ui_bundled": true,
+        "build": {
+          "architecture": "arm64",
+          "branch": "fix/no-console-and-carve-packaging",
+          "build_date": "2026-09-27T15:58:07Z",
+          "builder": "GitHub Actions run 36330577225",
+          "commit": "1ed3dca1032ae55af0da36aa10c8cd275dc4bfb9",
+          "node": "v22.23.2",
+          "platform": "darwin",
+          "python": "3.11.9",
+          "signed": "no",
+          "version": "0.0.0"
+        },
+        "launcher": true,
+        "session_protected": true,
+        "limitations": [
+          "HELPER_NOT_REQUIRED: no privileged helper runs on this platform. Device discovery and file erasure run unprivileged in this process, and whole-drive sanitization is not offered here, so nothing needs elevation and nothing is escalated.",
+          "NO_SIGNING_KEY: no report signing key exists under /var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/sanctum-noconsole-ci09ajwf/state/keys and no ledger chain has been started. The first job will start the chain with no key fingerprint in its genesis, and fingerprint_matches_genesis will then be SKIP on every report that chain carries. Create the key before the first job: .venv/bin/python scripts/hardware_validation.py keygen --key-dir /var/folders/s6/5hzmn6lx4dz5nxs7k_0slzph0000gn/T/sanctum-noconsole-ci09ajwf/state/keys"
+        ]
+      }
+    },
+    {
+      "check": "commit in the health response matches this build",
+      "result": "PASS",
+      "detail": "1ed3dca1032ae55af0da36aa10c8cd275dc4bfb9"
+    },
+    {
+      "check": "sys.stdout/sys.stderr state this launch produced",
+      "result": "PASS",
+      "detail": "real (inherited)"
+    },
+    {
+      "check": "quit accepted",
+      "result": "PASS",
+      "detail": 0
+    },
+    {
+      "check": "process exited after quit",
+      "result": "PASS",
+      "detail": 0
+    }
+  ],
+  "result": "PASS"
+}

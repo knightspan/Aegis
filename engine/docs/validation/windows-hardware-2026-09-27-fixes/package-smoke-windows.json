@@ -1,0 +1,175 @@
+{
+  "executable": "C:\\Users\\Invinciblx777\\AppData\\Local\\Programs\\Sanctum\\Sanctum.exe",
+  "size_bytes": 16837990,
+  "platform": "Windows-10-10.0.26200-SP0",
+  "machine": "AMD64",
+  "date": "2026-09-27T14:49:59Z",
+  "isolated": false,
+  "sandbox": [],
+  "sandbox_view": {},
+  "checks": [
+    {
+      "check": "health refused without the session cookie",
+      "result": "PASS",
+      "detail": 401
+    },
+    {
+      "check": "session link accepted",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "health answers with the cookie",
+      "result": "PASS",
+      "detail": {
+        "status": "ok",
+        "tool_version": "sanctum-forensics/0.0.0",
+        "state_dir": "C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state",
+        "ui_bundled": true,
+        "build": {
+          "architecture": "AMD64",
+          "branch": "main",
+          "build_date": "2026-09-27T14:43:36Z",
+          "builder": "local build",
+          "commit": "437081ed8d740771bc77fd535fea97938ccd0d2e",
+          "node": "v24.20.0",
+          "platform": "win32",
+          "python": "3.11.9",
+          "signed": "no",
+          "version": "0.0.0"
+        },
+        "launcher": true,
+        "session_protected": true,
+        "limitations": [
+          "HELPER_NOT_REQUIRED: no privileged helper runs on this platform. Device discovery and file erasure run unprivileged in this process, and whole-drive sanitization is not offered here, so nothing needs elevation and nothing is escalated.",
+          "NO_SIGNING_KEY: no report signing key exists under C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\keys and no ledger chain has been started. The first job will start the chain with no key fingerprint in its genesis, and fingerprint_matches_genesis will then be SKIP on every report that chain carries. Create the key before the first job: .venv/bin/python scripts/hardware_validation.py keygen --key-dir C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\keys"
+        ]
+      }
+    },
+    {
+      "check": "session protection is on",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "launcher mode",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "UI bundle served from the package",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "non-loopback Host refused",
+      "result": "PASS",
+      "detail": 400
+    },
+    {
+      "check": "platform matrix served",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "every capability row has a source",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "whole-drive unsupported off Linux",
+      "result": "PASS",
+      "detail": {
+        "whole_drive_clear": "UNSUPPORTED",
+        "whole_drive_purge": "UNSUPPORTED"
+      }
+    },
+    {
+      "check": "device discovery through the package",
+      "result": "PASS",
+      "detail": 3
+    },
+    {
+      "check": "every device assessed",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "protected devices are NOT AVAILABLE",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "erase accepted",
+      "result": "PASS",
+      "detail": {
+        "job_id": "erase-files-2ee56cb59b55",
+        "kind": "erase-files",
+        "state": "running",
+        "dry_run": false,
+        "stream_url": "/jobs/erase-files-2ee56cb59b55/stream",
+        "notice": ""
+      }
+    },
+    {
+      "check": "erase completed",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "check": "target folder is gone",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "nothing outside the target was touched",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "one record per path",
+      "result": "PASS",
+      "detail": 6
+    },
+    {
+      "check": "verification is never invented",
+      "result": "PASS",
+      "detail": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "check": "certificate issued",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "certificate verifies",
+      "result": "PASS",
+      "detail": true
+    },
+    {
+      "check": "quit refused without the session",
+      "result": "PASS",
+      "detail": 401
+    },
+    {
+      "check": "quit accepted",
+      "result": "PASS",
+      "detail": 0
+    },
+    {
+      "check": "app exited on quit",
+      "result": "PASS",
+      "detail": 0
+    }
+  ],
+  "result": "PASS",
+  "not_run": [],
+  "app_output_tail": "512\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=erase.file.inspect.result seq=47\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=512\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=erase.file.cleanse.result seq=48\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=514\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=erase.file.overwrite.result seq=49\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=512\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=erase.file.streams.result seq=50\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=513\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=erase.file.truncate.result seq=51\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=511\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=erase.file.rename.result seq=52\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=511\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=erase.file.unlink.result seq=53\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=513\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=erase.file.residual.result seq=54\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=511\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=erase.file.verify.result seq=55\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=504\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=erase.file.traces seq=56\n2026-09-27 20:19:59 [info     ] trace_sweep_complete           dry_run=False found=0 job_id=erase-files-2ee56cb59b55 removed=0\n2026-09-27 20:19:59 [info     ] file_erase_complete            failed=0 highest_severity=HIGH job_id=erase-files-2ee56cb59b55 succeeded=6 targets=6\n2026-09-27 20:19:59 [info     ] job_finished                   job_id=erase-files-2ee56cb59b55 state=complete\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=522\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=job.outcome seq=57\n2026-09-27 20:19:59 [info     ] signing_key_created            path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\keys\\sanctum-signing.key.pem\n2026-09-27 20:19:59 [info     ] report_written                 json=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\reports\\erase-files-2ee56cb59b55\\erase-files-2ee56cb59b55.forensic.json pdf=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\reports\\erase-files-2ee56cb59b55\\erase-files-2ee56cb59b55.forensic.pdf\n2026-09-27 20:19:59 [debug    ] ledger_line_appended           path=C:\\Users\\INVINC~1\\AppData\\Local\\Temp\\sanctum-smoke-8h739qeu\\state\\ledger\\ledger\\chain.jsonl size=527\n2026-09-27 20:19:59 [debug    ] ledger_append                  operation=report.generated seq=58\n"
+}

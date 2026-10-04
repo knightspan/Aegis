@@ -1,0 +1,29 @@
+AEGIS Proprietary License
+
+Copyright (c) 2026 knightspan. All rights reserved.
+
+This software, its source code, documentation, designs, images and other materials (the "Software")
+are the proprietary property of the copyright holder.
+
+1. No licence is granted. Except as stated in section 2, no right to use, copy, modify, merge,
+   publish, distribute, sublicense, sell, or create derivative works of the Software is granted,
+   whether by implication, estoppel or otherwise, without the prior written permission of the
+   copyright holder.
+
+2. Viewing. Where the Software is published in a repository on GitHub, you may view it and fork it
+   on GitHub solely as permitted by the GitHub Terms of Service. Such a fork grants no further rights.
+
+3. Third-party components. The Software includes or is distributed with third-party components
+   (including Autopsy, The Sleuth Kit, the Apache NetBeans Platform, libewf, CPython and the EDSR
+   models) that are licensed by their owners under their own licences, listed in
+   THIRD_PARTY_NOTICES.md. Those licences govern those components, and nothing in this licence
+   limits the rights they grant.
+
+4. Disclaimer. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+   INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE
+   AND NONINFRINGEMENT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR
+   OTHER LIABILITY, INCLUDING LOSS OF DATA, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+   OR ITS USE. Sanitization permanently destroys data; forensic results must be independently
+   verified before they are relied on.
+
+For licensing enquiries, contact the copyright holder through https://github.com/knightspan.

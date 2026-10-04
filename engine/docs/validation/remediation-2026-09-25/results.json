@@ -1,0 +1,171 @@
+{
+  "checks": {
+    "purge:devices_badge_reads_unverified": {
+      "ok": true,
+      "detail": "\t/dev/sdz\tSYNTHETIC-PURGE\tSYN-PURGE-1\t64.0 MiB\tsata flash\t\nPURGE \u00b7 UNVERIFIED\n+ BLOCK_ERASE_EXT reported \u00b7 not hardware-validated\n\tnone"
+    },
+    "purge:devices_badge_not_green": {
+      "ok": true,
+      "detail": "verdict is-unknown"
+    },
+    "purge:devices_no_purge_available": {
+      "ok": true,
+      "detail": "Devices\n\nEnumerated from the host, capability probed, hidden areas measured.\n\nRescan\nBlock devices (2)\nCapability is what the probe reported, not what was requested.\n\tPath\tModel\tSerial\tSize\tBus\tCapability\tHidden areas\n\n\t/dev/sdz\tSYNTHETIC-PURGE\tSYN-PURGE-1\t64.0 MiB\tsata flash\t\nPURGE \u00b7 UNVERIFIED\n+ BLOCK_ERASE_EXT reported \u00b7 not hardware-validated\n\tnone\n\n\t/dev/sdy\tSYNTHETIC-CLEAR\tSYN-CLEAR-2\t32.0 M"
+    },
+    "purge:sanitize_option_reads_unverified": {
+      "ok": true,
+      "detail": "Secure sanitization\n\n/dev/sdz\n\nSYNTHETIC-PURGE\nSYN-PURGE-1\nChoose target\nAnalyse\nRecommended method\nReview warning\nConfirm\nSanitize\nVerify\nCertificate\nSIMULATION / NO PHYSICAL DEVICE MODIFIED\nDISCOVERED\nPREFLIGHT\nHUMAN APPROVAL REQUIRED\nEXECUTING\nVERIFYING\nCOMPLETE\n\nPREFLIGHT (SIMULATION)\n\nPreflight passed. A dry run writes nothing and needs no approval. A real erase needs a backup image, an approval with the typed serial, and a one-use authorization from the server.\n\nA real erase needs a backup image the server has hashed and sized, and a recorded approval; the server enforces both (POST /wor"
+    },
+    "purge:sanitize_explains_why": {
+      "ok": true,
+      "detail": "Secure sanitization\n\n/dev/sdz\n\nSYNTHETIC-PURGE\nSYN-PURGE-1\nChoose target\nAnalyse\nRecommended method\nReview warning\nConfirm\nSanitize\nVerify\nCertificate\nSIMULATION / NO PHYSICAL DEVICE MODIFIED\nDISCOVERED\nPREFLIGHT\nHUMAN APPROVAL REQUIRED\nEXECUTING\nVERIFYING\nCOMPLETE\n\nPREFLIGHT (SIMULATION)\n\nPreflight passed. A dry run writes nothing and needs no approval. A real erase needs a backup image, an approval with the typed serial, and a one-use authorization from the server.\n\nA real erase needs a backup image the server has hashed and sized, and a recorded approval; the server enforces both (POST /wor"
+    },
+    "purge:sanitize_not_called_supported": {
+      "ok": true,
+      "detail": "Secure sanitization\n\n/dev/sdz\n\nSYNTHETIC-PURGE\nSYN-PURGE-1\nChoose target\nAnalyse\nRecommended method\nReview warning\nConfirm\nSanitize\nVerify\nCertificate\nSIMULATION / NO PHYSICAL DEVICE MODIFIED\nDISCOVERED\nPREFLIGHT\nHUMAN APPROVAL REQUIRED\nEXECUTING\nVERIFYING\nCOMPLETE\n\nPREFLIGHT (SIMULATION)\n\nPreflight passed. A dry run writes nothing and needs no approval. A real erase needs a backup image, an approval with the typed serial, and a one-use authorization from the server.\n\nA real erase needs a backup image the server has hashed and sized, and a recorded approval; the server enforces both (POST /wor"
+    },
+    "purge:still_offered_under_that_word": {
+      "ok": true,
+      "detail": ""
+    },
+    "purge:platform_row_unverified": {
+      "ok": true,
+      "detail": "Platform\n\nWhat this computer can do, and why.\n\nThis computer\nOperating system\nFedora Linux 44 (Forty Four)\nApplication\nSanctum 0.0.0 (from source)\nBuild\n76dde4246338 \u00b7 git checkout (live)\nPrivilege\nPrivileged helper\nDevice support\nDecided before anything runs, from this build, this platform and this privilege.\nDevice discovery\nSupported\nWhy?\nFile erase\nSupported with limits\nWhy?\nFolder erase\nSupported with limits\nWhy?\nFile erase verification\nSupported with limits\nWhy?\nWhole-drive Clear\nSupported with limits\nWhy?\nWhole-drive hardware Purge\nUnverified\nWhy?\n\nDetected now: 2 storage devices (1 Int"
+    },
+    "release:no_physical_validation_line": {
+      "ok": true,
+      "detail": "xture-tested, never run on a drive.\nHPA/DCO unlock: not run on hardware.\nBackup restoration before a destructive write: never validated.\nWhole-drive sanitization: Linux only.\nWhat this computer cannot do\nRestrictions on this platform, in this release\nWhole-drive sanitization, hidden-area (HPA/DCO) handling, checkpoint resume and free-space wipe are Linux-only in this release.\nFirmware purge needs ATA or NVMe pass-through; most USB bridges and card readers block it, and such devices are offered Clear only.\nThe UI and API never run as root. Raw device work happens in the separate helper, authent"
+    },
+    "case:opened": {
+      "ok": true,
+      "detail": ""
+    },
+    "refusal:sanitize_blocked": {
+      "ok": true,
+      "detail": "DISCOVERED\nPREFLIGHT\nBLOCKED\n\nBLOCKED\n\nWHY BLOCKED\nREFUSED at the write seam: model changed since the backup and approval. Nothing was erased.\n\nThe helper refused at the write seam, before any write. The authorization is spent: open a new workflow.\n\nA real erase needs a backup image the server has hashed and sized, and a recorded approval; the server enforces both (POST /workflow/erase-drive, then /approve). Neither proves the image is a copy of this device or who approved. A simulation needs neither and writes nothing."
+    },
+    "refusal:tracker_never_reaches_verify": {
+      "ok": true,
+      "detail": "{'current': 'Sanitize', 'stopped': True, 'done': ['Choose target', 'Analyse', 'Recommended method', 'Review warning', 'Confirm']}"
+    },
+    "refusal:no_write": {
+      "ok": true,
+      "detail": ""
+    },
+    "refusal:overview_says_blocked": {
+      "ok": true,
+      "detail": "Secure erasure\nWhole-drive Clear: Supported with limits.\nWhole-drive Purge: Unverified.\nThe method is selected from the drive's probed capability, never from operator preference.\nPhysically run on 2026-09-05, on an earlier build and not repeated for this release: overwrite Clear on one 7.76 GB USB flash stick, one clean recorded run after two defective ones.\n1 erase BLOCKED by a safety refusal before any write; nothing was erased\nEvidence recovery\n0 evidence items registered\nNo recovery run has completed in this case.\nEvidence score: a sum of six evidence components, not a probability.\nFragmen"
+    },
+    "refusal:overview_not_an_erase_failure": {
+      "ok": true,
+      "detail": "Secure erasure\nWhole-drive Clear: Supported with limits.\nWhole-drive Purge: Unverified.\nThe method is selected from the drive's probed capability, never from operator preference.\nPhysically run on 2026-09-05, on an earlier build and not repeated for this release: overwrite Clear on one 7.76 GB USB flash stick, one clean recorded run after two defective ones.\n1 erase BLOCKED by a safety refusal before any write; nothing was erased\n"
+    },
+    "refusal:overview_no_partial_sanitization_language": {
+      "ok": true,
+      "detail": "Secure erasure\nWhole-drive Clear: Supported with limits.\nWhole-drive Purge: Unverified.\nThe method is selected from the drive's probed capability, never from operator preference.\nPhysically run on 2026-09-05, on an earlier build and not repeated for this release: overwrite Clear on one 7.76 GB USB flash stick, one clean recorded run after two defective ones.\n1 erase BLOCKED by a safety refusal before any write; nothing was erased\nEvidence recovery\n0 evidence items registered\nNo recovery run has completed in this case.\nEvidence score: a sum of six evidence components, not a probability.\nFragmen"
+    },
+    "refusal:cases_row_blocked": {
+      "ok": true,
+      "detail": "['\\t\\nDrive sanitize\\nerase-drive-e0a4302cd2af\\n\\tBLOCKED\\ttest-operator-1000 (uid 1000)\\tnone', '\\tCASE-REMEDIATION-1\\t\u2014\\t0\\t0\\t0']"
+    },
+    "refusal:cases_row_not_failed": {
+      "ok": true,
+      "detail": "['\\t\\nDrive sanitize\\nerase-drive-e0a4302cd2af\\n\\tBLOCKED\\ttest-operator-1000 (uid 1000)\\tnone']"
+    },
+    "refusal:cases_figure_counts_blocked": {
+      "ok": true,
+      "detail": "CASE-REMEDIATION-1\ncase open\nChain VALID\nOverview\nEvidence\n0\nOperations\n1\nReports\n0\nAudit\n2\nINTEGRITY: VALID\nwhole chain, 4 entries; 2 name this case\nAll 4 entries verify, 0..3.\nEvidence\n0\nnone registered\nOperations\n1\n1 blocked\nReports\n0\nnone generated\nAudit entries\n2\nof 4 entries in the chain\nCase status\nopen\nOpened by\ntest-operator-1000 (uid 1000)\nOpened at\n2026-09-25 19:14:11Z\nLast updated\n2026-09-25 19:14:16Z\nRecovered artifacts\n0\nDescription\n\u2014\nThe counts above are read from this case's index document. The integrity verdict is read from the hash-chained ledger. Deleting the index loses the"
+    },
+    "request_failed:cases_says_request_failed": {
+      "ok": true,
+      "detail": "Cases\n\nEvidence, operations, reports and the audit trail, grouped by investigation.\n\nRefresh\nREQUEST FAILED - the case record could not be read (synthetic server failure). Nothing is inferred about its operations.\nHttpError\nAll cases (1)\nSelect one to open it on every screen.\n\tCase\tTitle\tEvidence\tOperations\tReports\n\n\tCASE-REMEDIATION-1\t\u2014\t0\t1\t0\nOpen a case\nThe author is the local account that opened it, resolved server-side.\nCase id\nTitle\nDescription\nOpen case\n\nA case id becomes a filename, so it is checked against a whitelist rather than escaped: 1\u201364 characters from A\u2013Z, a\u2013z, 0\u20139, dot, dash a"
+    },
+    "request_failed:cases_not_blocked": {
+      "ok": true,
+      "detail": "Cases\n\nEvidence, operations, reports and the audit trail, grouped by investigation.\n\nRefresh\nREQUEST FAILED - the case record could not be read (synthetic server failure). Nothing is inferred about its operations.\nHttpError\nAll cases (1)\nSelect one to open it on every screen.\n\tCase\tTitle\tEvidence\tOperations\tReports\n\n\tCASE-REMEDIATION-1\t\u2014\t0\t1\t0\nOpen a case\nThe author is the local account that opened it, resolved server-side.\nCase id\nTitle\nDescription\nOpen case\n\nA case id becomes a filename, so it is checked against a whitelist rather than escaped: 1\u201364 characters from A\u2013Z, a\u2013z, 0\u20139, dot, dash a"
+    },
+    "request_failed:overview_says_request_failed": {
+      "ok": true,
+      "detail": "Secure erasure\nWhole-drive Clear: Supported with limits.\nWhole-drive Purge: Unverified.\nThe method is selected from the drive's probed capability, never from operator preference.\nPhysically run on 2026-09-05, on an earlier build and not repeated for this release: overwrite Clear on one 7.76 GB USB flash stick, one clean recorded run after two defective ones.\nREQUEST FAILED - the open case could not be read (synthetic server failure). Nothing is inferred about it.\nEvidence recovery\nREQUEST FAILED - the open case could not be read (synthetic server failure). Nothing is inferred about it.\nEvidenc"
+    },
+    "request_failed:overview_not_blocked": {
+      "ok": true,
+      "detail": "Secure erasure\nWhole-drive Clear: Supported with limits.\nWhole-drive Purge: Unverified.\nThe method is selected from the drive's probed capability, never from operator preference.\nPhysically run on 2026-09-05, on an earlier build and not repeated for this release: overwrite Clear on one 7.76 GB USB flash stick, one clean recorded run after two defective ones.\nREQUEST FAILED - the open case could not be read (synthetic server failure). Nothing is inferred about it.\nEvidence recovery\nREQUEST FAILED - the open case could not be read (synthetic server failure). Nothing is inferred about it.\nEvidenc"
+    },
+    "readback:sanitize_failed_headline": {
+      "ok": true,
+      "detail": "DISCOVERED\nPREFLIGHT\nHUMAN APPROVAL REQUIRED\nEXECUTING\nFAILED\n\nFAILED\n\nWHY IT FAILED\nread-back verification FAILED at 2 sampled offset(s)\n\nThe medium is NOT sanitized. Read the verification panel; the device is in an unknown state until checked.\n\nA real erase needs a backup image the server has hashed and sized, and a recorded approval; the server enforces both (POST /workflow/erase-drive, then /approve). Neither proves the image is a copy of this device or who approved. A simulation needs neither and writes nothing."
+    },
+    "readback:tracker_stops_on_verify": {
+      "ok": true,
+      "detail": "{'current': 'Verify', 'stopped': True, 'done': ['Choose target', 'Analyse', 'Recommended method', 'Review warning', 'Confirm', 'Sanitize']}"
+    },
+    "readback:verify_not_marked_done": {
+      "ok": true,
+      "detail": "{'current': 'Verify', 'stopped': True, 'done': ['Choose target', 'Analyse', 'Recommended method', 'Review warning', 'Confirm', 'Sanitize']}"
+    },
+    "readback:record_not_a_certificate": {
+      "ok": true,
+      "detail": "s screen showed ATA SANITIZE \u2014 block erase before you committed. The device's capabilities changed between the device scan and the job\u2019s own probe. The ledger and the certificate record what ran. Rescan the device.\nResidual risk\nWhat this run can claim, and what it cannot.\nPURGE\nATA SANITIZE \u2014 block erase\nCapacity\n64.0 MiB\nEstimated\n2m 00s\nHidden areas\nnone measured\nWhat this run could not guarantee\nSynthetic run: no medium was written.\nPlatform\nFedora Linux 44\nPrivilege\nPrivileged helper\nDevice\nSATA SSD 64.0 MiB\nSanitization\nUnverified\nVerification\navailable\nChain\nvalid (4)\nEvidence\nread-only"
+    },
+    "readback:overview_says_verification_failed": {
+      "ok": true,
+      "detail": "Secure erasure\nWhole-drive Clear: Supported with limits.\nWhole-drive Purge: Unverified.\nThe method is selected from the drive's probed capability, never from operator preference.\nPhysically run on 2026-09-05, on an earlier build and not repeated for this release: overwrite Clear on one 7.76 GB USB flash stick, one clean recorded run after two defective ones.\n1 erase ran but read-back verification FAILED; the target is not verified sanitized\n1 erase BLOCKED by a safety refusal before any write; nothing was erased\nEvidence recovery\n0 evidence items registered\nNo recovery run has completed in thi"
+    },
+    "readback:overview_not_counted_completed": {
+      "ok": true,
+      "detail": "Secure erasure\nWhole-drive Clear: Supported with limits.\nWhole-drive Purge: Unverified.\nThe method is selected from the drive's probed capability, never from operator preference.\nPhysically run on 2026-09-05, on an earlier build and not repeated for this release: overwrite Clear on one 7.76 GB USB flash stick, one clean recorded run after two defective ones.\n1 erase ran but read-back verification FAILED; the target is not verified sanitized\n1 erase BLOCKED by a safety refusal before any write; nothing was erased\nEvidence recovery\n0 evidence items registered\nNo recovery run has completed in thi"
+    },
+    "readback:cases_row_verify_failed": {
+      "ok": true,
+      "detail": "['\\t\\nDrive sanitize\\nerase-drive-e0a4302cd2af\\n\\tBLOCKED\\ttest-operator-1000 (uid 1000)\\tnone', '\\t\\nDrive sanitize\\nerase-drive-1d5ddd0fe40d\\n\\tVERIFY FAILED\\ttest-operator-1000 (uid 1000)\\tnone']"
+    },
+    "verified:sanitize_complete": {
+      "ok": true,
+      "detail": "DISCOVERED\nPREFLIGHT\nBACKUP VERIFIED\nHUMAN APPROVAL REQUIRED\nPLAN READY\nEXECUTING\nVERIFYING\nCOMPLETE\n\nCOMPLETE\n\nRead the verification and the residual risk before relying on the result.\n\nA real erase needs a backup image the server has hashed and sized, and a recorded approval; the server enforces both (POST /workflow/erase-drive, then /approve). Neither proves the image is a copy of this device or who approved. A simulation needs neither and writes nothing."
+    },
+    "verified:tracker_past_verify": {
+      "ok": true,
+      "detail": "{'current': 'Certificate', 'stopped': False, 'done': ['Choose target', 'Analyse', 'Recommended method', 'Review warning', 'Confirm', 'Sanitize', 'Verify']}"
+    },
+    "verified:certificate_offered": {
+      "ok": true,
+      "detail": "s screen showed ATA SANITIZE \u2014 block erase before you committed. The device's capabilities changed between the device scan and the job\u2019s own probe. The ledger and the certificate record what ran. Rescan the device.\nResidual risk\nWhat this run can claim, and what it cannot.\nPURGE\nATA SANITIZE \u2014 block erase\nCapacity\n64.0 MiB\nEstimated\n2m 00s\nHidden areas\nnone measured\nWhat this run could not guarantee\nSynthetic run: no medium was written.\nPlatform\nFedora Linux 44\nPrivilege\nPrivileged helper\nDevice\nSATA SSD 64.0 MiB\nSanitization\nUnverified\nVerification\navailable\nChain\nvalid (6)\nEvidence\nread-only"
+    },
+    "verified:cases_row_complete": {
+      "ok": true,
+      "detail": "['\\t\\nDrive sanitize\\nerase-drive-e0a4302cd2af\\n\\tBLOCKED\\ttest-operator-1000 (uid 1000)\\tnone', '\\t\\nDrive sanitize\\nerase-drive-1d5ddd0fe40d\\n\\tVERIFY FAILED\\ttest-operator-1000 (uid 1000)\\tnone', '\\t\\nDrive sanitize\\nerase-drive-4a8d386c0c80\\n\\tCOMPLETE\\ttest-operator-1000 (uid 1000)\\tnone']"
+    },
+    "verified:overview_counts_one_completed": {
+      "ok": true,
+      "detail": "Secure erasure\nWhole-drive Clear: Supported with limits.\nWhole-drive Purge: Unverified.\nThe method is selected from the drive's probed capability, never from operator preference.\nPhysically run on 2026-09-05, on an earlier build and not repeated for this release: overwrite Clear on one 7.76 GB USB flash stick, one clean recorded run after two defective ones.\n1 drive sanitization completed\n1 erase ran but read-back verification FAILED; the target is not verified sanitized\n1 erase BLOCKED by a safety refusal before any write; nothing was erased\nEvidence recovery\n0 evidence items registered\nNo re"
+    },
+    "writes:exactly_two_real_writes_reached_the_synthetic_helper": {
+      "ok": true,
+      "detail": "[{'method': 'probe_capabilities', 'dry_run': None, 'refused_at_seam': False}, {'method': 'probe_capabilities', 'dry_run': None, 'refused_at_seam': False}, {'method': 'probe_capabilities', 'dry_run': None, 'refused_at_seam': False}, {'method': 'probe_capabilities', 'dry_run': None, 'refused_at_seam': False}, {'method': 'run_erase', 'dry_run': False, 'refused_at_seam': False}, {'method': 'platform_status', 'dry_run': None, 'refused_at_seam': False}]"
+    },
+    "http:only_the_intentional_500": {
+      "ok": true,
+      "detail": "[]"
+    },
+    "console:no_errors_beyond_the_intentional_500": {
+      "ok": true,
+      "detail": "[]"
+    },
+    "page:no_js_errors": {
+      "ok": true,
+      "detail": "[]"
+    }
+  },
+  "page_errors": [],
+  "console_errors": [
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+    "Failed to load resource: the server responded with a status of 500 (Internal Server Error)"
+  ],
+  "http_errors": [
+    "GET /cases/CASE-REMEDIATION-1 500",
+    "GET /cases/CASE-REMEDIATION-1 500"
+  ],
+  "passed": 39,
+  "total": 39
+}

@@ -1,0 +1,228 @@
+{
+ "host": {
+  "python": "3.11.16",
+  "machine": "x86_64"
+ },
+ "reach": [
+  {
+   "grid": 512,
+   "gap": 65536,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.009
+  },
+  {
+   "grid": 512,
+   "gap": 262144,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.012
+  },
+  {
+   "grid": 512,
+   "gap": 1048576,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.029
+  },
+  {
+   "grid": 512,
+   "gap": 2097152,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.052
+  },
+  {
+   "grid": 512,
+   "gap": 4194304,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.095
+  },
+  {
+   "grid": 512,
+   "gap": 7340032,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.157
+  },
+  {
+   "grid": 4096,
+   "gap": 65536,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.007
+  },
+  {
+   "grid": 4096,
+   "gap": 262144,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.012
+  },
+  {
+   "grid": 4096,
+   "gap": 1048576,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.028
+  },
+  {
+   "grid": 4096,
+   "gap": 2097152,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.049
+  },
+  {
+   "grid": 4096,
+   "gap": 4194304,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.092
+  },
+  {
+   "grid": 4096,
+   "gap": 7340032,
+   "cases": 10,
+   "recovered": 10,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.162
+  }
+ ],
+ "gap_fill": [
+  {
+   "fill": "text",
+   "grid": 512,
+   "gap": 1048576,
+   "cases": 5,
+   "recovered": 5,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.111
+  },
+  {
+   "fill": "text",
+   "grid": 512,
+   "gap": 7340032,
+   "cases": 5,
+   "recovered": 5,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.769
+  },
+  {
+   "fill": "text",
+   "grid": 4096,
+   "gap": 1048576,
+   "cases": 5,
+   "recovered": 5,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.113
+  },
+  {
+   "fill": "text",
+   "grid": 4096,
+   "gap": 7340032,
+   "cases": 5,
+   "recovered": 5,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.717
+  },
+  {
+   "fill": "zeros",
+   "grid": 512,
+   "gap": 1048576,
+   "cases": 5,
+   "recovered": 5,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.021
+  },
+  {
+   "fill": "zeros",
+   "grid": 512,
+   "gap": 7340032,
+   "cases": 5,
+   "recovered": 5,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.125
+  },
+  {
+   "fill": "zeros",
+   "grid": 4096,
+   "gap": 1048576,
+   "cases": 5,
+   "recovered": 5,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.02
+  },
+  {
+   "fill": "zeros",
+   "grid": 4096,
+   "gap": 7340032,
+   "cases": 5,
+   "recovered": 5,
+   "wrong": 0,
+   "refused": 0,
+   "worst_seconds": 0.125
+  }
+ ],
+ "adversarial": {
+  "chimera_same_dimensions": {
+   "cases": 200,
+   "recovered": 0,
+   "wrong": 0,
+   "refused": 200,
+   "worst_seconds": 0.006
+  },
+  "tail_first_cluster_overwritten": {
+   "cases": 200,
+   "recovered": 0,
+   "wrong": 0,
+   "refused": 200,
+   "worst_seconds": 0.004
+  },
+  "tail_missing_first_512_bytes": {
+   "cases": 200,
+   "recovered": 0,
+   "wrong": 0,
+   "refused": 200,
+   "worst_seconds": 0.003
+  },
+  "tail_with_512_bytes_substituted": {
+   "cases": 200,
+   "recovered": 0,
+   "wrong": 0,
+   "refused": 200,
+   "worst_seconds": 0.004
+  }
+ }
+}

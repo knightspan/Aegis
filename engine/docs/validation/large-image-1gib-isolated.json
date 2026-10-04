@@ -1,0 +1,251 @@
+{
+  "build_seconds": 5.2,
+  "candidate_count": 487,
+  "carve": {
+    "elapsed_seconds": 37.382379992001006,
+    "failed": false,
+    "limitations": [
+      "PARTITION_TABLE_UNREADABLE: a partition table was present but could not be parsed (Volume_Info_Con: (tsk3.cpp:1004) Error opening Volume_Info: unknown libtsk error). The whole image was treated as one volume and, where no filesystem could be opened either, the unallocated map covers the entire image so that signature carving still runs over all of it.",
+      "NO_FILESYSTEM: no filesystem could be opened in partition 0 at offset 0 (FS_Info_Con: (tsk3.cpp:327) Unable to open the image as a filesystem at offset: 0x00000000 with error: Possible encryption detected (High entropy (8.00))). Nothing was recovered from metadata there and the region is reported unallocated in full, so signature carving covers it."
+    ],
+    "peak_rss_kib": 415716,
+    "peak_rss_mib": 406.0,
+    "phases": [
+      [
+        "open",
+        0.04
+      ],
+      [
+        "undelete",
+        0.05
+      ],
+      [
+        "signatures",
+        20.87
+      ],
+      [
+        "validate",
+        20.9
+      ],
+      [
+        "validate",
+        21.37
+      ],
+      [
+        "validate",
+        21.79
+      ],
+      [
+        "validate",
+        22.08
+      ],
+      [
+        "validate",
+        22.45
+      ],
+      [
+        "validate",
+        22.82
+      ],
+      [
+        "validate",
+        23.19
+      ],
+      [
+        "validate",
+        23.54
+      ],
+      [
+        "validate",
+        23.93
+      ],
+      [
+        "validate",
+        24.3
+      ],
+      [
+        "validate",
+        24.66
+      ],
+      [
+        "validate",
+        25.05
+      ],
+      [
+        "validate",
+        25.46
+      ],
+      [
+        "validate",
+        25.75
+      ],
+      [
+        "validate",
+        26.12
+      ],
+      [
+        "validate",
+        26.49
+      ],
+      [
+        "validate",
+        26.89
+      ],
+      [
+        "validate",
+        27.26
+      ],
+      [
+        "validate",
+        27.63
+      ],
+      [
+        "validate",
+        27.99
+      ],
+      [
+        "validate",
+        28.38
+      ],
+      [
+        "validate",
+        28.75
+      ],
+      [
+        "validate",
+        29.11
+      ],
+      [
+        "validate",
+        29.49
+      ],
+      [
+        "validate",
+        29.79
+      ],
+      [
+        "validate",
+        30.1
+      ],
+      [
+        "validate",
+        30.47
+      ],
+      [
+        "validate",
+        30.84
+      ],
+      [
+        "validate",
+        31.21
+      ],
+      [
+        "validate",
+        31.59
+      ],
+      [
+        "validate",
+        31.96
+      ],
+      [
+        "validate",
+        32.31
+      ],
+      [
+        "validate",
+        32.67
+      ],
+      [
+        "validate",
+        33.04
+      ],
+      [
+        "validate",
+        33.34
+      ],
+      [
+        "validate",
+        33.71
+      ],
+      [
+        "validate",
+        34.08
+      ],
+      [
+        "validate",
+        34.4
+      ],
+      [
+        "validate",
+        34.77
+      ],
+      [
+        "validate",
+        35.17
+      ],
+      [
+        "validate",
+        35.54
+      ],
+      [
+        "validate",
+        35.91
+      ],
+      [
+        "validate",
+        36.21
+      ],
+      [
+        "validate",
+        36.57
+      ],
+      [
+        "validate",
+        36.97
+      ],
+      [
+        "score",
+        37.29
+      ],
+      [
+        "write",
+        37.37
+      ]
+    ],
+    "throughput_mib_per_s": 27.39,
+    "wall_seconds": 37.601249934001316,
+    "written": 487
+  },
+  "host": {
+    "cpu_count": 16,
+    "platform": "Linux-6.19.10-300.fc44.x86_64-x86_64-with-glibc2.43",
+    "python": "3.11.16"
+  },
+  "image_bytes": 1073741824,
+  "image_gib": 1.0,
+  "planted_objects": 960,
+  "score": {
+    "by_bucket": {
+      "HIGH": {
+        "fp_unplanted": 0,
+        "n": 247,
+        "tp": 247
+      },
+      "LOW": {
+        "fp_unplanted": 198,
+        "n": 199,
+        "tp": 0
+      },
+      "MEDIUM": {
+        "fp_unplanted": 0,
+        "n": 41,
+        "tp": 41
+      }
+    },
+    "recall_bp": 10000,
+    "recoverable_objects": 288,
+    "recovered_distinct": 288
+  },
+  "seeds": 40,
+  "spill_left_behind": 0
+}

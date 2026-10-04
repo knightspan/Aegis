@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+AutoUpdate-Show-In-Client: true
+OpenIDE-Module: org.sleuthkit.autopsy.aegis/1
+OpenIDE-Module-Implementation-Version: 11
+OpenIDE-Module-Install: org/sleuthkit/autopsy/aegis/AegisInstaller.class
+OpenIDE-Module-Layer: org/sleuthkit/autopsy/aegis/layer.xml
+OpenIDE-Module-Localizing-Bundle: org/sleuthkit/autopsy/aegis/Bundle.properties
+OpenIDE-Module-Specification-Version: 1.6

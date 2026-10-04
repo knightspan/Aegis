@@ -1,0 +1,2 @@
+image:  b748b4b5f7f679ff8c0b0e6f96c82f2d6afe78f62057e1d65cdfb5e758d80a0c  /home/v0idsai/sanctum-validation-state/evidence/volume-sda1.dd
+device: b748b4b5f7f679ff8c0b0e6f96c82f2d6afe78f62057e1d65cdfb5e758d80a0c  /dev/sda1

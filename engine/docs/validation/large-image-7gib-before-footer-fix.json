@@ -1,0 +1,319 @@
+{
+  "build_seconds": 17.6,
+  "candidate_count": 951,
+  "carve": {
+    "elapsed_seconds": 320.5664787980004,
+    "failed": false,
+    "limitations": [
+      "PARTITION_TABLE_UNREADABLE: a partition table was present but could not be parsed (Volume_Info_Con: (tsk3.cpp:1004) Error opening Volume_Info: unknown libtsk error). The whole image was treated as one volume and, where no filesystem could be opened either, the unallocated map covers the entire image so that signature carving still runs over all of it.",
+      "NO_FILESYSTEM: no filesystem could be opened in partition 0 at offset 0 (FS_Info_Con: (tsk3.cpp:327) Unable to open the image as a filesystem at offset: 0x00000000 with error: Possible encryption detected (High entropy (8.00))). Nothing was recovered from metadata there and the region is reported unallocated in full, so signature carving covers it."
+    ],
+    "peak_rss_kib": 583792,
+    "peak_rss_mib": 570.1,
+    "phases": [
+      [
+        "open",
+        0.04
+      ],
+      [
+        "undelete",
+        0.06
+      ],
+      [
+        "signatures",
+        116.24
+      ],
+      [
+        "validate",
+        116.29
+      ],
+      [
+        "validate",
+        117.06
+      ],
+      [
+        "validate",
+        121.73
+      ],
+      [
+        "validate",
+        126.8
+      ],
+      [
+        "validate",
+        127.26
+      ],
+      [
+        "validate",
+        132.22
+      ],
+      [
+        "validate",
+        136.93
+      ],
+      [
+        "validate",
+        137.62
+      ],
+      [
+        "validate",
+        142.28
+      ],
+      [
+        "validate",
+        147.24
+      ],
+      [
+        "validate",
+        147.8
+      ],
+      [
+        "validate",
+        152.93
+      ],
+      [
+        "validate",
+        157.82
+      ],
+      [
+        "validate",
+        158.49
+      ],
+      [
+        "validate",
+        163.13
+      ],
+      [
+        "validate",
+        168.01
+      ],
+      [
+        "validate",
+        168.64
+      ],
+      [
+        "validate",
+        173.44
+      ],
+      [
+        "validate",
+        178.45
+      ],
+      [
+        "validate",
+        179.01
+      ],
+      [
+        "validate",
+        183.6
+      ],
+      [
+        "validate",
+        184.37
+      ],
+      [
+        "validate",
+        190.58
+      ],
+      [
+        "validate",
+        195.14
+      ],
+      [
+        "validate",
+        195.59
+      ],
+      [
+        "validate",
+        201.52
+      ],
+      [
+        "validate",
+        206.32
+      ],
+      [
+        "validate",
+        206.87
+      ],
+      [
+        "validate",
+        211.52
+      ],
+      [
+        "validate",
+        216.38
+      ],
+      [
+        "validate",
+        217.18
+      ],
+      [
+        "validate",
+        222.03
+      ],
+      [
+        "validate",
+        226.65
+      ],
+      [
+        "validate",
+        227.46
+      ],
+      [
+        "validate",
+        232.07
+      ],
+      [
+        "validate",
+        236.76
+      ],
+      [
+        "validate",
+        237.39
+      ],
+      [
+        "validate",
+        241.96
+      ],
+      [
+        "validate",
+        242.33
+      ],
+      [
+        "validate",
+        246.94
+      ],
+      [
+        "validate",
+        247.26
+      ],
+      [
+        "validate",
+        252.14
+      ],
+      [
+        "validate",
+        256.94
+      ],
+      [
+        "validate",
+        261.8
+      ],
+      [
+        "validate",
+        262.35
+      ],
+      [
+        "validate",
+        266.93
+      ],
+      [
+        "validate",
+        271.47
+      ],
+      [
+        "validate",
+        272.05
+      ],
+      [
+        "validate",
+        276.63
+      ],
+      [
+        "validate",
+        277.08
+      ],
+      [
+        "validate",
+        281.84
+      ],
+      [
+        "validate",
+        286.56
+      ],
+      [
+        "validate",
+        287.27
+      ],
+      [
+        "validate",
+        291.95
+      ],
+      [
+        "validate",
+        296.88
+      ],
+      [
+        "validate",
+        297.39
+      ],
+      [
+        "validate",
+        301.95
+      ],
+      [
+        "validate",
+        306.64
+      ],
+      [
+        "validate",
+        307.02
+      ],
+      [
+        "validate",
+        311.97
+      ],
+      [
+        "validate",
+        316.53
+      ],
+      [
+        "validate",
+        316.89
+      ],
+      [
+        "score",
+        317.96
+      ],
+      [
+        "write",
+        320.55
+      ]
+    ],
+    "throughput_mib_per_s": 22.36,
+    "wall_seconds": 320.83944728999995,
+    "written": 951
+  },
+  "host": {
+    "cpu_count": 16,
+    "platform": "Linux-6.19.10-300.fc44.x86_64-x86_64-with-glibc2.43",
+    "python": "3.11.16"
+  },
+  "image_bytes": 7516192768,
+  "image_gib": 7.0,
+  "planted_objects": 960,
+  "score": {
+    "by_bucket": {
+      "HIGH": {
+        "fp_unplanted": 39,
+        "n": 292,
+        "tp": 253
+      },
+      "LOW": {
+        "fp_unplanted": 617,
+        "n": 657,
+        "tp": 39
+      },
+      "MEDIUM": {
+        "fp_unplanted": 0,
+        "n": 2,
+        "tp": 2
+      }
+    },
+    "recall_bp": 10000,
+    "recoverable_objects": 294,
+    "recovered_distinct": 294
+  },
+  "seeds": 40,
+  "spill_left_behind": 0
+}

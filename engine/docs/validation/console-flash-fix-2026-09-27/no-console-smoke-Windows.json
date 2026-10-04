@@ -1,0 +1,81 @@
+{
+  "executable": "C:\\Users\\runneradmin\\AppData\\Local\\Programs\\Sanctum\\Sanctum.exe",
+  "state_dir": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\sanctum-noconsole-og996nu8\\state",
+  "launcher_log_tail": "2026-09-27 17:15:19 [info     ] api_services_ready             helper=InProcessHelper state_dir=C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\sanctum-noconsole-og996nu8\\state\n2026-09-27 17:15:19 [info     ] api_ready                      ui_bundled=True\nSanctum session URL written to C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\sanctum-noconsole-og996nu8\\session-url.txt\n",
+  "checks": [
+    {
+      "check": "process is still running (did not crash on startup)",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "check": "session URL was written",
+      "result": "PASS",
+      "detail": "http://127.0.0.1:65332/session/8QwzkQUzRsNgQxTh6734LyPlBXlAc0YkEOGQXyN-rwA"
+    },
+    {
+      "check": "health refused without the session cookie",
+      "result": "PASS",
+      "detail": 401
+    },
+    {
+      "check": "session link accepted",
+      "result": "PASS",
+      "detail": 200
+    },
+    {
+      "check": "health answers with the cookie",
+      "result": "PASS",
+      "detail": {
+        "status": "ok",
+        "tool_version": "sanctum-forensics/0.0.0",
+        "state_dir": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\sanctum-noconsole-og996nu8\\state",
+        "ui_bundled": true,
+        "build": {
+          "architecture": "AMD64",
+          "branch": "fix/no-console-and-carve-packaging",
+          "build_date": "2026-09-27T17:14:00Z",
+          "builder": "GitHub Actions run 36335032347",
+          "commit": "716fad99e072354625417634b6dc088d61500093",
+          "node": "v22.23.2",
+          "platform": "win32",
+          "python": "3.11.9",
+          "signed": "no",
+          "version": "0.0.0"
+        },
+        "launcher": true,
+        "session_protected": true,
+        "limitations": [
+          "HELPER_NOT_REQUIRED: no privileged helper runs on this platform. Device discovery and file erasure run unprivileged in this process, and whole-drive sanitization is not offered here, so nothing needs elevation and nothing is escalated.",
+          "NO_SIGNING_KEY: no report signing key exists under C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\sanctum-noconsole-og996nu8\\state\\keys and no ledger chain has been started. The first job will start the chain with no key fingerprint in its genesis, and fingerprint_matches_genesis will then be SKIP on every report that chain carries. Create the key before the first job: .venv/bin/python scripts/hardware_validation.py keygen --key-dir C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\sanctum-noconsole-og996nu8\\state\\keys"
+        ]
+      }
+    },
+    {
+      "check": "commit in the health response matches this build",
+      "result": "PASS",
+      "detail": "716fad99e072354625417634b6dc088d61500093"
+    },
+    {
+      "check": "sys.stdout/sys.stderr state this launch produced",
+      "result": "PASS",
+      "detail": "None (launcher.log was written)"
+    },
+    {
+      "check": "launcher.log has real content, since it was created",
+      "result": "PASS",
+      "detail": 359
+    },
+    {
+      "check": "quit accepted",
+      "result": "PASS",
+      "detail": 0
+    },
+    {
+      "check": "process exited after quit",
+      "result": "PASS",
+      "detail": 0
+    }
+  ],
+  "result": "PASS"
+}

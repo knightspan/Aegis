@@ -1,0 +1,7 @@
+{
+ "error": "[Errno 13] Permission denied: '/dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0'",
+ "kind": "io",
+ "errno": 13,
+ "command": "acquire",
+ "device_state": "not written by this command"
+}

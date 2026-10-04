@@ -1,0 +1,423 @@
+[
+  {
+    "platform": "Linux",
+    "capability": "Device discovery",
+    "implementation": "core.platform.linux",
+    "runtime_availability": "SUPPORTED",
+    "state": "VALIDATED_PHYSICAL",
+    "physical_validation": [
+      "usb-flash"
+    ],
+    "limit": "-"
+  },
+  {
+    "platform": "Linux",
+    "capability": "File erase",
+    "implementation": "core.erase.files",
+    "runtime_availability": "SUPPORTED",
+    "state": "VALIDATED_PHYSICAL",
+    "physical_validation": [
+      "usb-flash"
+    ],
+    "limit": "-"
+  },
+  {
+    "platform": "Linux",
+    "capability": "Free-space wipe",
+    "implementation": "core.erase.freespace",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "-"
+  },
+  {
+    "platform": "Linux",
+    "capability": "Whole-drive clear (addressable overwrite)",
+    "implementation": "core.erase.drive",
+    "runtime_availability": "SUPPORTED",
+    "state": "VALIDATED_PHYSICAL",
+    "physical_validation": [
+      "usb-flash"
+    ],
+    "limit": "On flash media an overwrite cannot reach blocks the controller has remapped or holds in over-provisioning. This is a Clear of the addressable storage, not NAND-level destruction."
+  },
+  {
+    "platform": "Linux",
+    "capability": "ATA SANITIZE (device sanitize)",
+    "implementation": "core.erase.drive",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Refused on mmc, usb-flash: A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it. Only when the controller reports it and no bridge hides it."
+  },
+  {
+    "platform": "Linux",
+    "capability": "ATA SECURITY ERASE UNIT (device sanitize)",
+    "implementation": "core.erase.drive",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Refused on mmc, usb-flash: A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it. Only when the controller reports it and no bridge hides it."
+  },
+  {
+    "platform": "Linux",
+    "capability": "NVMe Sanitize (device sanitize)",
+    "implementation": "core.erase.drive",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Only when the controller reports it and no bridge hides it."
+  },
+  {
+    "platform": "Linux",
+    "capability": "NVMe Format NVM, user-data erase (device sanitize)",
+    "implementation": "core.erase.drive",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Only when the controller reports it and no bridge hides it."
+  },
+  {
+    "platform": "Linux",
+    "capability": "Cryptographic erase",
+    "implementation": "core.erase.drive",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Refused on mmc, usb-flash: A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it. Only when the controller reports it and no bridge hides it."
+  },
+  {
+    "platform": "Linux",
+    "capability": "Raw physical-device acquisition",
+    "implementation": "core.carve.acquire",
+    "runtime_availability": "SUPPORTED",
+    "state": "VALIDATED_PHYSICAL",
+    "physical_validation": [
+      "usb-flash"
+    ],
+    "limit": "-"
+  },
+  {
+    "platform": "Linux",
+    "capability": "Logical volume acquisition",
+    "implementation": "core.carve.acquire",
+    "runtime_availability": "SUPPORTED",
+    "state": "VALIDATED_PHYSICAL",
+    "physical_validation": [
+      "usb-flash"
+    ],
+    "limit": "-"
+  },
+  {
+    "platform": "Linux",
+    "capability": "HPA / DCO discovery",
+    "implementation": "core.device.hidden_areas",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Refused on mmc, usb-flash: A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it."
+  },
+  {
+    "platform": "Linux",
+    "capability": "HPA / DCO modification",
+    "implementation": "core.device.hidden_area_workflow",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Refused on mmc, usb-flash: A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it. Only the HPA is changed. DCO RESTORE can make a drive report a different model's geometry and is not issued by this build."
+  },
+  {
+    "platform": "Linux",
+    "capability": "Backup restore",
+    "implementation": "core.restore",
+    "runtime_availability": "SUPPORTED",
+    "state": "VALIDATED_PHYSICAL",
+    "physical_validation": [
+      "usb-flash"
+    ],
+    "limit": "-"
+  },
+  {
+    "platform": "Linux",
+    "capability": "Live-desktop trace sweep",
+    "implementation": "core.erase.traces",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "-"
+  },
+  {
+    "platform": "Windows",
+    "capability": "Device discovery",
+    "implementation": "core.platform.windows",
+    "runtime_availability": "SUPPORTED",
+    "state": "VALIDATED_PHYSICAL",
+    "physical_validation": [
+      "usb-flash"
+    ],
+    "limit": "-"
+  },
+  {
+    "platform": "Windows",
+    "capability": "File erase",
+    "implementation": "core.erase._platform.win",
+    "runtime_availability": "SUPPORTED",
+    "state": "VALIDATED_PHYSICAL",
+    "physical_validation": [
+      "host disk, class not recorded"
+    ],
+    "limit": "-"
+  },
+  {
+    "platform": "Windows",
+    "capability": "Free-space wipe",
+    "implementation": "NOT IMPLEMENTED",
+    "runtime_availability": "NOT IMPLEMENTED",
+    "state": "NOT_IMPLEMENTED",
+    "physical_validation": "none recorded",
+    "limit": "Not implemented on Windows: how NTFS allocates a filling file (MFT zone, reserved clusters) has not been measured, so the fill could not be described honestly."
+  },
+  {
+    "platform": "Windows",
+    "capability": "Whole-drive clear (addressable overwrite)",
+    "implementation": "core.erase.blockclear",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "Refused on virtual: A Storage Spaces or virtual disk is not a physical medium; clearing it does not clear the disks behind it. On flash media an overwrite cannot reach blocks the controller has remapped or holds in over-provisioning. This is a Clear of the addressable storage, not NAND-level destruction."
+  },
+  {
+    "platform": "Windows",
+    "capability": "ATA SANITIZE (device sanitize)",
+    "implementation": "core.device.win.ata",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Refused on mmc, usb-flash: A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it. The Windows storage driver may refuse the pass-through; the refusal is reported and nothing is retried another way."
+  },
+  {
+    "platform": "Windows",
+    "capability": "ATA SECURITY ERASE UNIT (device sanitize)",
+    "implementation": "NOT IMPLEMENTED",
+    "runtime_availability": "NOT IMPLEMENTED",
+    "state": "NOT_IMPLEMENTED",
+    "physical_validation": "none recorded",
+    "limit": "Not implemented on Windows. The sequence sets a drive password first; if the erase is then refused or interrupted the drive stays locked, and no recovery path for that has been built and tested on Windows. ATA SANITIZE is offered instead where the drive supports it."
+  },
+  {
+    "platform": "Windows",
+    "capability": "NVMe Sanitize (device sanitize)",
+    "implementation": "core.device.win.nvme",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Windows gives no progress for the sanitize; the call returns when the driver reports completion or the timeout expires."
+  },
+  {
+    "platform": "Windows",
+    "capability": "NVMe Format NVM, user-data erase (device sanitize)",
+    "implementation": "PLATFORM-LIMITED",
+    "runtime_availability": "PLATFORM-LIMITED",
+    "state": "UNSUPPORTED_BY_PLATFORM",
+    "physical_validation": "none recorded",
+    "limit": "Windows' in-box NVMe driver does not pass Format NVM through IOCTL_STORAGE_PROTOCOL_COMMAND, so it cannot be issued from Windows. NVMe Sanitize is used instead where the drive supports it."
+  },
+  {
+    "platform": "Windows",
+    "capability": "Cryptographic erase",
+    "implementation": "core.device.win.nvme",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Refused on mmc, usb-flash: A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it. Only when the controller reports it and no bridge hides it."
+  },
+  {
+    "platform": "Windows",
+    "capability": "Raw physical-device acquisition",
+    "implementation": "core.carve.win_source",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "No software write block exists on Windows; the report says so."
+  },
+  {
+    "platform": "Windows",
+    "capability": "Logical volume acquisition",
+    "implementation": "core.carve.win_source",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "-"
+  },
+  {
+    "platform": "Windows",
+    "capability": "HPA / DCO discovery",
+    "implementation": "core.device.hidden_area_workflow",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Refused on mmc, usb-flash: A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it."
+  },
+  {
+    "platform": "Windows",
+    "capability": "HPA / DCO modification",
+    "implementation": "core.device.hidden_area_workflow",
+    "runtime_availability": "DEVICE-DEPENDENT",
+    "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+    "physical_validation": "none recorded",
+    "limit": "Refused on mmc, usb-flash: A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it. Only the HPA is changed. DCO RESTORE is not issued by this build."
+  },
+  {
+    "platform": "Windows",
+    "capability": "Backup restore",
+    "implementation": "core.restore",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "Refused on virtual: Not a physical medium."
+  },
+  {
+    "platform": "Windows",
+    "capability": "Live-desktop trace sweep",
+    "implementation": "core.erase.traces",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "-"
+  },
+  {
+    "platform": "macOS",
+    "capability": "Device discovery",
+    "implementation": "core.platform.macos",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "-"
+  },
+  {
+    "platform": "macOS",
+    "capability": "File erase",
+    "implementation": "core.erase.files",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "APFS is copy-on-write: the overwrite lands in new blocks and the old ones are only released."
+  },
+  {
+    "platform": "macOS",
+    "capability": "Free-space wipe",
+    "implementation": "NOT IMPLEMENTED",
+    "runtime_availability": "NOT IMPLEMENTED",
+    "state": "NOT_IMPLEMENTED",
+    "physical_validation": "none recorded",
+    "limit": "Not implemented on macOS: APFS is copy-on-write and shares free space across a container's volumes, so a fill does not map to released blocks in a way that could be verified."
+  },
+  {
+    "platform": "macOS",
+    "capability": "Whole-drive clear (addressable overwrite)",
+    "implementation": "core.erase.blockclear",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "Refused on apple-internal: Apple-managed internal storage is never raw-written: on Apple silicon and T2 Macs the Secure Enclave encrypts it, and the purge-capable path is macOS's own Erase All Content and Settings; virtual: A disk image or synthesized APFS container is not a physical medium. On flash media an overwrite cannot reach blocks the controller has remapped or holds in over-provisioning. This is a Clear of the addressable storage, not NAND-level destruction."
+  },
+  {
+    "platform": "macOS",
+    "capability": "ATA SANITIZE (device sanitize)",
+    "implementation": "PLATFORM-LIMITED",
+    "runtime_availability": "PLATFORM-LIMITED",
+    "state": "UNSUPPORTED_BY_PLATFORM",
+    "physical_validation": "none recorded",
+    "limit": "macOS exposes no public ATA pass-through to applications, so no ATA sanitize command can be issued from macOS."
+  },
+  {
+    "platform": "macOS",
+    "capability": "ATA SECURITY ERASE UNIT (device sanitize)",
+    "implementation": "PLATFORM-LIMITED",
+    "runtime_availability": "PLATFORM-LIMITED",
+    "state": "UNSUPPORTED_BY_PLATFORM",
+    "physical_validation": "none recorded",
+    "limit": "macOS exposes no public ATA pass-through to applications."
+  },
+  {
+    "platform": "macOS",
+    "capability": "NVMe Sanitize (device sanitize)",
+    "implementation": "PLATFORM-LIMITED",
+    "runtime_availability": "PLATFORM-LIMITED",
+    "state": "UNSUPPORTED_BY_PLATFORM",
+    "physical_validation": "none recorded",
+    "limit": "macOS exposes no public NVMe admin-command interface to applications."
+  },
+  {
+    "platform": "macOS",
+    "capability": "NVMe Format NVM, user-data erase (device sanitize)",
+    "implementation": "PLATFORM-LIMITED",
+    "runtime_availability": "PLATFORM-LIMITED",
+    "state": "UNSUPPORTED_BY_PLATFORM",
+    "physical_validation": "none recorded",
+    "limit": "macOS exposes no public NVMe admin-command interface to applications."
+  },
+  {
+    "platform": "macOS",
+    "capability": "Cryptographic erase",
+    "implementation": "PLATFORM-LIMITED",
+    "runtime_availability": "PLATFORM-LIMITED",
+    "state": "UNSUPPORTED_BY_PLATFORM",
+    "physical_validation": "none recorded",
+    "limit": "macOS exposes no crypto-erase command to applications. On Apple silicon and T2 Macs the equivalent is Erase All Content and Settings, which destroys the Secure Enclave keys; Sanctum cannot perform or verify it and names it as the recommended action instead."
+  },
+  {
+    "platform": "macOS",
+    "capability": "Raw physical-device acquisition",
+    "implementation": "core.carve.mac_source",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "Refused on apple-internal: Internal Apple storage is encrypted by the Secure Enclave; a raw image of it is ciphertext that cannot be decrypted off the machine, so it is not offered. No software write block exists on macOS; the report says so."
+  },
+  {
+    "platform": "macOS",
+    "capability": "Logical volume acquisition",
+    "implementation": "core.carve.mac_source",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "Refused on apple-internal: Internal Apple storage is encrypted by the Secure Enclave; a raw image of it is ciphertext."
+  },
+  {
+    "platform": "macOS",
+    "capability": "HPA / DCO discovery",
+    "implementation": "PLATFORM-LIMITED",
+    "runtime_availability": "PLATFORM-LIMITED",
+    "state": "UNSUPPORTED_BY_PLATFORM",
+    "physical_validation": "none recorded",
+    "limit": "macOS exposes no public ATA pass-through, so the native maximum address cannot be read from macOS."
+  },
+  {
+    "platform": "macOS",
+    "capability": "HPA / DCO modification",
+    "implementation": "PLATFORM-LIMITED",
+    "runtime_availability": "PLATFORM-LIMITED",
+    "state": "UNSUPPORTED_BY_PLATFORM",
+    "physical_validation": "none recorded",
+    "limit": "macOS exposes no public ATA pass-through, so SET MAX ADDRESS cannot be issued from macOS."
+  },
+  {
+    "platform": "macOS",
+    "capability": "Backup restore",
+    "implementation": "core.restore",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "Refused on apple-internal: Apple-managed internal storage is never raw-written: on Apple silicon and T2 Macs the Secure Enclave encrypts it, and the purge-capable path is macOS's own Erase All Content and Settings."
+  },
+  {
+    "platform": "macOS",
+    "capability": "Live-desktop trace sweep",
+    "implementation": "core.erase.traces",
+    "runtime_availability": "IMPLEMENTED / UNVALIDATED",
+    "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+    "physical_validation": "none recorded",
+    "limit": "-"
+  }
+]

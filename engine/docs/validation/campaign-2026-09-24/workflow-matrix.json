@@ -1,0 +1,34 @@
+{
+  "population": "SYNTHETIC",
+  "states": [
+    "DISCOVERED",
+    "PREFLIGHT",
+    "BLOCKED",
+    "BACKUP_REQUIRED",
+    "BACKUP_VERIFIED",
+    "PLAN_READY",
+    "HUMAN_APPROVAL_REQUIRED",
+    "EXECUTING",
+    "VERIFYING",
+    "COMPLETE",
+    "FAILED"
+  ],
+  "fact_combinations": 128,
+  "pairs_checked": 15488,
+  "allowed": 1079,
+  "refused_no_edge": 12544,
+  "refused_by_facts": 1865,
+  "executing_reachable_only_with_fact_vectors": [
+    [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ]
+  ],
+  "violations": [],
+  "result": "PASS"
+}

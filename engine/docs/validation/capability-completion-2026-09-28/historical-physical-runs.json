@@ -1,0 +1,109 @@
+[
+  {
+    "platform": "linux",
+    "capability": "whole_drive_clear",
+    "device_class": "usb-flash",
+    "model": "TOSHIBA TransMemory",
+    "serial": "B103B9C19DE1CCC1BD535ACB",
+    "interface": "usb",
+    "os": "Linux (validation host, hardware.md Phase A)",
+    "date": "2026-09-05",
+    "commit": "not recorded: hardware.md names the run directory results-20260905T033655Z, not a build commit",
+    "method": "SINGLE_PASS_OVERWRITE with the 0xA5 fill substituted after write calibration measured zero-elision; O_DIRECT, 4 MiB buffer",
+    "preflight": "Enumeration cross-check against lsblk and udevadm (0 disagreements); capability probe CLEAR only; HPA/DCO not probed behind the USB bridge, recorded as a limitation",
+    "operation": "7,759,462,400 of 7,759,462,400 bytes written in 1910.76 s",
+    "verification": "Full read-back; PhotoRec recovered 14 of 14 planted files before the wipe and 0 after",
+    "artifacts": [
+      "docs/validation/hardware.md"
+    ],
+    "report_hash": "not committed: the run directory is summarised in hardware.md",
+    "ledger_entry": "not committed: the run directory is summarised in hardware.md",
+    "result": "PASS"
+  },
+  {
+    "platform": "linux",
+    "capability": "device_discovery",
+    "device_class": "usb-flash",
+    "model": "TOSHIBA TransMemory",
+    "serial": "B103B9C19DE1CCC1BD535ACB",
+    "interface": "usb",
+    "os": "Linux (validation host, hardware.md Phase A)",
+    "date": "2026-09-05",
+    "commit": "not recorded: hardware.md names the run directory results-20260905T033655Z, not a build commit",
+    "method": "Sanctum discovery compared field by field with lsblk -O and udevadm",
+    "preflight": "n/a (read-only)",
+    "operation": "model, serial, size, transport and rotational flag read",
+    "verification": "0 disagreements across three sources (hardware.md A.1)",
+    "artifacts": [
+      "docs/validation/hardware.md"
+    ],
+    "report_hash": "n/a",
+    "ledger_entry": "n/a",
+    "result": "PASS"
+  },
+  {
+    "platform": "linux",
+    "capability": "raw_acquisition",
+    "device_class": "usb-flash",
+    "model": "TOSHIBA TransMemory",
+    "serial": "B103B9C19DE1CCC1BD535ACB",
+    "interface": "usb",
+    "os": "Linux (validation host, hardware.md Phase B)",
+    "date": "2026-09-05",
+    "commit": "not recorded: hardware.md names the run directories results-20260905T081354Z, T082418Z and T082656Z, not a build commit",
+    "method": "Raw acquisition with BLKROSET applied and read back, SHA-256 in the read pass",
+    "preflight": "Write block verified with BLKROGET before the read",
+    "operation": "Three acquisitions of the stick (FAT32 delete, exFAT delete, FAT32 quick format)",
+    "verification": "Every acquisition verified clean with zero bad sectors; carving recovered 456/456, 460/460 and 10 of the 10 recoverable files byte-exact",
+    "artifacts": [
+      "docs/validation/hardware.md"
+    ],
+    "report_hash": "not committed: the run directories are summarised in hardware.md",
+    "ledger_entry": "not committed: the run directories are summarised in hardware.md",
+    "result": "PASS"
+  },
+  {
+    "platform": "windows",
+    "capability": "device_discovery",
+    "device_class": "usb-flash",
+    "model": "TOSHIBA TransMemory (label SANCTUMREC)",
+    "serial": "B (Windows reports this bridge's serial as one character; recorded as observed)",
+    "interface": "usb",
+    "os": "Windows 11 Home 10.0.26200",
+    "date": "2026-09-27",
+    "commit": "2d00526 (first run); re-run at 437081ed8d740771bc77fd535fea97938ccd0d2e",
+    "method": "Installed SanctumSetup.exe; Storage-module discovery",
+    "preflight": "n/a (read-only)",
+    "operation": "The stick was discovered and the mounted-device refusal shown; nothing on it was opened for writing or raw reading",
+    "verification": "Discovery row compared with Windows Disk Management",
+    "artifacts": [
+      "docs/validation/windows-hardware-2026-09-27/README.md",
+      "docs/validation/windows-hardware-2026-09-27-fixes/README.md"
+    ],
+    "report_hash": "n/a",
+    "ledger_entry": "n/a",
+    "result": "PASS"
+  },
+  {
+    "platform": "windows",
+    "capability": "file_erase",
+    "device_class": "unknown",
+    "model": "host system disk (model not recorded)",
+    "serial": "not recorded",
+    "interface": "not recorded",
+    "os": "Windows 11 Home Single Language 10.0.26200, AMD64",
+    "date": "2026-09-27",
+    "commit": "437081ed8d740771bc77fd535fea97938ccd0d2e",
+    "method": "M2 file and folder erase on NTFS through the installed application",
+    "preflight": "Scratch directory created by the smoke test under the user's temp folder; nothing on SANCTUMREC touched",
+    "operation": "File and folder erase through the installed Sanctum.exe",
+    "verification": "Read-back verification, signed certificate issued and verified, all PASS",
+    "artifacts": [
+      "docs/validation/windows-hardware-2026-09-27/README.md",
+      "docs/validation/windows-hardware-2026-09-27-fixes/README.md"
+    ],
+    "report_hash": "not committed",
+    "ledger_entry": "not committed",
+    "result": "PASS"
+  }
+]

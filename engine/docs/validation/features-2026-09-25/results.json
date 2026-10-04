@@ -1,0 +1,83 @@
+{
+  "checks": {
+    "media map names Zeroed": {
+      "ok": true,
+      "detail": "0\n32.0 MiB\nZeroed\n44%\nall bytes 0x00: never written, or wiped\nFill pattern\n13%\none byte repeated: erased flash, or a wipe pattern\nText\n19%\nmostly printable characters\nStructured binary\n<1%\nexecutables, databases, filesystem metadata\nHigh entropy\n25%\ncompressed, encrypted or random; the bytes alone do not say which\n\n14.0 MiB could hold recoverable content; the rest is zeroed or filled. 4 file headers on sector boundaries (ticks under the strip): 4 jpg. Headers, not validated files."
+    },
+    "media map names Fill pattern": {
+      "ok": true,
+      "detail": "0\n32.0 MiB\nZeroed\n44%\nall bytes 0x00: never written, or wiped\nFill pattern\n13%\none byte repeated: erased flash, or a wipe pattern\nText\n19%\nmostly printable characters\nStructured binary\n<1%\nexecutables, databases, filesystem metadata\nHigh entropy\n25%\ncompressed, encrypted or random; the bytes alone do not say which\n\n14.0 MiB could hold recoverable content; the rest is zeroed or filled. 4 file headers on sector boundaries (ticks under the strip): 4 jpg. Headers, not validated files."
+    },
+    "media map names Text": {
+      "ok": true,
+      "detail": "0\n32.0 MiB\nZeroed\n44%\nall bytes 0x00: never written, or wiped\nFill pattern\n13%\none byte repeated: erased flash, or a wipe pattern\nText\n19%\nmostly printable characters\nStructured binary\n<1%\nexecutables, databases, filesystem metadata\nHigh entropy\n25%\ncompressed, encrypted or random; the bytes alone do not say which\n\n14.0 MiB could hold recoverable content; the rest is zeroed or filled. 4 file headers on sector boundaries (ticks under the strip): 4 jpg. Headers, not validated files."
+    },
+    "media map names High entropy": {
+      "ok": true,
+      "detail": "0\n32.0 MiB\nZeroed\n44%\nall bytes 0x00: never written, or wiped\nFill pattern\n13%\none byte repeated: erased flash, or a wipe pattern\nText\n19%\nmostly printable characters\nStructured binary\n<1%\nexecutables, databases, filesystem metadata\nHigh entropy\n25%\ncompressed, encrypted or random; the bytes alone do not say which\n\n14.0 MiB could hold recoverable content; the rest is zeroed or filled. 4 file headers on sector boundaries (ticks under the strip): 4 jpg. Headers, not validated files."
+    },
+    "media map counts the four sector-aligned JPEG headers": {
+      "ok": true,
+      "detail": "0\n32.0 MiB\nZeroed\n44%\nall bytes 0x00: never written, or wiped\nFill pattern\n13%\none byte repeated: erased flash, or a wipe pattern\nText\n19%\nmostly printable characters\nStructured binary\n<1%\nexecutables, databases, filesystem metadata\nHigh entropy\n25%\ncompressed, encrypted or random; the bytes alone do not say which\n\n14.0 MiB could hold recoverable content; the rest is zeroed or filled. 4 file headers on sector boundaries (ticks under the strip): 4 jpg. Headers, not validated files."
+    },
+    "media map says every byte was read": {
+      "ok": true,
+      "detail": ""
+    },
+    "dry run finds seven traces": {
+      "ok": true,
+      "detail": "7"
+    },
+    "dry run removes nothing": {
+      "ok": true,
+      "detail": "['would be removed', 'would be removed', 'would be removed', 'would be removed', 'would be removed', 'would be removed', 'would be removed']"
+    },
+    "thumbnails still on disk after the dry run": {
+      "ok": true,
+      "detail": "[PosixPath('/tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/4f39e2ba-8f2d-4d25-81db-0038fa619a77/scratchpad/feat/state/home/.cache/thumbnails/normal/fe3d28e71396e75cde67f82ca3037444.png'), PosixPath('/tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/4f39e2ba-8f2d-4d25-81db-0038fa619a77/scratchpad/feat/state/home/.cache/thumbnails/normal/8d86d17def4786472a7b1791f4760f48.png')]"
+    },
+    "real erase removes all seven traces": {
+      "ok": true,
+      "detail": "['erased', 'erased', 'entry removed', 'entry removed', 'entry removed', 'erased', 'erased']"
+    },
+    "thumbnails gone from disk": {
+      "ok": true,
+      "detail": "[]"
+    },
+    "recent list keeps only the unrelated entry": {
+      "ok": true,
+      "detail": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<xbel version=\"1.0\"\n      xmlns:bookmark=\"http://www.freedesktop.org/standards/desktop-bookmarks\"\n      xmlns:mime=\"http://www.freedesktop.org/standards/shared-mime-info\"\n>\n  <bookmark href=\"file:///srv/share/minutes.odt\" added=\"2026-09-01T10:00:00.000000Z\" modified=\"2026-09-01T10:00:00.000000Z\" visited=\"2026-09-01T10:00:00.000000Z\">\n    <info>\n      <metadat"
+    },
+    "Trash copy and its record gone": {
+      "ok": true,
+      "detail": ""
+    },
+    "the erased files are gone": {
+      "ok": true,
+      "detail": ""
+    },
+    "file report lists seven traces, seven removed": {
+      "ok": true,
+      "detail": "{\"content_copies\": 3, \"exact\": 7, \"found\": 7, \"items\": [{\"action\": \"erased\", \"content_copy\": true, \"error\": \"\", \"evidence\": \"Named by the MD5 of file:///cases/files/case-2149/site-photo%2001.jpg, and its Thumb::URI names the same file.\", \"exact\": true, \"kind\": \"THUMBNAIL\", \"path\": \"/home/examiner/.cache/thumbnails/normal/8d86d17def4786472a7b1791f4760f48.png\", \"removed\": true, \"target\": \"/cases/fil"
+    },
+    "file report names what was not searched": {
+      "ok": true,
+      "detail": ""
+    },
+    "destroy record says attested, not observed": {
+      "ok": true,
+      "detail": "destroy-d4e33782cf46\nCopy\nRecorded in the chain: attested, not observed\nSigned record destroy-d4e33782cf46/destroy-d4e33782cf46.forensic.json\nOpen PDF"
+    },
+    "no console errors": {
+      "ok": true,
+      "detail": "[]"
+    },
+    "no page errors": {
+      "ok": true,
+      "detail": "[]"
+    }
+  },
+  "console_errors": [],
+  "page_errors": [],
+  "summary": "19 of 19 checks passed"
+}

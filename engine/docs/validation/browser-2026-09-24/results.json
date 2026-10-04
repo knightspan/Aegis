@@ -1,0 +1,185 @@
+{
+ "date": "2026-09-24",
+ "browser": "chrome-headless-shell (Playwright 1.63.0, chromium revision 1243)",
+ "viewport": "1366x768",
+ "real_api": {
+  "server": "python -m api.main on a fresh scripts/demo_setup.py state directory, in-process helper, loopback, session token",
+  "requests_aborted_by_the_driver": [
+   "/api/devices*",
+   "/api/platform/devices/**",
+   "/api/jobs/erase-drive*"
+  ],
+  "aborted_requests_observed": [],
+  "page_errors": [],
+  "carve_job": "carve-633096e6b16f",
+  "checks": {
+   "overview:text:Sanctum": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:Recover Evidence": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:Secure Erase": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:File / Folder Erase": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:Verify Report": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:Executive summary": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:SECURE ERASURE": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:EVIDENCE RECOVERY": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:VERIFICATION": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:INTEGRITY": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:SAFETY": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:text:LIMITATIONS: NOT PHYSICALLY VALIDATED": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:summary_fits_without_scroll": {
+    "ok": true,
+    "detail": "summary bottom 668, status strip top 693"
+   },
+   "overview:no_raw_enum": {
+    "ok": true,
+    "detail": ""
+   },
+   "overview:case_shown": {
+    "ok": true,
+    "detail": ""
+   },
+   "recovery:high_filter": {
+    "ok": true,
+    "detail": "Recovered (13 of 22)"
+   },
+   "recovery:score_breakdown": {
+    "ok": true,
+    "detail": ""
+   },
+   "recovery:evidence_score_label": {
+    "ok": true,
+    "detail": ""
+   },
+   "certificate:signed_report_panel": {
+    "ok": true,
+    "detail": "REPORT\nsigned \u00b7 a9b8014fbdad7f05\u2026\nCASE\nDEMO-CASE-001\nGENERATED\n2026-09-24 09:03:28Z\nSHA-256 (JSON, AUTHORITATIVE)\na9b8014fbdad7f052923600fca7c2d2cf80d1e2e0f0785b1d105512d8a2fa5cd\nSIGNING KEY\nC3:BF:8E:5A:BA:B8:85:B7:69:C9:07:BA:10:ED:81:9E:81:6A:41:EA:EA:EB:B4:42:F0:C7:75:D3:1D:B1:56:2F\nCHAIN\nVALID \u00b7 63 entries\nVERIFICATION\nnot run \u2014 press Verify\nOpen PDF\nDownload PDF\nView JSON\nDownload JSON\nVerify\nThe JSON is authoritative and the PDF is not: the signature covers the canonical JSON bytes, and the PDF is a rendering for a human. Both describe the same operation, and the PDF carries the JSON's d"
+   },
+   "certificate:pdf_and_json_links": {
+    "ok": true,
+    "detail": "REPORT\nsigned \u00b7 a9b8014fbdad7f05\u2026\nCASE\nDEMO-CASE-001\nGENERATED\n2026-09-24 09:03:28Z\nSHA-256 (JSON, AUTHORITATIVE)\na9b8014fbdad7f052923600fca7c2d2cf80d1e2e0f0785b1d105512d8a2fa5cd\nSIGNING KEY\nC3:BF:8E:5A:BA:B8:85:B7:69:C9:07:BA:10:ED:81:9E:81:6A:41:EA:EA:EB:B4:42:F0:C7:75:D3:1D:B1:56:2F\nCHAIN\nVALID \u00b7 63 entries\nVERIFICATION\nnot run \u2014 press Verify\nOpen PDF\nDownload PDF\nView JSON\nDownload JSON\nVerify\nThe JSON is authoritative and the PDF is not: the signature covers the canonical JSON bytes, and the PDF is a rendering for a human. Both describe the same operation, and the PDF carries the JSON's d"
+   },
+   "audit:chain_valid": {
+    "ok": true,
+    "detail": ""
+   },
+   "audit:verdict": {
+    "ok": true,
+    "detail": ""
+   },
+   "audit:tamper_demo": {
+    "ok": true,
+    "detail": ""
+   },
+   "files:simulation_banner": {
+    "ok": true,
+    "detail": ""
+   }
+  }
+ },
+ "fixture_server": {
+  "server": "vite dev server, ui/preview.html: the real screens with fetch and EventSource replaced by ui/src/preview/fixtures.ts",
+  "requests_leaving_the_dev_server": [],
+  "page_errors": [],
+  "checks": {
+   "devices:serial:S7DPNJ0X412906H": {
+    "ok": true,
+    "detail": ""
+   },
+   "devices:serial:4C530001120809117433": {
+    "ok": true,
+    "detail": ""
+   },
+   "devices:serial:50026B7683F1A0C2": {
+    "ok": true,
+    "detail": ""
+   },
+   "devices:why_blocked_mounted": {
+    "ok": true,
+    "detail": ""
+   },
+   "devices:why_blocked_system": {
+    "ok": true,
+    "detail": ""
+   },
+   "devices:human_unmount": {
+    "ok": true,
+    "detail": ""
+   },
+   "sanitize:preflight_sim": {
+    "ok": true,
+    "detail": "DISCOVERED\nPREFLIGHT\nHUMAN APPROVAL REQUIRED\nEXECUTING\nVERIFYING\nCOMPLETE\n\nPREFLIGHT (SIMULATION)\n\nPreflight passed. A dry run writes nothing and needs no approval. A real erase needs HUMAN APPROVAL: the typed device serial.\n\nNo backup gate: whole-drive sanitization destroys the data by intent. BACKUP_REQUIRED and BACKUP_VERIFIED are enforced by the physical benchmark write (scripts/media_benchmark.py), not by this screen."
+   },
+   "sanitize:banner_dryrun": {
+    "ok": true,
+    "detail": ""
+   },
+   "sanitize:backup_note": {
+    "ok": true,
+    "detail": ""
+   },
+   "sanitize:no_execution_before_start": {
+    "ok": true,
+    "detail": "DISCOVERED\nPREFLIGHT\nHUMAN APPROVAL REQUIRED\nEXECUTING\nVERIFYING\nCOMPLETE\n\nPREFLIGHT (SIMULATION)\n\nPreflight passed. A dry run writes nothing and needs no approval. A real erase needs HUMAN APPROVAL: the typed device serial.\n\nNo backup gate: whole-drive sanitization destroys the data by intent. BACKUP_REQUIRED and BACKUP_VERIFIED are enforced by the physical benchmark write (scripts/media_benchmark.py), not by this screen."
+   },
+   "sanitize:human_approval": {
+    "ok": true,
+    "detail": "DISCOVERED\nPREFLIGHT\nHUMAN APPROVAL REQUIRED\nEXECUTING\nVERIFYING\nCOMPLETE\n\nHUMAN APPROVAL REQUIRED\n\nNothing is written until a person confirms by typing the device serial.\n\nNo backup gate: whole-drive sanitization destroys the data by intent. BACKUP_REQUIRED and BACKUP_VERIFIED are enforced by the physical benchmark write (scripts/media_benchmark.py), not by this screen."
+   },
+   "sanitize:modal_still_approval_not_executing": {
+    "ok": true,
+    "detail": "DISCOVERED\nPREFLIGHT\nHUMAN APPROVAL REQUIRED\nEXECUTING\nVERIFYING\nCOMPLETE\n\nHUMAN APPROVAL REQUIRED\n\nType the device serial. The server re-reads it from the device and refuses a mismatch.\n\nNo backup gate: whole-drive sanitization destroys the data by intent. BACKUP_REQUIRED and BACKUP_VERIFIED are enforced by the physical benchmark write (scripts/media_benchmark.py), not by this screen."
+   },
+   "sanitize:erase_disabled_without_serial": {
+    "ok": true,
+    "detail": ""
+   },
+   "sanitize:complete_simulation": {
+    "ok": true,
+    "detail": "DISCOVERED\nPREFLIGHT\nHUMAN APPROVAL REQUIRED\nEXECUTING\nVERIFYING\nCOMPLETE\n\nCOMPLETE (SIMULATION)\n\nNothing was written. Get the certificate to record the dry run.\n\nNo backup gate: whole-drive sanitization destroys the data by intent. BACKUP_REQUIRED and BACKUP_VERIFIED are enforced by the physical benchmark write (scripts/media_benchmark.py), not by this screen."
+   },
+   "sanitize:banner_after_job": {
+    "ok": true,
+    "detail": ""
+   },
+   "sanitize:blocked_why": {
+    "ok": true,
+    "detail": "DISCOVERED\nPREFLIGHT\nBLOCKED\n\nBLOCKED\n\nWHY BLOCKED\nWhole-drive sanitization is not implemented for Windows in this build. Windows can reach a disk through \\\\.\\PhysicalDriveN and IOCTL_STORAGE_PROTOCOL_COMMAND, but no engine using them has been written and validated, so none is offered.\nPrivilege available: This process is not elevated (shell32.IsUserAnAdmin()).\nNo sanitization method is reachable on this device.\n\nSanitize this device with the Sanctum Linux build (AppImage) on any Linux host or l"
+   }
+  }
+ }
+}

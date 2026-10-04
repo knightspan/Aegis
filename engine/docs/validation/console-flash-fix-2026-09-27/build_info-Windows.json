@@ -1,0 +1,12 @@
+{
+  "architecture": "AMD64",
+  "branch": "fix/no-console-and-carve-packaging",
+  "build_date": "2026-09-27T17:14:00Z",
+  "builder": "GitHub Actions run 36335032347",
+  "commit": "716fad99e072354625417634b6dc088d61500093",
+  "node": "v22.23.2",
+  "platform": "win32",
+  "python": "3.11.9",
+  "signed": "no",
+  "version": "0.0.0"
+}

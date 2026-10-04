@@ -1,0 +1,267 @@
+# Signature table for signature-based carving (core/carve/signature.py).
+#
+# Loaded at runtime, never hardcoded: a signature table is evidence-handling
+# policy, and an examiner must be able to read, review and extend it without
+# touching Python.
+#
+# Schema per entry:
+#   name:           human label, unique
+#   ext:            canonical extension, no dot
+#   mime:           reported MIME type
+#   header:         hex byte sequence identifying the object
+#   header_offset:  where `header` sits relative to the object start (default 0).
+#                   MP4 is the reason this exists: its "ftyp" magic begins at
+#                   byte 4, after a 32-bit box size, so a match at file offset N
+#                   means the object starts at N-4.
+#   footer:         hex byte sequence ending the object (optional)
+#   max_size:       hard cap on the object, and the bound on the footer search.
+#                   An unbounded search on a 2 TB image never returns.
+#   min_size:       below this a match is noise rather than an object
+#   notes:          caveats a reviewer should know
+
+version: 1
+
+signatures:
+  - name: JPEG
+    ext: jpg
+    mime: image/jpeg
+    header: "FFD8FF"
+    footer: "FFD9"
+    max_size: 20971520
+    min_size: 128
+    notes: >-
+      FFD9 also terminates the embedded EXIF thumbnail, so the first footer is
+      often not the last. The structure parser walks segments instead; the
+      footer here only bounds the fallback.
+
+  - name: PNG
+    ext: png
+    mime: image/png
+    header: "89504E470D0A1A0A"
+    footer: "49454E44AE426082"
+    max_size: 52428800
+    min_size: 67
+    notes: >-
+      Footer is the complete IEND chunk including its CRC, so it is unambiguous.
+      min_size is the smallest legal PNG (8 magic + IHDR + IDAT + IEND).
+
+  - name: GIF87a
+    ext: gif
+    mime: image/gif
+    header: "474946383761"
+    footer: "003B"
+    max_size: 10485760
+    min_size: 35
+    notes: "Trailer 0x3B preceded by a zero block terminator."
+
+  - name: GIF89a
+    ext: gif
+    mime: image/gif
+    header: "474946383961"
+    footer: "003B"
+    max_size: 10485760
+    min_size: 35
+    notes: "Same trailer as 87a; animated files contain many 0x3B-like bytes."
+
+  - name: PDF
+    ext: pdf
+    mime: application/pdf
+    header: "255044462D"
+    footer: "2525454F46"
+    max_size: 104857600
+    min_size: 64
+    notes: >-
+      An incrementally updated PDF holds several %%EOF markers and the last one
+      ends the file. The structure parser follows startxref instead of guessing.
+
+  - name: ZIP
+    ext: zip
+    mime: application/zip
+    header: "504B0304"
+    footer: "504B0506"
+    max_size: 1073741824
+    min_size: 22
+    notes: >-
+      Footer is the end-of-central-directory signature. Also covers docx, xlsx,
+      pptx, odt and jar. The structure parser gives exact length; prefer it.
+
+  - name: MP4
+    ext: mp4
+    mime: video/mp4
+    header: "66747970"
+    header_offset: 4
+    max_size: 4294967296
+    min_size: 32
+    notes: >-
+      "ftyp" begins at byte 4, after the box size. No footer exists: length
+      comes from walking the top-level box sizes.
+
+  - name: SQLite
+    ext: sqlite
+    mime: application/vnd.sqlite3
+    header: "53514C69746520666F726D6174203300"
+    max_size: 4294967296
+    min_size: 512
+    notes: >-
+      Exact length is page_size (offset 16, big-endian u16, 1 meaning 65536)
+      multiplied by page_count (offset 28, big-endian u32). No footer.
+
+  - name: OLE
+    ext: doc
+    mime: application/x-ole-storage
+    header: "D0CF11E0A1B11AE1"
+    max_size: 268435456
+    min_size: 512
+    notes: >-
+      Legacy doc/xls/ppt/msi compound file. Length needs the FAT; reported
+      possibly-truncated until an OLE parser lands.
+
+  - name: ELF
+    ext: elf
+    mime: application/x-elf
+    header: "7F454C46"
+    max_size: 268435456
+    min_size: 52
+    notes: "Length from section header table offset plus its size."
+
+  - name: PE
+    ext: exe
+    mime: application/vnd.microsoft.portable-executable
+    header: "4D5A"
+    max_size: 268435456
+    min_size: 64
+    notes: >-
+      Two bytes only, so this matches often by chance. A candidate is only
+      credible when the e_lfanew offset points at a PE\0\0 signature.
+
+  - name: RAR
+    ext: rar
+    mime: application/vnd.rar
+    header: "526172211A0700"
+    max_size: 4294967296
+    min_size: 20
+    notes: "RAR 4.x. RAR 5 adds a trailing 0x01 byte to the same prefix."
+
+  - name: 7z
+    ext: 7z
+    mime: application/x-7z-compressed
+    header: "377ABCAF271C"
+    max_size: 4294967296
+    min_size: 32
+    notes: "Length lives in the end-of-archive header referenced from the start."
+
+  - name: EVTX
+    ext: evtx
+    mime: application/x-ms-evtx
+    header: "456C6646696C6500"
+    max_size: 268435456
+    min_size: 4096
+    notes: >-
+      "ElfFile\0". Windows event log; high forensic value. Length is chunk
+      count multiplied by 65536 plus the 4096-byte header.
+
+  - name: TIFF-LE
+    ext: tiff
+    mime: image/tiff
+    header: "49492A00"
+    max_size: 268435456
+    min_size: 8
+    notes: "Little-endian. Also the container for many raw camera formats."
+
+  - name: TIFF-BE
+    ext: tiff
+    mime: image/tiff
+    header: "4D4D002A"
+    max_size: 268435456
+    min_size: 8
+    notes: "Big-endian variant."
+
+  - name: BMP
+    ext: bmp
+    mime: image/bmp
+    header: "424D"
+    max_size: 268435456
+    min_size: 54
+    notes: >-
+      "BM", two bytes, so it matches by chance about once per 64 KiB of random
+      data. A candidate is only made when the 32-bit file size at offset 2, the
+      pixel-data offset at 10 and the DIB header size at 14 agree with each
+      other. The exact length is that file size field.
+
+  - name: WebP
+    ext: webp
+    mime: image/webp
+    header: "52494646"
+    max_size: 268435456
+    min_size: 20
+    notes: >-
+      RIFF container. "RIFF" alone is shared with WAV and AVI, so the form type
+      at offset 8 must read "WEBP". Length is 8 plus the RIFF size field.
+
+  - name: WAV
+    ext: wav
+    mime: audio/x-wav
+    header: "52494646"
+    max_size: 4294967296
+    min_size: 44
+    notes: >-
+      The same RIFF header as WebP; the form type at offset 8 must read "WAVE".
+      Length is 8 plus the RIFF size field.
+
+  - name: GZIP
+    ext: gz
+    mime: application/gzip
+    header: "1F8B08"
+    max_size: 4294967296
+    min_size: 20
+    notes: >-
+      Magic plus compression method 8, deflate; no other method was ever
+      assigned. There is no footer to search for - the 8-byte trailer is a CRC
+      and a length, both arbitrary bytes - so the end comes from inflating the
+      member under a byte cap.
+
+  - name: TAR
+    ext: tar
+    mime: application/x-tar
+    header: "7573746172"
+    header_offset: 257
+    max_size: 4294967296
+    min_size: 1024
+    notes: >-
+      "ustar" at byte 257 of a 512-byte member header. The header's own octal
+      checksum at offset 148 is verified before a candidate is made, which is
+      what keeps a five-byte magic from matching noise. One candidate is the
+      whole run of members, not one per member.
+
+  - name: RTF
+    ext: rtf
+    mime: application/rtf
+    header: "7B5C72746631"
+    max_size: 268435456
+    min_size: 16
+    notes: >-
+      "{\\rtf1". The document is a single brace group, so its end is the brace
+      that closes the first one - counted, not searched for.
+
+  - name: HTML
+    ext: html
+    mime: text/html
+    header: "3C21444F43545950452068746D6C"
+    footer: "3C2F68746D6C3E"
+    max_size: 67108864
+    min_size: 32
+    notes: >-
+      "<!DOCTYPE html", lower case. HTML carries no length field and has no
+      required footer: "</html>" is a convention, and a document that ends
+      without one is bounded by the next object instead and says so. Upper and
+      mixed-case doctypes are missed.
+
+  - name: HTML-tag
+    ext: html
+    mime: text/html
+    header: "3C68746D6C3E"
+    footer: "3C2F68746D6C3E"
+    max_size: 67108864
+    min_size: 32
+    notes: >-
+      "<html>", for a document with no doctype. Same bounding caveat as HTML.

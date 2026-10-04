@@ -1,0 +1,83 @@
+PRE-WRITE PLAN - REVIEW ONLY. NOTHING HAS BEEN WRITTEN.
+
+STATE                   BLOCKED
+WHY BLOCKED
+  - preflight refused: /dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0 has mounted filesystems: /run/media/v0idsai/SANCTUMREC. Unmount them yourself - if you did not know it was mounted, you do not yet know what is on it.
+NEXT                    resolve every reason listed, by hand, then run the preflight again; nothing here unmounts, elevates or retries on its own
+
+SUMMARY
+  DEVICE                  /dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0
+  CURRENT SERIAL SOURCE A B103B9C19DE1CCC1BD535ACB  (lsblk SERIAL (udev database))
+  CURRENT SERIAL SOURCE B B103B9C19DE1CCC1BD535ACB  (/sys/devices/pci0000:00/0000:00:08.3/0000:76:00.4/usb8/8-1/serial)
+  SERIAL AGREES           true
+  EXPECTED SERIAL         B103B9C19DE1CCC1BD535ACB
+  HUMAN CONFIRMATION      required - the operator types the serial into --confirm-serial; this plan has not performed or recorded it
+  MOUNT STATE             /run/media/v0idsai/SANCTUMREC
+  PREFLIGHT               REFUSED
+  IMAGE                   /tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/images/media-fat32-255m.img
+  CURRENT IMAGE SHA-256   None
+  RECORDED IMAGE SHA-256  None
+  IMAGE HASH AGREES: false
+  WRITE EXTENT            [0, None) - None bytes at 4096-byte granularity
+  BACKUP PATH             /tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/backup/sdb-head-backup.img
+  BACKUP EXTENT           none
+  BACKUP STATUS           absent
+  BACKUP LOCATION         the backup is on tmpfs, a different disk from sda
+  PRIVILEGE STATUS        INSUFFICIENT - this account cannot read the raw device (read=False, write=False)
+  APPROVED: false
+  VERDICT: REVIEW ONLY
+
+DEVICE
+  path               /dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0
+  model              TransMemory
+  transport          usb
+  removable          True
+  read-only flag     False
+  capacity           7759462400 bytes
+  expected serial    B103B9C19DE1CCC1BD535ACB
+  current serial     B103B9C19DE1CCC1BD535ACB
+  serial matches     True
+
+PARTITIONS AND MOUNTS
+  sda1  vfat  7758413824 bytes  mounts=['/run/media/v0idsai/SANCTUMREC']
+  mounted            ['/run/media/v0idsai/SANCTUMREC']
+  unmounted          False
+  preflight          REFUSED - /dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0 has mounted filesystems: /run/media/v0idsai/SANCTUMREC. Unmount them yourself - if you did not know it was mounted, you do not yet know what is on it.
+
+WRITE
+  source image       /tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/images/media-fat32-255m.img
+  image present      False
+  image sha256       None
+  offset             0
+  length             None bytes
+  blocks modified    [0, None) at 4096-byte granularity
+  partition table    yes - the write starts at LBA 0 and replaces the partition table or boot sector with the image's FAT32 boot sector
+  filesystem meta    yes - every filesystem structure inside the written range is replaced by the corpus image's own
+  outside the range  untouched, including a GPT secondary header at the end of the device, which the image does not reach and the backup does not cover
+
+BACKUP
+  path               /tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/backup/sdb-head-backup.img
+  provenance record  /tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/backup/sdb-head-backup.meta.json
+  size               absent
+  sha256             None
+  backup device      None
+  backup serial      None
+  location           the backup is on tmpfs, a different disk from sda
+  coverage status    False
+  restore status     no backup captured
+
+BLOCKING
+  - /tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/images/media-fat32-255m.img has not been built, so the write extent is unknown
+  - /tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/backup/sdb-head-backup.img does not exist
+  - preflight refused: /dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0 has mounted filesystems: /run/media/v0idsai/SANCTUMREC. Unmount them yourself - if you did not know it was mounted, you do not yet know what is on it.
+
+COMMAND, ONLY AFTER A HUMAN APPROVES THIS PLAN
+  sudo python3 scripts/media_benchmark.py write\
+    --device /dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0\
+    --work /tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work\
+    --expect-serial B103B9C19DE1CCC1BD535ACB\
+    --confirm-serial <type the device serial yourself>\
+    --i-understand-this-destroys-data
+
+APPROVED  false
+VERDICT   REVIEW ONLY - no write performed

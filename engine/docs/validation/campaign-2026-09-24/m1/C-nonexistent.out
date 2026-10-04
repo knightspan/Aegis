@@ -1,0 +1,4 @@
+{
+ "refused": "/dev/sdz does not exist. The device may be disconnected. No other device was substituted. Nothing was read and nothing was written.",
+ "kind": "unavailable"
+}

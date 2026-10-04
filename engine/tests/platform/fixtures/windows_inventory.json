@@ -1,0 +1,28 @@
+{
+  "disks": [
+    {"Number": 0, "FriendlyName": "Samsung SSD 980 PRO 1TB", "SerialNumber": "S5GXNX0T123456A     ", "Size": 1000204886016, "BusType": "NVMe", "IsBoot": true, "IsSystem": true, "IsOffline": false, "IsReadOnly": false, "PartitionStyle": "GPT", "UniqueId": "eui.0025385A11B2C3D4", "Manufacturer": "", "Model": "Samsung SSD 980 PRO 1TB", "Location": "PCI Slot 3"},
+    {"Number": 1, "FriendlyName": "WDC WD20EZAZ-00G", "SerialNumber": "WD-WX12A34B5678", "Size": 2000398934016, "BusType": 11, "IsBoot": false, "IsSystem": false, "IsOffline": false, "IsReadOnly": false, "PartitionStyle": "2", "UniqueId": "50014EE2B1C2D3E4", "Manufacturer": "WDC", "Model": "WD20EZAZ-00G", "Location": ""},
+    {"Number": 2, "FriendlyName": "Kingston DataTraveler 3.0", "SerialNumber": "E0D55EA574E2F4B1", "Size": 30943995904, "BusType": "USB", "IsBoot": false, "IsSystem": false, "IsOffline": false, "IsReadOnly": false, "PartitionStyle": "MBR", "UniqueId": "USBSTOR\\DISK&VEN_KINGSTON", "Manufacturer": "Kingston", "Model": "DataTraveler 3.0", "Location": ""},
+    {"Number": 3, "FriendlyName": "Samsung PSSD T7", "SerialNumber": "", "Size": 500107862016, "BusType": "USB", "IsBoot": false, "IsSystem": false, "IsOffline": false, "IsReadOnly": false, "PartitionStyle": "GPT", "UniqueId": "SAMSUNG_T7_UID", "Manufacturer": "Samsung", "Model": "PSSD T7", "Location": ""},
+    {"Number": 4, "FriendlyName": "Msft Virtual Disk", "SerialNumber": "", "Size": 1073741824, "BusType": "File Backed Virtual", "IsBoot": false, "IsSystem": false, "IsOffline": false, "IsReadOnly": false, "PartitionStyle": "RAW", "UniqueId": "VHD1", "Manufacturer": "Msft", "Model": "Virtual Disk", "Location": ""}
+  ],
+  "physical": [
+    {"DeviceId": "0", "MediaType": "SSD", "BusType": "NVMe", "SpindleSpeed": 0, "SerialNumber": "S5GXNX0T123456A"},
+    {"DeviceId": "1", "MediaType": 3, "BusType": "SATA", "SpindleSpeed": 5400, "SerialNumber": "WD-WX12A34B5678"},
+    {"DeviceId": "2", "MediaType": "Unspecified", "BusType": "USB", "SpindleSpeed": 4294967295, "SerialNumber": "E0D55EA574E2F4B1"},
+    {"DeviceId": "3", "MediaType": "SSD", "BusType": "USB", "SpindleSpeed": 0, "SerialNumber": "S6WXNS0R998877"}
+  ],
+  "partitions": [
+    {"DiskNumber": 0, "PartitionNumber": 1, "DriveLetter": "\u0000", "Size": 104857600, "Type": "System", "IsBoot": false, "IsSystem": true, "AccessPaths": ["\\\\?\\Volume{11111111-0000-0000-0000-000000000001}\\"]},
+    {"DiskNumber": 0, "PartitionNumber": 3, "DriveLetter": "C", "Size": 998000000000, "Type": "Basic", "IsBoot": true, "IsSystem": false, "AccessPaths": ["C:\\", "\\\\?\\Volume{11111111-0000-0000-0000-000000000003}\\"]},
+    {"DiskNumber": 1, "PartitionNumber": 1, "DriveLetter": "D", "Size": 2000397885440, "Type": "Basic", "IsBoot": false, "IsSystem": false, "AccessPaths": ["D:\\", "\\\\?\\Volume{22222222-0000-0000-0000-000000000001}\\"]},
+    {"DiskNumber": 2, "PartitionNumber": 1, "DriveLetter": "", "Size": 30943995904, "Type": "FAT32", "IsBoot": false, "IsSystem": false, "AccessPaths": "\\\\?\\Volume{33333333-0000-0000-0000-000000000001}\\"}
+  ],
+  "volumes": [
+    {"DriveLetter": "C", "FileSystem": "NTFS", "FileSystemLabel": "Windows", "DriveType": "Fixed", "Path": "\\\\?\\Volume{11111111-0000-0000-0000-000000000003}\\"},
+    {"DriveLetter": "D", "FileSystem": "NTFS", "FileSystemLabel": "Data", "DriveType": "Fixed", "Path": "\\\\?\\Volume{22222222-0000-0000-0000-000000000001}\\"}
+  ],
+  "pagefiles": "D:\\pagefile.sys",
+  "system_drive": "C:",
+  "hiberfil": true
+}

@@ -1,0 +1,29 @@
+{
+ "platform": "linux",
+ "capability": "volume_acquisition",
+ "device_class": "usb-flash",
+ "model": "TOSHIBA TransMemory",
+ "serial": "B103B9C19DE1CCC1BD535ACB",
+ "interface": "usb",
+ "os": "Fedora Linux 44 (Forty Four), kernel 6.19.10-300.fc44.x86_64",
+ "date": "2026-09-28",
+ "commit": "a4fde30d15405537b8c773224d5e2998e2580f2e",
+ "method": "O_RDONLY read of /dev/sda1 through the root helper after BLKROSET, flag read back (BLKROGET); raw, no compression; serial bound to the holding disk, size bound to the partition (7,758,413,824 bytes)",
+ "preflight": "Sanctum discovery row cross-checked against lsblk -O and udevadm (see lsblk-sda.json, udevadm-sda.txt); resolver state before the run: volume_acquisition IMPLEMENTED_NOT_PHYSICALLY_VALIDATED, helper running as root over the 0600 socket, /dev/sda1 mounted read-write vfat (a live volume; the report says it may change while read)",
+ "operation": "7,758,413,824 of 7,758,413,824 bytes read; write_blocked=true verified by flag_read_back; job acquire-16a2a4d41e5d",
+ "verification": "Independent sha256sum of /dev/sda1 and of the image both equal the job's SHA-256 b748b4b5f7f679ff8c0b0e6f96c82f2d6afe78f62057e1d65cdfb5e758d80a0c (independent-sha256.txt); signed report verifies (verify-report.txt)",
+ "artifacts": [
+  "docs/validation/volume-acquisition-2026-09-28/preflight-devices.json",
+  "docs/validation/volume-acquisition-2026-09-28/lsblk-sda.json",
+  "docs/validation/volume-acquisition-2026-09-28/udevadm-sda.txt",
+  "docs/validation/volume-acquisition-2026-09-28/job-acquire-16a2a4d41e5d.json",
+  "docs/validation/volume-acquisition-2026-09-28/acquire-16a2a4d41e5d.forensic.json",
+  "docs/validation/volume-acquisition-2026-09-28/acquire-16a2a4d41e5d.forensic.pdf",
+  "docs/validation/volume-acquisition-2026-09-28/independent-sha256.txt",
+  "docs/validation/volume-acquisition-2026-09-28/verify-report.txt"
+ ],
+ "report_hash": "a1ca0f1b1c5048c5a7723fc0a51ad8b966bbae0aa3a6ef6f436126d19dc6f3ec",
+ "ledger_entry": "acquire ledger entries for job acquire-16a2a4d41e5d in the report's audit_trail",
+ "limitations": "One USB flash stick only. The write block is BLKROSET at the block layer; no write was attempted to prove refusal. The volume was mounted read-write while read. Says nothing about other device classes or other platforms.",
+ "result": "PASS"
+}

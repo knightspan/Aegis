@@ -1,0 +1,272 @@
+{
+  "checks": {
+    "empty case list explains what to do": {
+      "ok": true,
+      "detail": ""
+    },
+    "the open case is the first panel": {
+      "ok": true,
+      "detail": ""
+    },
+    "its integrity is the chain's": {
+      "ok": true,
+      "detail": "CASE-2149\nSeized USB image, exhibit 4\ncase open\nChain VALID\nOverview\nEvidence\n0\nOperations\n0\nReports\n0\nAudit\n1\nINTEGRITY: VALID\nwhole chain, 2 entries; 1 name this case\nAll 2 entries verify, 0..1.\nEvidence\n0\nnone registered\nOperations\n0\nnone run\nReports\n0\nnone generated\nAudit entries\n1\nof 2 entries in the chain\nCase status\nopen\nOpened by\ntest-operator-1000 (uid 1000)\nOpened at\n2026-09-25 13:51:48Z\nLast updated\n2026-09-25 13:51:48Z\nRecovered artifacts\n0\nDescription\nSynthetic 32 MiB image\nThe counts above are read from this case's index document. The integrity verdict is read from the hash-chain"
+    },
+    "case status shown": {
+      "ok": true,
+      "detail": ""
+    },
+    "an empty case says so on every figure": {
+      "ok": true,
+      "detail": "CASE-2149\nSeized USB image, exhibit 4\ncase open\nChain VALID\nOverview\nEvidence\n0\nOperations\n0\nReports\n0\nAudit\n1\nINTEGRITY: VALID\nwhole chain, 2 entries; 1 name this case\nAll 2 entries verify, 0..1.\nEvidence\n0\nnone registered\nOperations\n0\nnone run\nReports\n0\nnone generated\nAudit entries\n1\nof 2 entries in the chain\nCase status\nopen\nOpened by\ntest-operator-1000 (uid 1000)\nOpened at\n2026-09-25 13:51:48Z\nLast updated\n2026-09-25 13:51:48Z\nRecovered artifacts\n0\nDescription\nSynthetic 32 MiB image\nThe counts above are read from this case's index document. The integrity verdict is read from the hash-chain"
+    },
+    "tabs carry counts": {
+      "ok": true,
+      "detail": ""
+    },
+    "exhibit listed by its own name": {
+      "ok": true,
+      "detail": "Exhibit\tSource\tType\tSource hash\tState\nEX-4\tcase2149.dd\traw image\tnot recorded\tregistered"
+    },
+    "a missing hash reads 'not recorded'": {
+      "ok": true,
+      "detail": "Exhibit\tSource\tType\tSource hash\tState\nEX-4\tcase2149.dd\traw image\tnot recorded\tregistered"
+    },
+    "recovery completes": {
+      "ok": true,
+      "detail": "carve-64b66e60725e"
+    },
+    "Recovery 1366: no sideways page scroll": {
+      "ok": true,
+      "detail": "[1134, 1134, 1366, 1366]"
+    },
+    "dry-run erase accepted as a simulation": {
+      "ok": true,
+      "detail": "{'job_id': 'erase-drive-da14bccd1620', 'kind': 'erase-drive', 'state': 'running', 'dry_run': True, 'stream_url': '/jobs/erase-drive-da14bccd1620/stream', 'notice': 'SIMULATION / NO PHYSICAL DEVICE MODIFIED'}"
+    },
+    "simulation completes": {
+      "ok": true,
+      "detail": ""
+    },
+    "Audit ledger timestamps are not truncated": {
+      "ok": true,
+      "detail": "[[196, 196, '2026-09-25 13:51:52Z'], [196, 196, '2026-09-25 13:51:51Z'], [196, 196, '2026-09-25 13:51:51Z'], [196, 196, '2026-09-25 13:51:50Z'], [196, 196, '2026-09-25 13:51:49Z']]"
+    },
+    "Audit 1366: no sideways page scroll": {
+      "ok": true,
+      "detail": "[1134, 1134, 1366, 1366]"
+    },
+    "1366: operations figure counts the simulation within the total": {
+      "ok": true,
+      "detail": "CASE-2149\nSeized USB image, exhibit 4\ncase open\nChain VALID\nOverview\nEvidence\n1\nOperations\n2\nReports\n1\nAudit\n8\nINTEGRITY: VALID\nwhole chain, 9 entries; 8 name this case\nAll 9 entries verify, 0..8.\nEvidence\n1\n0 with a recorded hash\nOperations\n2\n2 complete \u2014 1 of 2 simulated\nReports\n1\n1 signed\nAudit entries\n8\nof 9 entries in the chain\nCase status\nopen\nOpened by\ntest-operator-1000 (uid 1000)\nOpened at\n2026-09-25 13:51:48Z\nLast updated\n2026-09-25 13:51:53Z\nRecovered artifacts\n0\nDescription\nSynthetic 32 MiB image\nThe counts above are read from this case's index document. The integrity verdict is re"
+    },
+    "1366: reports figure says signed": {
+      "ok": true,
+      "detail": "CASE-2149\nSeized USB image, exhibit 4\ncase open\nChain VALID\nOverview\nEvidence\n1\nOperations\n2\nReports\n1\nAudit\n8\nINTEGRITY: VALID\nwhole chain, 9 entries; 8 name this case\nAll 9 entries verify, 0..8.\nEvidence\n1\n0 with a recorded hash\nOperations\n2\n2 complete \u2014 1 of 2 simulated\nReports\n1\n1 signed\nAudit entries\n8\nof 9 entries in the chain\nCase status\nopen\nOpened by\ntest-operator-1000 (uid 1000)\nOpened at\n2026-09-25 13:51:48Z\nLast updated\n2026-09-25 13:51:53Z\nRecovered artifacts\n0\nDescription\nSynthetic 32 MiB image\nThe counts above are read from this case's index document. The integrity verdict is re"
+    },
+    "1366: tab counts": {
+      "ok": true,
+      "detail": ""
+    },
+    "1366: case list keeps its title column": {
+      "ok": true,
+      "detail": "314"
+    },
+    "Cases 1366: no sideways page scroll": {
+      "ok": true,
+      "detail": "[1134, 1134, 1366, 1366]"
+    },
+    "1366: carve row in words": {
+      "ok": true,
+      "detail": "\tOperation\tJob state\tOperator\tReport\n\n\t\nRecovery (carve)\ncarve-64b66e60725e\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tSIGNED\n\n\t\nDrive sanitize\nSIMULATION\nerase-drive-da14bccd1620\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tnone"
+    },
+    "1366: the dry run is labelled SIMULATION": {
+      "ok": true,
+      "detail": "\tOperation\tJob state\tOperator\tReport\n\n\t\nRecovery (carve)\ncarve-64b66e60725e\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tSIGNED\n\n\t\nDrive sanitize\nSIMULATION\nerase-drive-da14bccd1620\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tnone"
+    },
+    "1366: the carve's report is shown as SIGNED": {
+      "ok": true,
+      "detail": "\tOperation\tJob state\tOperator\tReport\n\n\t\nRecovery (carve)\ncarve-64b66e60725e\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tSIGNED\n\n\t\nDrive sanitize\nSIMULATION\nerase-drive-da14bccd1620\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tnone"
+    },
+    "1366: operation words, SIMULATION and ids not clipped": {
+      "ok": true,
+      "detail": "[[256, 256, 'Recovery (carve)'], [256, 256, 'carve-64b66e60725e'], [256, 256, 'Drive sanitize\\nSIMULATION'], [256, 256, 'erase-drive-da14bccd1620']]"
+    },
+    "1366: report marked SIGNED with its hash": {
+      "ok": true,
+      "detail": ""
+    },
+    "1366: Open PDF offered": {
+      "ok": true,
+      "detail": ""
+    },
+    "1366: audit entries in words": {
+      "ok": true,
+      "detail": "CASE-2149\nSeized USB image, exhibit 4\ncase open\nChain VALID\nOverview\nEvidence\n1\nOperations\n2\nReports\n1\nAudit\n8\n\nThe hash-chained ledger entries that name this case, newest first. Each entry holds the SHA-256 of the one before it; the Audit screen verifies the whole chain and demonstrates tampering on a copy.\n\n\tSeq\tTimestamp\tActor\tEvent\tEntry hash\n\n\t8\t2026-09-25 13:51:53Z\ttest-operator-1000 (uid 10"
+    },
+    "1366: case audit timestamps not truncated": {
+      "ok": true,
+      "detail": "[[196, 196], [196, 196], [196, 196], [196, 196]]"
+    },
+    "Cases audit 1366: no sideways page scroll": {
+      "ok": true,
+      "detail": "[1134, 1134, 1366, 1366]"
+    },
+    "1024: operations figure counts the simulation within the total": {
+      "ok": true,
+      "detail": "CASE-2149\nSeized USB image, exhibit 4\ncase open\nChain VALID\nOverview\nEvidence\n1\nOperations\n2\nReports\n1\nAudit\n8\nINTEGRITY: VALID\nwhole chain, 9 entries; 8 name this case\nAll 9 entries verify, 0..8.\nEvidence\n1\n0 with a recorded hash\nOperations\n2\n2 complete \u2014 1 of 2 simulated\nReports\n1\n1 signed\nAudit entries\n8\nof 9 entries in the chain\nCase status\nopen\nOpened by\ntest-operator-1000 (uid 1000)\nOpened at\n2026-09-25 13:51:48Z\nLast updated\n2026-09-25 13:51:53Z\nRecovered artifacts\n0\nDescription\nSynthetic 32 MiB image\nThe counts above are read from this case's index document. The integrity verdict is re"
+    },
+    "1024: reports figure says signed": {
+      "ok": true,
+      "detail": "CASE-2149\nSeized USB image, exhibit 4\ncase open\nChain VALID\nOverview\nEvidence\n1\nOperations\n2\nReports\n1\nAudit\n8\nINTEGRITY: VALID\nwhole chain, 9 entries; 8 name this case\nAll 9 entries verify, 0..8.\nEvidence\n1\n0 with a recorded hash\nOperations\n2\n2 complete \u2014 1 of 2 simulated\nReports\n1\n1 signed\nAudit entries\n8\nof 9 entries in the chain\nCase status\nopen\nOpened by\ntest-operator-1000 (uid 1000)\nOpened at\n2026-09-25 13:51:48Z\nLast updated\n2026-09-25 13:51:53Z\nRecovered artifacts\n0\nDescription\nSynthetic 32 MiB image\nThe counts above are read from this case's index document. The integrity verdict is re"
+    },
+    "1024: tab counts": {
+      "ok": true,
+      "detail": ""
+    },
+    "1024: case list keeps its title column": {
+      "ok": true,
+      "detail": "328"
+    },
+    "Cases 1024: no sideways page scroll": {
+      "ok": true,
+      "detail": "[792, 792, 1024, 1024]"
+    },
+    "1024: carve row in words": {
+      "ok": true,
+      "detail": "\tOperation\tJob state\tOperator\tReport\n\n\t\nRecovery (carve)\ncarve-64b66e60725e\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tSIGNED\n\n\t\nDrive sanitize\nSIMULATION\nerase-drive-da14bccd1620\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tnone"
+    },
+    "1024: the dry run is labelled SIMULATION": {
+      "ok": true,
+      "detail": "\tOperation\tJob state\tOperator\tReport\n\n\t\nRecovery (carve)\ncarve-64b66e60725e\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tSIGNED\n\n\t\nDrive sanitize\nSIMULATION\nerase-drive-da14bccd1620\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tnone"
+    },
+    "1024: the carve's report is shown as SIGNED": {
+      "ok": true,
+      "detail": "\tOperation\tJob state\tOperator\tReport\n\n\t\nRecovery (carve)\ncarve-64b66e60725e\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tSIGNED\n\n\t\nDrive sanitize\nSIMULATION\nerase-drive-da14bccd1620\n\tCOMPLETE\ttest-operator-1000 (uid 1000)\tnone"
+    },
+    "1024: operation words, SIMULATION and ids not clipped": {
+      "ok": true,
+      "detail": "[[256, 256, 'Recovery (carve)'], [256, 256, 'carve-64b66e60725e'], [256, 256, 'Drive sanitize\\nSIMULATION'], [256, 256, 'erase-drive-da14bccd1620']]"
+    },
+    "1024: report marked SIGNED with its hash": {
+      "ok": true,
+      "detail": ""
+    },
+    "1024: Open PDF offered": {
+      "ok": true,
+      "detail": ""
+    },
+    "1024: audit entries in words": {
+      "ok": true,
+      "detail": "CASE-2149\nSeized USB image, exhibit 4\ncase open\nChain VALID\nOverview\nEvidence\n1\nOperations\n2\nReports\n1\nAudit\n8\n\nThe hash-chained ledger entries that name this case, newest first. Each entry holds the SHA-256 of the one before it; the Audit screen verifies the whole chain and demonstrates tampering on a copy.\n\n\tSeq\tTimestamp\tActor\tEvent\tEntry hash\n\n\t8\t2026-09-25 13:51:53Z\ttest-operator-1000 (uid 10"
+    },
+    "1024: case audit timestamps not truncated": {
+      "ok": true,
+      "detail": "[[196, 196], [196, 196], [196, 196], [196, 196]]"
+    },
+    "Cases audit 1024: no sideways page scroll": {
+      "ok": true,
+      "detail": "[792, 792, 1024, 1024]"
+    },
+    "1366: firmware Purge is UNVERIFIED, not supported": {
+      "ok": true,
+      "detail": "UNVERIFIED"
+    },
+    "1366: build identity names the commit": {
+      "ok": true,
+      "detail": ""
+    },
+    "1366: every status word is explained": {
+      "ok": true,
+      "detail": ""
+    },
+    "1366: detected-now line": {
+      "ok": true,
+      "detail": ""
+    },
+    "1366: not-proven-on-hardware list names firmware Purge and HPA/DCO": {
+      "ok": true,
+      "detail": ""
+    },
+    "1366: safety restrictions listed": {
+      "ok": true,
+      "detail": ""
+    },
+    "1366: no run-result heading on a standing limit": {
+      "ok": true,
+      "detail": ""
+    },
+    "Platform 1366: no sideways page scroll": {
+      "ok": true,
+      "detail": "[1134, 1134, 1366, 1366]"
+    },
+    "1024: firmware Purge is UNVERIFIED, not supported": {
+      "ok": true,
+      "detail": "UNVERIFIED"
+    },
+    "1024: build identity names the commit": {
+      "ok": true,
+      "detail": ""
+    },
+    "1024: every status word is explained": {
+      "ok": true,
+      "detail": ""
+    },
+    "1024: detected-now line": {
+      "ok": true,
+      "detail": ""
+    },
+    "1024: not-proven-on-hardware list names firmware Purge and HPA/DCO": {
+      "ok": true,
+      "detail": ""
+    },
+    "1024: safety restrictions listed": {
+      "ok": true,
+      "detail": ""
+    },
+    "1024: no run-result heading on a standing limit": {
+      "ok": true,
+      "detail": ""
+    },
+    "Platform 1024: no sideways page scroll": {
+      "ok": true,
+      "detail": "[792, 792, 1024, 1024]"
+    },
+    "Overview 1024: no sideways page scroll": {
+      "ok": true,
+      "detail": "[792, 792, 1024, 1024]"
+    },
+    "Devices 1024: no sideways page scroll": {
+      "ok": true,
+      "detail": "[792, 792, 1024, 1024]"
+    },
+    "Drive eraser 1024: no sideways page scroll": {
+      "ok": true,
+      "detail": "[792, 792, 1024, 1024]"
+    },
+    "File & folder eraser 1024: no sideways page scroll": {
+      "ok": true,
+      "detail": "[792, 792, 1024, 1024]"
+    },
+    "Recovery 1024: no sideways page scroll": {
+      "ok": true,
+      "detail": "[792, 792, 1024, 1024]"
+    },
+    "Audit 1024: no sideways page scroll": {
+      "ok": true,
+      "detail": "[792, 792, 1024, 1024]"
+    },
+    "no console errors": {
+      "ok": true,
+      "detail": "[]"
+    },
+    "no page errors": {
+      "ok": true,
+      "detail": "[]"
+    }
+  },
+  "console_errors": [],
+  "page_errors": [],
+  "passed": 66,
+  "total": 66
+}

@@ -1,0 +1,39 @@
+{
+  "commit": "76dde4246338f4cc5ca261d3b8fa1a275d0dbeaa",
+  "python": "3.11.16",
+  "build_info": {
+    "architecture": "x86_64",
+    "branch": "HEAD",
+    "build_date": "2026-09-25T18:38:40Z",
+    "builder": "local build",
+    "commit": "76dde4246338f4cc5ca261d3b8fa1a275d0dbeaa",
+    "node": "not recorded",
+    "platform": "linux",
+    "python": "3.11.13",
+    "signed": "no",
+    "version": "0.0.0"
+  },
+  "build_info_matches": true,
+  "modules": {
+    "archive": "PYZ.pyz",
+    "modules_at_commit": 92,
+    "identical": 92,
+    "differing": [],
+    "missing": [],
+    "extra": [],
+    "security_modules": {
+      "helper.authorization": true,
+      "api.authorization": true,
+      "core.authorization": true
+    }
+  },
+  "executable_sha256": "18d191eb153dea6c890ee6c62d268d0639e7ca6b539edf4d4bb43313caede946",
+  "ui": {
+    "files": 8,
+    "identical": 8,
+    "differing": [],
+    "missing": [],
+    "extra": []
+  },
+  "result": "PASS"
+}

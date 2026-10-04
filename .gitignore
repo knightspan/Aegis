@@ -1,0 +1,62 @@
+# Build outputs
+build/
+dist/
+out/
+test-out/
+release/
+*.class
+*.jar
+*.exe
+*.dll
+*.o
+*.obj
+*.res
+*.pdb
+nbproject/private/
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+node_modules/
+
+# Large or generated artefacts
+engine/models/*.pb
+*.zip
+*.7z
+*.rar
+
+# Evidence and case data must never be committed
+*.E0[0-9]
+*.e0[0-9]
+*.Ex0[0-9]
+*.dd
+*.img
+*.raw
+*.aff
+*.vmdk
+*.vhd
+*.vhdx
+*.aut
+cases/
+evidence/
+recovered/
+
+# Keys and local configuration
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+*.log
+
+# Editors and OS
+.idea/
+.vscode/
+*.swp
+Thumbs.db
+desktop.ini
+.DS_Store

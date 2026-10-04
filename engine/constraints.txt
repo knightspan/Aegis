@@ -1,0 +1,104 @@
+# Locked dependency set for Sanctum Forensics (full transitive lock).
+# Generated on Windows/CPython 3.11 with: pip freeze --exclude-editable
+# Regenerate the same way after any pyproject dependency change.
+#
+# Three things about the two native dependencies, established by building them
+# on Fedora 44 / CPython 3.11.16 on 2026-09-04. The long version, with the
+# configure snippets, is in docs/technical.md.
+#
+# 1. Python 3.11 is required. Fedora 44's `python3` is 3.14, which fails the
+#    `requires-python` pin and has no libewf-python wheel. Install python3.11
+#    and python3.11-devel; the Makefile bootstraps the venv with it.
+#
+# 2. pytsk3==20260715 ships a cp311 manylinux_2_28_x86_64 wheel. No libtsk
+#    build, no compiler, no sleuthkit package needed - the wheel bundles its
+#    own libtsk. (The sleuthkit CLI tools are still handy for debugging
+#    core/carve/fsaware.py, but nothing in this codebase calls them.)
+#
+# 3. libewf-python==20240506 has NO cp311 Linux wheel and builds from the
+#    bundled C source, so it needs gcc, make, python3.11-devel and zlib
+#    headers. Fedora's packaged libewf is 20140608 - ten years stale - and
+#    must NOT be linked against.
+#
+#    A plain `pip install` of it produces a module that reads E01 and cannot
+#    write one: upstream's setup.py passes `--disable-shared-libs`, which
+#    m4/zlib.m4 also reads as "use the local deflate", and libewf refuses write
+#    access without real zlib. Run scripts/build-libewf-python.sh to get a
+#    write-capable build; it patches the configure line, links -lz -lbz2, and
+#    verifies by round-tripping a container.
+annotated-doc==0.0.5
+annotated-types==0.8.0
+anyio==4.15.0
+ast_serialize==0.9.0
+blake3==1.0.9
+cffi==2.1.1
+charset-normalizer==3.5.1
+click==8.5.0
+colorama==0.4.6
+construct==2.10.70
+contourpy==1.3.3
+coverage==7.16.0
+cryptography==50.0.1
+cycler==0.12.1
+fastapi==0.141.1
+fonttools==4.64.0
+h11==0.16.0
+httpcore2==2.12.0
+httpx2==2.12.0
+idna==3.19
+iniconfig==2.3.0
+kiwisolver==1.5.1
+libewf-python==20240506
+librt==0.15.0
+lxml==6.1.3
+markdown-it-py==4.2.0
+matplotlib==3.11.1
+mdurl==0.1.2
+mypy==2.3.1
+mutagen==1.48.1
+mypy_extensions==1.1.0
+numpy==2.4.6
+olefile==0.47
+packaging==26.3
+pathspec==1.1.1
+piexif==1.1.3
+pikepdf==10.12.0
+pillow==12.3.0
+pluggy==1.6.0
+pyahocorasick==2.3.1
+pycparser==3.0
+pydantic==2.13.5
+pydantic_core==2.46.5
+Pygments==2.21.0
+pyparsing==3.3.2
+pytest==9.1.1
+pytest-cov==7.1.0
+python-dateutil==2.9.0.post0
+pytsk3==20260715
+PyYAML==6.0.3
+reportlab==5.0.1
+rich==15.0.0
+ruff==0.16.5
+shellingham==1.5.4
+six==1.17.0
+starlette==1.6.0
+structlog==26.1.0
+typer==0.27.2
+types-PyYAML==6.0.12.20260815
+truststore==0.10.4
+typing-inspection==0.4.4
+typing_extensions==4.16.0
+uvicorn==0.52.4
+
+# The `desktop` extra on Linux: pywebview with its Qt backend. Pinned from a
+# Fedora 44 / CPython 3.11 install on 2026-09-28. Limited to Linux so the
+# Windows and macOS package builds resolve exactly as before.
+bottle==0.13.4; sys_platform == "linux"
+proxy_tools==0.1.0; sys_platform == "linux"
+pywebview==6.2.1; sys_platform == "linux"
+PyQt6==6.11.0; sys_platform == "linux"
+PyQt6-Qt6==6.11.2; sys_platform == "linux"
+PyQt6-WebEngine==6.11.0; sys_platform == "linux"
+PyQt6-WebEngine-Qt6==6.11.2; sys_platform == "linux"
+PyQt6_sip==13.12.0; sys_platform == "linux"
+QtPy==2.4.3; sys_platform == "linux"

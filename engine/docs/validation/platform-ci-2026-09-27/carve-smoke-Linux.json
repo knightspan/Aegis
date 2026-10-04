@@ -1,0 +1,267 @@
+{
+  "executable": "dist/Sanctum-0.0.0-x86_64.AppImage",
+  "seed": 26149,
+  "image_sha256": "6b70f41c04af13bb75897f7a8b91daea611abfd15d0e672b012f80dddaeaba86",
+  "rows": [
+    {
+      "label": "png split by a 32 KiB gap",
+      "offset": 16384,
+      "expect": "reassembled from two runs, below HIGH",
+      "sha256": "d76c9319bab605e9057a0c238a9cbc84dc26fa81803567871cbcd164ec65cc78",
+      "found": true,
+      "duplicate_of": null,
+      "bucket": "MEDIUM",
+      "evidence_score": 7999,
+      "digest_matches_ground_truth": true
+    },
+    {
+      "label": "jpeg split by a 32 KiB gap",
+      "offset": 172032,
+      "expect": "reassembled from two runs, below HIGH",
+      "sha256": "e90b047522004a161e4100d9bb1a9e215d9cb51f8b1373e0d2dca72984f7f0a9",
+      "found": true,
+      "duplicate_of": null,
+      "bucket": "MEDIUM",
+      "evidence_score": 7999,
+      "digest_matches_ground_truth": true
+    },
+    {
+      "label": "intact png",
+      "offset": 249856,
+      "expect": "recovered whole, HIGH",
+      "sha256": "5d23dbb660f136f9e9385d2f39dace42c6a4ca73e93656a4fdc707c968f593d7",
+      "found": true,
+      "duplicate_of": null,
+      "bucket": "HIGH",
+      "evidence_score": 9000,
+      "digest_matches_ground_truth": true
+    },
+    {
+      "label": "duplicate of the intact png",
+      "offset": 372736,
+      "expect": "same digest as the intact png",
+      "sha256": "5d23dbb660f136f9e9385d2f39dace42c6a4ca73e93656a4fdc707c968f593d7",
+      "found": false,
+      "duplicate_of": 249856,
+      "bucket": null,
+      "evidence_score": null,
+      "digest_matches_ground_truth": false
+    },
+    {
+      "label": "png whose tail was overwritten",
+      "offset": 495616,
+      "expect": "not rebuilt, not valid",
+      "sha256": null,
+      "found": true,
+      "duplicate_of": null,
+      "bucket": "LOW",
+      "evidence_score": 3500,
+      "digest_matches_ground_truth": false
+    },
+    {
+      "label": "decoy png signature",
+      "offset": 651264,
+      "expect": "never HIGH",
+      "sha256": null,
+      "found": true,
+      "duplicate_of": null,
+      "bucket": "LOW",
+      "evidence_score": 2500,
+      "digest_matches_ground_truth": false
+    }
+  ],
+  "checks": [
+    {
+      "check": "acquire accepted",
+      "result": "PASS",
+      "detail": {
+        "job_id": "acquire-e8c28384d35c",
+        "kind": "acquire",
+        "state": "running",
+        "dry_run": false,
+        "stream_url": "/jobs/acquire-e8c28384d35c/stream",
+        "notice": ""
+      }
+    },
+    {
+      "check": "acquire completed",
+      "result": "PASS",
+      "detail": {
+        "job_id": "acquire-e8c28384d35c",
+        "kind": "acquire",
+        "state": "complete",
+        "settled": true,
+        "params": {
+          "source": "/tmp/sanctum-carvesmoke-tul2ss_n/carve-smoke-source.img",
+          "dest": "/tmp/sanctum-carvesmoke-tul2ss_n/state/evidence/carve-smoke/image.raw",
+          "fmt": "raw",
+          "compression": "fast",
+          "case_id": "",
+          "operator_label": "",
+          "actor": "runner (uid 1001)",
+          "platform": {
+            "family": "linux",
+            "os": "Ubuntu 22.04.5 LTS",
+            "os_version": "6.8.0-1064-azure",
+            "os_build": "6.8.0-1064-azure",
+            "machine": "x86_64",
+            "app_version": "0.0.0",
+            "tool_version": "sanctum-forensics/0.0.0",
+            "packaged": true,
+            "privilege": "standard",
+            "privilege_basis": "os.geteuid() returned 1001",
+            "helper": "in-process"
+          }
+        },
+        "progress_count": 2,
+        "dropped_progress": 0,
+        "latest": {
+          "job_id": "acquire-e8c28384d35c",
+          "phase": "read",
+          "pct_bp": 10000,
+          "bytes_done": 675840,
+          "bytes_total": 675840,
+          "throughput_bytes_per_sec": 344512066,
+          "eta_seconds": 0,
+          "message": "read 675840/675840"
+        },
+        "result": {
+          "job_id": "acquire-e8c28384d35c",
+          "source": {
+            "path": "/tmp/sanctum-carvesmoke-tul2ss_n/carve-smoke-source.img",
+            "fmt": "raw",
+            "size_bytes": 675840,
+            "sector_size": 512,
+            "sha256": "6b70f41c04af13bb75897f7a8b91daea611abfd15d0e672b012f80dddaeaba86",
+            "blake3": "8eaa7d1106adac027fa0f6ff0d3a33545e1af3e0870324a7ee701004411d913b",
+            "segments": [
+              "/tmp/sanctum-carvesmoke-tul2ss_n/state/evidence/carve-smoke/image.raw"
+            ],
+            "substituted_ranges": [],
+            "limitations": []
+          },
+          "dest_path": "/tmp/sanctum-carvesmoke-tul2ss_n/state/evidence/carve-smoke/image.raw",
+          "fmt": "raw",
+          "started_at": "2026-09-27T15:59:07.231750Z",
+          "finished_at": "2026-09-27T15:59:07.243711Z",
+          "operator": "runner (uid 1001)",
+          "tool_version": "sanctum-forensics/0.0.0",
+          "boot_id": "90151678-411d-457e-919e-af07b31f5ee6",
+          "monotonic_ns": 2951223,
+          "bytes_read": 675840,
+          "sha256": "6b70f41c04af13bb75897f7a8b91daea611abfd15d0e672b012f80dddaeaba86",
+          "blake3": "8eaa7d1106adac027fa0f6ff0d3a33545e1af3e0870324a7ee701004411d913b",
+          "chunk_bytes": 4194304,
+          "chunk_hashes": [
+            "6b70f41c04af13bb75897f7a8b91daea611abfd15d0e672b012f80dddaeaba86"
+          ],
+          "bad_sectors": [],
+          "limitations": [],
+          "resumed": false,
+          "write_blocked": false,
+          "write_block_verified_by": ""
+        },
+        "error": null,
+        "error_kind": null,
+        "remediation": "",
+        "started_at": "2026-09-27T15:59:07.231303+00:00",
+        "finished_at": "2026-09-27T15:59:07.246251+00:00",
+        "cancel_requested": false,
+        "actor": "runner (uid 1001)",
+        "actor_basis": "in-process helper: this API process's own uid. No privileged daemon was involved, so the identity is as trustworthy as the account running the API and no more.",
+        "reconstructed": false,
+        "ledger_entries": [
+          {
+            "seq": 1,
+            "ts_utc": "2026-09-27T15:59:07.238922Z",
+            "monotonic_ns": 248315772360,
+            "boot_id": "90151678-411d-457e-919e-af07b31f5ee6",
+            "actor": "runner (uid 1001)",
+            "operation": "acquire.start",
+            "params_hash": "d2a250b4fe1831cef54821c8df1f288e53b2ff21a8d6f5606b05ecfab6753322",
+            "result_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+            "prev_entry_hash": "4c64debaad6707494fce1ed759acd1afc16557ded0a98603ad3219fc3b67b2a5",
+            "entry_hash": "f29534cbb9e6853fc8a241336860e763ae221e7963f4062245780fe40e7eff58"
+          },
+          {
+            "seq": 2,
+            "ts_utc": "2026-09-27T15:59:07.245596Z",
+            "monotonic_ns": 248322447163,
+            "boot_id": "90151678-411d-457e-919e-af07b31f5ee6",
+            "actor": "runner (uid 1001)",
+            "operation": "acquire.complete",
+            "params_hash": "be72f79b9629ff1c7e1174813789ac8f97c4d1f9ceb3c588050ab2c981e94c53",
+            "result_hash": "355e8c5dd7810055d8e90d9770ede980355f8ef6a2837dcf7776abdbe774bd4f",
+            "prev_entry_hash": "f29534cbb9e6853fc8a241336860e763ae221e7963f4062245780fe40e7eff58",
+            "entry_hash": "0e41b31a13deff01388bdeb4421a8865bd434424369f3fa637485fb48bd7e46b"
+          },
+          {
+            "seq": 3,
+            "ts_utc": "2026-09-27T15:59:07.247971Z",
+            "monotonic_ns": 248324821938,
+            "boot_id": "90151678-411d-457e-919e-af07b31f5ee6",
+            "actor": "runner (uid 1001)",
+            "operation": "job.outcome",
+            "params_hash": "8cf88c797023a1567d42378503662aee595832a8d7bb393eaa126225886180f7",
+            "result_hash": "d7553d8839b6b8711c8d5a9cb2074ee3768c2ca67fbf0bf49f4947a8a588303e",
+            "prev_entry_hash": "0e41b31a13deff01388bdeb4421a8865bd434424369f3fa637485fb48bd7e46b",
+            "entry_hash": "63b363c9c764022ed5e62028a929d6ed8d3228c5e963a645ee8228723ba6348e"
+          }
+        ]
+      }
+    },
+    {
+      "check": "carve accepted - the signature table loaded from the packaged location without EvidenceIntegrityError",
+      "result": "PASS",
+      "detail": {
+        "job_id": "carve-113ba842b2f3",
+        "kind": "carve",
+        "state": "running",
+        "dry_run": false,
+        "stream_url": "/jobs/carve-113ba842b2f3/stream",
+        "notice": ""
+      }
+    },
+    {
+      "check": "carve completed",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "check": "media map present",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "png split by a 32 KiB gap (offset 16384)",
+      "result": "PASS",
+      "detail": "bucket=MEDIUM digest_ok=True"
+    },
+    {
+      "check": "jpeg split by a 32 KiB gap (offset 172032)",
+      "result": "PASS",
+      "detail": "bucket=MEDIUM digest_ok=True"
+    },
+    {
+      "check": "intact png (offset 249856)",
+      "result": "PASS",
+      "detail": "bucket=HIGH digest_ok=True"
+    },
+    {
+      "check": "duplicate of the intact png (offset 372736)",
+      "result": "PASS",
+      "detail": "deduplicated as expected"
+    },
+    {
+      "check": "png whose tail was overwritten (offset 495616)",
+      "result": "PASS",
+      "detail": "bucket=LOW"
+    },
+    {
+      "check": "decoy png signature (offset 651264)",
+      "result": "PASS",
+      "detail": "bucket=LOW"
+    }
+  ],
+  "result": "PASS"
+}

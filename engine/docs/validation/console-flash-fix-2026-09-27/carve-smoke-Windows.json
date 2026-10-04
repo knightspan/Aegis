@@ -1,0 +1,271 @@
+{
+  "executable": "C:\\Users\\runneradmin\\AppData\\Local\\Programs\\Sanctum\\Sanctum.exe",
+  "seed": 26149,
+  "image_sha256": "6b70f41c04af13bb75897f7a8b91daea611abfd15d0e672b012f80dddaeaba86",
+  "rows": [
+    {
+      "label": "png split by a 32 KiB gap",
+      "offset": 16384,
+      "expect": "reassembled from two runs, below HIGH",
+      "sha256": "d76c9319bab605e9057a0c238a9cbc84dc26fa81803567871cbcd164ec65cc78",
+      "found": true,
+      "duplicate_of": null,
+      "bucket": "MEDIUM",
+      "evidence_score": 7999,
+      "digest_matches_ground_truth": true
+    },
+    {
+      "label": "jpeg split by a 32 KiB gap",
+      "offset": 172032,
+      "expect": "reassembled from two runs, below HIGH",
+      "sha256": "e90b047522004a161e4100d9bb1a9e215d9cb51f8b1373e0d2dca72984f7f0a9",
+      "found": true,
+      "duplicate_of": null,
+      "bucket": "MEDIUM",
+      "evidence_score": 7999,
+      "digest_matches_ground_truth": true
+    },
+    {
+      "label": "intact png",
+      "offset": 249856,
+      "expect": "recovered whole, HIGH",
+      "sha256": "5d23dbb660f136f9e9385d2f39dace42c6a4ca73e93656a4fdc707c968f593d7",
+      "found": true,
+      "duplicate_of": null,
+      "bucket": "HIGH",
+      "evidence_score": 9000,
+      "digest_matches_ground_truth": true
+    },
+    {
+      "label": "duplicate of the intact png",
+      "offset": 372736,
+      "expect": "same digest as the intact png",
+      "sha256": "5d23dbb660f136f9e9385d2f39dace42c6a4ca73e93656a4fdc707c968f593d7",
+      "found": false,
+      "duplicate_of": 249856,
+      "bucket": null,
+      "evidence_score": null,
+      "digest_matches_ground_truth": false
+    },
+    {
+      "label": "png whose tail was overwritten",
+      "offset": 495616,
+      "expect": "not rebuilt, not valid",
+      "sha256": null,
+      "found": true,
+      "duplicate_of": null,
+      "bucket": "LOW",
+      "evidence_score": 3500,
+      "digest_matches_ground_truth": false
+    },
+    {
+      "label": "decoy png signature",
+      "offset": 651264,
+      "expect": "never HIGH",
+      "sha256": null,
+      "found": true,
+      "duplicate_of": null,
+      "bucket": "LOW",
+      "evidence_score": 2500,
+      "digest_matches_ground_truth": false
+    }
+  ],
+  "checks": [
+    {
+      "check": "acquire accepted",
+      "result": "PASS",
+      "detail": {
+        "job_id": "acquire-94e96c6b7639",
+        "kind": "acquire",
+        "state": "running",
+        "dry_run": false,
+        "stream_url": "/jobs/acquire-94e96c6b7639/stream",
+        "notice": ""
+      }
+    },
+    {
+      "check": "acquire completed",
+      "result": "PASS",
+      "detail": {
+        "job_id": "acquire-94e96c6b7639",
+        "kind": "acquire",
+        "state": "complete",
+        "settled": true,
+        "params": {
+          "source": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\sanctum-carvesmoke-krlpooe4\\carve-smoke-source.img",
+          "dest": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\sanctum-carvesmoke-krlpooe4\\state\\evidence\\carve-smoke\\image.raw",
+          "fmt": "raw",
+          "compression": "fast",
+          "case_id": "",
+          "operator_label": "",
+          "actor": "runneradmin (Windows account)",
+          "platform": {
+            "family": "windows",
+            "os": "Windows 11",
+            "os_version": "10",
+            "os_build": "10.0.26100",
+            "machine": "AMD64",
+            "app_version": "0.0.0",
+            "tool_version": "sanctum-forensics/0.0.0",
+            "packaged": true,
+            "privilege": "administrator",
+            "privilege_basis": "shell32.IsUserAnAdmin()",
+            "helper": "none"
+          }
+        },
+        "progress_count": 2,
+        "dropped_progress": 0,
+        "latest": {
+          "job_id": "acquire-94e96c6b7639",
+          "phase": "read",
+          "pct_bp": 10000,
+          "bytes_done": 675840,
+          "bytes_total": 675840,
+          "throughput_bytes_per_sec": 675840000000000,
+          "eta_seconds": 0,
+          "message": "read 675840/675840"
+        },
+        "result": {
+          "job_id": "acquire-94e96c6b7639",
+          "source": {
+            "path": "C:\\Users\\RUNNER~1\\AppData\\Local\\Temp\\sanctum-carvesmoke-krlpooe4\\carve-smoke-source.img",
+            "fmt": "raw",
+            "size_bytes": 675840,
+            "sector_size": 512,
+            "sha256": "6b70f41c04af13bb75897f7a8b91daea611abfd15d0e672b012f80dddaeaba86",
+            "blake3": "8eaa7d1106adac027fa0f6ff0d3a33545e1af3e0870324a7ee701004411d913b",
+            "segments": [
+              "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\sanctum-carvesmoke-krlpooe4\\state\\evidence\\carve-smoke\\image.raw"
+            ],
+            "substituted_ranges": [],
+            "limitations": [
+              "NO_SOFTWARE_WRITE_BLOCK: Windows provides no software write block equivalent to Linux BLKROSET. The source was opened read-only, but nothing prevents another process on this host from writing to it during acquisition. Use a hardware write blocker for evidence that will be presented; this image is suitable for triage only."
+            ]
+          },
+          "dest_path": "C:\\Users\\runneradmin\\AppData\\Local\\Temp\\sanctum-carvesmoke-krlpooe4\\state\\evidence\\carve-smoke\\image.raw",
+          "fmt": "raw",
+          "started_at": "2026-09-27T17:15:22.381428Z",
+          "finished_at": "2026-09-27T17:15:22.478343Z",
+          "operator": "runneradmin (Windows account)",
+          "tool_version": "sanctum-forensics/0.0.0",
+          "boot_id": "00000000-0000-0000-0000-7c1e389b9cc1",
+          "monotonic_ns": 16000000,
+          "bytes_read": 675840,
+          "sha256": "6b70f41c04af13bb75897f7a8b91daea611abfd15d0e672b012f80dddaeaba86",
+          "blake3": "8eaa7d1106adac027fa0f6ff0d3a33545e1af3e0870324a7ee701004411d913b",
+          "chunk_bytes": 4194304,
+          "chunk_hashes": [
+            "6b70f41c04af13bb75897f7a8b91daea611abfd15d0e672b012f80dddaeaba86"
+          ],
+          "bad_sectors": [],
+          "limitations": [
+            "NO_SOFTWARE_WRITE_BLOCK: Windows provides no software write block equivalent to Linux BLKROSET. The source was opened read-only, but nothing prevents another process on this host from writing to it during acquisition. Use a hardware write blocker for evidence that will be presented; this image is suitable for triage only."
+          ],
+          "resumed": false,
+          "write_blocked": false,
+          "write_block_verified_by": ""
+        },
+        "error": null,
+        "error_kind": null,
+        "remediation": "",
+        "started_at": "2026-09-27T17:15:22.381428+00:00",
+        "finished_at": "2026-09-27T17:15:22.500208+00:00",
+        "cancel_requested": false,
+        "actor": "runneradmin (Windows account)",
+        "actor_basis": "GetUserNameW on this process's token (Windows account, no numeric uid); no separate privileged helper runs on Windows",
+        "reconstructed": false,
+        "ledger_entries": [
+          {
+            "seq": 1,
+            "ts_utc": "2026-09-27T17:15:22.454750Z",
+            "monotonic_ns": 364984000000,
+            "boot_id": "00000000-0000-0000-0000-7c1e389b9cc1",
+            "actor": "runneradmin (Windows account)",
+            "operation": "acquire.start",
+            "params_hash": "7b63caf5965d98aa3ea57bd534c50765374a9b12e76bd760e84a9b440f50de25",
+            "result_hash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+            "prev_entry_hash": "e92b7151c57d427fce3d94c278f16f889cf8eb838178775b2c0b171a9a65d94a",
+            "entry_hash": "ce2725c2c0952060b153ccbf48003f63b46f7f1c7727dd396ba8ac13f3c219b5"
+          },
+          {
+            "seq": 2,
+            "ts_utc": "2026-09-27T17:15:22.492173Z",
+            "monotonic_ns": 365015000000,
+            "boot_id": "00000000-0000-0000-0000-7c1e389b9cc1",
+            "actor": "runneradmin (Windows account)",
+            "operation": "acquire.complete",
+            "params_hash": "ddaea02d410f7feca3508e52234f413e86059449bd4a63aa30cffa6dbdeccf6d",
+            "result_hash": "355e8c5dd7810055d8e90d9770ede980355f8ef6a2837dcf7776abdbe774bd4f",
+            "prev_entry_hash": "ce2725c2c0952060b153ccbf48003f63b46f7f1c7727dd396ba8ac13f3c219b5",
+            "entry_hash": "ac41f23cb1648b2d823ca92c8af8983881995faad75e572ed64ee399399d3866"
+          },
+          {
+            "seq": 3,
+            "ts_utc": "2026-09-27T17:15:22.518030Z",
+            "monotonic_ns": 365046000000,
+            "boot_id": "00000000-0000-0000-0000-7c1e389b9cc1",
+            "actor": "runneradmin (Windows account)",
+            "operation": "job.outcome",
+            "params_hash": "06db830c99a15f27f9f3aee6c77e14077b4a5b9ecb757f750de350349f9c2e87",
+            "result_hash": "138a4413a3f2547cb90e9292304b533d2e9707e24ea51ebd445f64555142b0d2",
+            "prev_entry_hash": "ac41f23cb1648b2d823ca92c8af8983881995faad75e572ed64ee399399d3866",
+            "entry_hash": "4555b42cd1c97e1146108e501d54c72211b69f98abbd18c37c0d2389e96693cc"
+          }
+        ]
+      }
+    },
+    {
+      "check": "carve accepted - the signature table loaded from the packaged location without EvidenceIntegrityError",
+      "result": "PASS",
+      "detail": {
+        "job_id": "carve-8090b2e9b115",
+        "kind": "carve",
+        "state": "running",
+        "dry_run": false,
+        "stream_url": "/jobs/carve-8090b2e9b115/stream",
+        "notice": ""
+      }
+    },
+    {
+      "check": "carve completed",
+      "result": "PASS",
+      "detail": null
+    },
+    {
+      "check": "media map present",
+      "result": "PASS",
+      "detail": ""
+    },
+    {
+      "check": "png split by a 32 KiB gap (offset 16384)",
+      "result": "PASS",
+      "detail": "bucket=MEDIUM digest_ok=True"
+    },
+    {
+      "check": "jpeg split by a 32 KiB gap (offset 172032)",
+      "result": "PASS",
+      "detail": "bucket=MEDIUM digest_ok=True"
+    },
+    {
+      "check": "intact png (offset 249856)",
+      "result": "PASS",
+      "detail": "bucket=HIGH digest_ok=True"
+    },
+    {
+      "check": "duplicate of the intact png (offset 372736)",
+      "result": "PASS",
+      "detail": "deduplicated as expected"
+    },
+    {
+      "check": "png whose tail was overwritten (offset 495616)",
+      "result": "PASS",
+      "detail": "bucket=LOW"
+    },
+    {
+      "check": "decoy png signature (offset 651264)",
+      "result": "PASS",
+      "detail": "bucket=LOW"
+    }
+  ],
+  "result": "PASS"
+}

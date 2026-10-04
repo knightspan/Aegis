@@ -1,0 +1,35 @@
+{
+  "apply_write_block": {
+    "applied": true,
+    "limitations": []
+  },
+  "blkroset_error": null,
+  "device": "/dev/sda",
+  "flag_after_set": 1,
+  "flag_at_start": 0,
+  "flag_final": 0,
+  "probe_bytes": 1048576,
+  "probe_offset": 4294967296,
+  "region_changed": false,
+  "region_distinct_bytes_before": [
+    165
+  ],
+  "region_sha256_after": "16c7f1d8a38b4b84560e558ab03b13c82e2ff374d87eaacb4df22f03604e7a4f",
+  "region_sha256_before": "16c7f1d8a38b4b84560e558ab03b13c82e2ff374d87eaacb4df22f03604e7a4f",
+  "restore": {
+    "flag_now": 0,
+    "flag_restored_to": 0,
+    "region_restored": true
+  },
+  "size_bytes": 7759462400,
+  "step": "write_block_probe",
+  "verdict": "WRITE_BLOCK_WORKS",
+  "verdict_detail": "The flag read back set and the write was refused. Software write block is real on this bridge.",
+  "write_attempt": {
+    "bytes_written": 0,
+    "open_errno": null,
+    "open_refused": false,
+    "write_errno": "EPERM",
+    "write_refused": true
+  }
+}

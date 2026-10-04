@@ -1,0 +1,58 @@
+{
+ "device": "/dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0",
+ "serial": "B103B9C19DE1CCC1BD535ACB",
+ "expect_serial": "B103B9C19DE1CCC1BD535ACB",
+ "serial_matches": true,
+ "device_size_bytes": 7759462400,
+ "safety": {
+  "verdict": "REFUSED",
+  "reason": "/dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0 has mounted filesystems: /run/media/v0idsai/SANCTUMREC. Unmount them yourself - if you did not know it was mounted, you do not yet know what is on it."
+ },
+ "backup": "/tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/backup/sdb-head-backup.img",
+ "backup_metadata": "/tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/backup/sdb-head-backup.meta.json",
+ "backup_record": null,
+ "backup_serial": null,
+ "backup_device": null,
+ "backup_present": false,
+ "backup_bytes": 0,
+ "backup_sha256": null,
+ "image_sha256": null,
+ "backup_image_sha256": null,
+ "image_sha256_matches": false,
+ "backup_covers_range": null,
+ "expected_write_range": null,
+ "write_extent": {
+  "image": "/tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/images/media-fat32-255m.img",
+  "image_present": false,
+  "offset": 0,
+  "length_bytes": null,
+  "granularity_bytes": 4096,
+  "sector_bytes": 512,
+  "modified_end_bytes": null,
+  "declared_media_size": 267386880,
+  "matches_declared_size": null
+ },
+ "location": {
+  "backup_source": "tmpfs",
+  "backup_disk": "",
+  "target_disk": "sda",
+  "on_host_storage": true,
+  "reason": "the backup is on tmpfs, a different disk from sda"
+ },
+ "sufficient_for_restoring_the_modified_region": false,
+ "blocking": [
+  "/tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/images/media-fat32-255m.img has not been built, so the write extent is unknown",
+  "/tmp/claude-1000/-home-v0idsai-Projects-sanctum-forensics/8b2e9ab0-3363-4037-a001-7a3e2ea34054/scratchpad/m1/work/backup/sdb-head-backup.img does not exist",
+  "preflight refused: /dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0 has mounted filesystems: /run/media/v0idsai/SANCTUMREC. Unmount them yourself - if you did not know it was mounted, you do not yet know what is on it."
+ ],
+ "restoration": "no backup captured",
+ "restore_command": null,
+ "host": {
+  "commit": "ec73747ae284bec86263d28a540d75217833a0fc",
+  "branch": "docs/readme-redesign",
+  "dirty": true,
+  "kernel": "Linux 6.19.10-300.fc44.x86_64",
+  "python": "3.11.16",
+  "timestamp": "2026-09-24T17:20:00Z"
+ }
+}

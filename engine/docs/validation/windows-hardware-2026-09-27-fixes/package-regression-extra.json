@@ -1,0 +1,59 @@
+{
+  "commit": "437081ed8d740771bc77fd535fea97938ccd0d2e",
+  "trace_sweep_present": true,
+  "trace_sweep": {
+    "searched": [
+      "Recycle Bin: C:\\$Recycle.Bin",
+      "Recent shortcuts: C:\\Users\\Invinciblx777\\AppData\\Roaming\\Microsoft\\Windows\\Recent"
+    ],
+    "not_searched": [
+      "Jump lists (AutomaticDestinations and CustomDestinations).",
+      "The thumbnail databases (thumbcache_*.db) and the Windows Search index.",
+      "Recent lists an application keeps for itself, such as Office's, and the RecentDocs registry key.",
+      "Volume Shadow Copies, File History, OneDrive and other sync clients."
+    ],
+    "traces": [],
+    "notes": []
+  },
+  "erase_record_keys": [
+    "attempted",
+    "bytes_overwritten",
+    "cleanse",
+    "dry_run",
+    "error",
+    "error_kind",
+    "findings",
+    "inspection",
+    "is_directory",
+    "limitations",
+    "ok",
+    "path",
+    "rename_chain",
+    "streams_removed",
+    "truncate_steps",
+    "unlinked",
+    "verification",
+    "xattrs_removed"
+  ],
+  "acquire_state": "complete",
+  "carve_state": "complete",
+  "carve_error": null,
+  "carve_result_keys": [
+    "candidates",
+    "evidence",
+    "image",
+    "limitations",
+    "media_map",
+    "partitions",
+    "unallocated_bytes",
+    "written"
+  ],
+  "candidates": 5,
+  "planted": 6,
+  "media_map_present": true,
+  "destroy_state": "complete",
+  "destroy_certificate_issued": true,
+  "destroy_certificate_verifies": true,
+  "quit_code": 0,
+  "exited_clean": true
+}

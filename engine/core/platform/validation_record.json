@@ -1,0 +1,655 @@
+{
+  "features": [
+    {
+      "app_version": "0.0.0",
+      "architecture": "x86_64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T08:51:25Z",
+      "evidence": "pytest",
+      "feature": "api_and_reporting",
+      "limitations": "In-process client; no browser and no packaged runtime involved.",
+      "os": "Ubuntu 24.04.5 LTS",
+      "os_version": "6.17.0-1022-azure",
+      "platform": "linux",
+      "result": "PASS",
+      "runner": "GitHub Actions Linux runner, run 35706589476",
+      "tests": [
+        "tests/api"
+      ]
+    },
+    {
+      "app_version": "0.0.0",
+      "architecture": "x86_64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T08:51:25Z",
+      "evidence": "platform-smoke-Linux.json",
+      "feature": "device_discovery",
+      "limitations": "Runner disks only: no removable device is attached to a CI runner.",
+      "os": "Ubuntu 24.04.5 LTS",
+      "os_version": "6.17.0-1022-azure",
+      "platform": "linux",
+      "result": "PASS",
+      "runner": "GitHub Actions Linux runner, run 35706589476",
+      "tests": [
+        "scripts/platform_smoke.py"
+      ]
+    },
+    {
+      "app_version": "0.0.0",
+      "architecture": "x86_64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T08:51:25Z",
+      "evidence": "pytest",
+      "feature": "file_folder_erase",
+      "limitations": "Journals, snapshots and flash remapping are reported, never removed; on copy-on-write filesystems the overwrite cannot reach the old blocks.",
+      "os": "Ubuntu 24.04.5 LTS",
+      "os_version": "6.17.0-1022-azure",
+      "platform": "linux",
+      "result": "PASS",
+      "runner": "GitHub Actions Linux runner, run 35706589476",
+      "tests": [
+        "tests/erase/files",
+        "tests/platform"
+      ]
+    },
+    {
+      "app_version": "",
+      "architecture": "x86_64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T09:02:46Z",
+      "evidence": "package-smoke-Linux.json",
+      "feature": "packaged_application",
+      "limitations": "Installed and driven by a script; no human, no desktop session.",
+      "os": "Ubuntu 22.04.5 LTS",
+      "os_version": "#72~22.04.1-Ubuntu SMP Wed Jul 22 23:39:45 UTC 2026",
+      "platform": "linux",
+      "result": "PASS",
+      "runner": "GitHub Actions Linux runner, run 35706589476",
+      "tests": [
+        "scripts/package_smoke.py"
+      ]
+    },
+    {
+      "app_version": "0.0.0",
+      "architecture": "x86_64",
+      "commit": "360b03ead72d",
+      "date": "2026-09-22T09:13:41Z",
+      "evidence": "pytest",
+      "feature": "recovery",
+      "limitations": "Synthetic images; no physical evidence.",
+      "os": "Fedora Linux 44 (Forty Four)",
+      "os_version": "6.19.10-300.fc44.x86_64",
+      "platform": "linux",
+      "result": "PASS",
+      "runner": "developer machine (Linux 6.19.10-300.fc44.x86_64)",
+      "tests": [
+        "tests/carve"
+      ]
+    },
+    {
+      "app_version": "0.0.0",
+      "architecture": "x86_64",
+      "commit": "360b03ead72d",
+      "date": "2026-09-22T09:13:41Z",
+      "evidence": "pytest",
+      "feature": "whole_drive_sanitization",
+      "limitations": "Linux only, and never executed against a physical device in CI.",
+      "os": "Fedora Linux 44 (Forty Four)",
+      "os_version": "6.19.10-300.fc44.x86_64",
+      "platform": "linux",
+      "result": "PASS",
+      "runner": "developer machine (Linux 6.19.10-300.fc44.x86_64)",
+      "tests": [
+        "tests/erase",
+        "tests/device",
+        "tests/helper"
+      ]
+    },
+    {
+      "app_version": "0.0.0",
+      "architecture": "arm64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T08:49:14Z",
+      "evidence": "pytest",
+      "feature": "api_and_reporting",
+      "limitations": "In-process client; no browser and no packaged runtime involved.",
+      "os": "macOS 14.8.9",
+      "os_version": "23.6.0",
+      "platform": "macos",
+      "result": "PASS",
+      "runner": "GitHub Actions macOS runner, run 35706589476",
+      "tests": [
+        "tests/api"
+      ]
+    },
+    {
+      "app_version": "0.0.0",
+      "architecture": "arm64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T08:49:14Z",
+      "evidence": "platform-smoke-macOS.json",
+      "feature": "device_discovery",
+      "limitations": "Runner disks only: no removable device is attached to a CI runner.",
+      "os": "macOS 14.8.9",
+      "os_version": "23.6.0",
+      "platform": "macos",
+      "result": "PASS",
+      "runner": "GitHub Actions macOS runner, run 35706589476",
+      "tests": [
+        "scripts/platform_smoke.py"
+      ]
+    },
+    {
+      "app_version": "0.0.0",
+      "architecture": "arm64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T08:49:14Z",
+      "evidence": "pytest",
+      "feature": "file_folder_erase",
+      "limitations": "Journals, snapshots and flash remapping are reported, never removed; on copy-on-write filesystems the overwrite cannot reach the old blocks.",
+      "os": "macOS 14.8.9",
+      "os_version": "23.6.0",
+      "platform": "macos",
+      "result": "PASS",
+      "runner": "GitHub Actions macOS runner, run 35706589476",
+      "tests": [
+        "tests/erase/files",
+        "tests/platform"
+      ]
+    },
+    {
+      "app_version": "",
+      "architecture": "arm64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T09:02:35Z",
+      "evidence": "package-smoke-macOS.json",
+      "feature": "packaged_application",
+      "limitations": "Installed and driven by a script; no human, no desktop session.",
+      "os": "macOS 14.8.9",
+      "os_version": "Darwin Kernel Version 23.6.0: Tue Jul 21 21:56:54 PDT 2026; root:xnu-10063.141.1.713.39~1/RELEASE_ARM64_VMAPPLE",
+      "platform": "macos",
+      "result": "PASS",
+      "runner": "GitHub Actions macOS runner, run 35706589476",
+      "tests": [
+        "scripts/package_smoke.py"
+      ]
+    },
+    {
+      "app_version": "",
+      "architecture": "arm64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T09:02:35Z",
+      "evidence": "tests/carve (cross-platform, CI-validated on Linux)",
+      "feature": "recovery",
+      "limitations": "Code exists and tests pass on Linux. No macOS-specific recovery test suite or physical validation yet.",
+      "os": "macOS 14.8.9",
+      "os_version": "Darwin Kernel Version 23.6.0: Tue Jul 21 21:56:54 PDT 2026; root:xnu-10063.141.1.713.39~1/RELEASE_ARM64_VMAPPLE",
+      "platform": "macos",
+      "result": "IMPLEMENTED",
+      "runner": "GitHub Actions macOS runner, run 35706589476",
+      "tests": []
+    },
+    {
+      "app_version": "",
+      "architecture": "arm64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T09:02:35Z",
+      "evidence": "core/erase/blockclear.py, core/platform/macos.py",
+      "feature": "whole_drive_sanitization",
+      "limitations": "Code exists for external devices only (internal APFS storage is refused by safety policy). No macOS physical validation.",
+      "os": "macOS 14.8.9",
+      "os_version": "Darwin Kernel Version 23.6.0: Tue Jul 21 21:56:54 PDT 2026; root:xnu-10063.141.1.713.39~1/RELEASE_ARM64_VMAPPLE",
+      "platform": "macos",
+      "result": "IMPLEMENTED",
+      "runner": "GitHub Actions macOS runner, run 35706589476",
+      "tests": []
+    },
+    {
+      "app_version": "0.0.0",
+      "architecture": "AMD64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T09:00:02Z",
+      "evidence": "pytest",
+      "feature": "api_and_reporting",
+      "limitations": "In-process client; no browser and no packaged runtime involved.",
+      "os": "Windows 11",
+      "os_version": "10.0.26100",
+      "platform": "windows",
+      "result": "PASS",
+      "runner": "GitHub Actions Windows runner, run 35706589476",
+      "tests": [
+        "tests/api"
+      ]
+    },
+    {
+      "app_version": "0.0.0",
+      "architecture": "AMD64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T09:00:02Z",
+      "evidence": "platform-smoke-Windows.json",
+      "feature": "device_discovery",
+      "limitations": "Runner disks only: no removable device is attached to a CI runner.",
+      "os": "Windows 11",
+      "os_version": "10.0.26100",
+      "platform": "windows",
+      "result": "PASS",
+      "runner": "GitHub Actions Windows runner, run 35706589476",
+      "tests": [
+        "scripts/platform_smoke.py"
+      ]
+    },
+    {
+      "app_version": "0.0.0",
+      "architecture": "AMD64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T09:00:02Z",
+      "evidence": "pytest",
+      "feature": "file_folder_erase",
+      "limitations": "Journals, snapshots and flash remapping are reported, never removed; on copy-on-write filesystems the overwrite cannot reach the old blocks.",
+      "os": "Windows 11",
+      "os_version": "10.0.26100",
+      "platform": "windows",
+      "result": "PASS",
+      "runner": "GitHub Actions Windows runner, run 35706589476",
+      "tests": [
+        "tests/erase/files",
+        "tests/platform"
+      ]
+    },
+    {
+      "app_version": "",
+      "architecture": "AMD64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T09:03:05Z",
+      "evidence": "package-smoke-Windows.json",
+      "feature": "packaged_application",
+      "limitations": "Installed and driven by a script; no human, no desktop session.",
+      "os": "Windows 11",
+      "os_version": "10.0.26100",
+      "platform": "windows",
+      "result": "PASS",
+      "runner": "GitHub Actions Windows runner, run 35706589476",
+      "tests": [
+        "scripts/package_smoke.py"
+      ]
+    },
+    {
+      "app_version": "",
+      "architecture": "AMD64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T09:03:05Z",
+      "evidence": "tests/carve (cross-platform, CI-validated on Linux)",
+      "feature": "recovery",
+      "limitations": "Code exists and tests pass on Linux. No Windows-specific recovery test suite or physical validation yet.",
+      "os": "Windows 11",
+      "os_version": "10.0.26100",
+      "platform": "windows",
+      "result": "IMPLEMENTED",
+      "runner": "GitHub Actions Windows runner, run 35706589476",
+      "tests": []
+    },
+    {
+      "app_version": "",
+      "architecture": "AMD64",
+      "commit": "ba13a9a73bf8",
+      "date": "2026-09-22T09:03:05Z",
+      "evidence": "core/erase/blockclear.py, core/platform/windows.py",
+      "feature": "whole_drive_sanitization",
+      "limitations": "Code exists (blockclear.py + windows.py). No Windows physical validation yet.",
+      "os": "Windows 11",
+      "os_version": "10.0.26100",
+      "platform": "windows",
+      "result": "IMPLEMENTED",
+      "runner": "GitHub Actions Windows runner, run 35706589476",
+      "tests": []
+    }
+  ],
+  "hardware": {},
+  "note": "Written by scripts/record_platform_validation.py from real pytest runs. Do not edit by hand. A missing entry means NOT RUN.",
+  "physical_validations": [
+    {
+      "artifacts": [
+        "docs/validation/hardware.md"
+      ],
+      "capability": "whole_drive_clear",
+      "commit": "not recorded: hardware.md names the run directory results-20260905T033655Z, not a build commit",
+      "date": "2026-09-05",
+      "device_class": "usb-flash",
+      "interface": "usb",
+      "ledger_entry": "not committed: the run directory is summarised in hardware.md",
+      "method": "SINGLE_PASS_OVERWRITE with the 0xA5 fill substituted after write calibration measured zero-elision; O_DIRECT, 4 MiB buffer",
+      "model": "TOSHIBA TransMemory",
+      "operation": "7,759,462,400 of 7,759,462,400 bytes written in 1910.76 s",
+      "os": "Linux (validation host, hardware.md Phase A)",
+      "platform": "linux",
+      "preflight": "Enumeration cross-check against lsblk and udevadm (0 disagreements); capability probe CLEAR only; HPA/DCO not probed behind the USB bridge, recorded as a limitation",
+      "report_hash": "not committed: the run directory is summarised in hardware.md",
+      "result": "PASS",
+      "serial": "B103B9C19DE1CCC1BD535ACB",
+      "verification": "Full read-back; PhotoRec recovered 14 of 14 planted files before the wipe and 0 after"
+    },
+    {
+      "artifacts": [
+        "docs/validation/hardware.md"
+      ],
+      "capability": "device_discovery",
+      "commit": "not recorded: hardware.md names the run directory results-20260905T033655Z, not a build commit",
+      "date": "2026-09-05",
+      "device_class": "usb-flash",
+      "interface": "usb",
+      "ledger_entry": "n/a",
+      "method": "Sanctum discovery compared field by field with lsblk -O and udevadm",
+      "model": "TOSHIBA TransMemory",
+      "operation": "model, serial, size, transport and rotational flag read",
+      "os": "Linux (validation host, hardware.md Phase A)",
+      "platform": "linux",
+      "preflight": "n/a (read-only)",
+      "report_hash": "n/a",
+      "result": "PASS",
+      "serial": "B103B9C19DE1CCC1BD535ACB",
+      "verification": "0 disagreements across three sources (hardware.md A.1)"
+    },
+    {
+      "artifacts": [
+        "docs/validation/hardware.md"
+      ],
+      "capability": "raw_acquisition",
+      "commit": "not recorded: hardware.md names the run directories results-20260905T081354Z, T082418Z and T082656Z, not a build commit",
+      "date": "2026-09-05",
+      "device_class": "usb-flash",
+      "interface": "usb",
+      "ledger_entry": "not committed: the run directories are summarised in hardware.md",
+      "method": "Raw acquisition with BLKROSET applied and read back, SHA-256 in the read pass",
+      "model": "TOSHIBA TransMemory",
+      "operation": "Three acquisitions of the stick (FAT32 delete, exFAT delete, FAT32 quick format)",
+      "os": "Linux (validation host, hardware.md Phase B)",
+      "platform": "linux",
+      "preflight": "Write block verified with BLKROGET before the read",
+      "report_hash": "not committed: the run directories are summarised in hardware.md",
+      "result": "PASS",
+      "serial": "B103B9C19DE1CCC1BD535ACB",
+      "verification": "Every acquisition verified clean with zero bad sectors; carving recovered 456/456, 460/460 and 10 of the 10 recoverable files byte-exact"
+    },
+    {
+      "artifacts": [
+        "docs/validation/windows-hardware-2026-09-27/README.md",
+        "docs/validation/windows-hardware-2026-09-27-fixes/README.md"
+      ],
+      "capability": "device_discovery",
+      "commit": "2d00526 (first run); re-run at 437081ed8d740771bc77fd535fea97938ccd0d2e",
+      "date": "2026-09-27",
+      "device_class": "usb-flash",
+      "interface": "usb",
+      "ledger_entry": "n/a",
+      "method": "Installed SanctumSetup.exe; Storage-module discovery",
+      "model": "TOSHIBA TransMemory (label SANCTUMREC)",
+      "operation": "The stick was discovered and the mounted-device refusal shown; nothing on it was opened for writing or raw reading",
+      "os": "Windows 11 Home 10.0.26200",
+      "platform": "windows",
+      "preflight": "n/a (read-only)",
+      "report_hash": "n/a",
+      "result": "PASS",
+      "serial": "B (Windows reports this bridge's serial as one character; recorded as observed)",
+      "verification": "Discovery row compared with Windows Disk Management"
+    },
+    {
+      "artifacts": [
+        "docs/validation/windows-hardware-2026-09-27/README.md",
+        "docs/validation/windows-hardware-2026-09-27-fixes/README.md"
+      ],
+      "capability": "file_erase",
+      "commit": "437081ed8d740771bc77fd535fea97938ccd0d2e",
+      "date": "2026-09-27",
+      "device_class": "unknown",
+      "interface": "not recorded",
+      "ledger_entry": "not committed",
+      "method": "M2 file and folder erase on NTFS through the installed application",
+      "model": "host system disk (model not recorded)",
+      "operation": "File and folder erase through the installed Sanctum.exe",
+      "os": "Windows 11 Home Single Language 10.0.26200, AMD64",
+      "platform": "windows",
+      "preflight": "Scratch directory created by the smoke test under the user's temp folder; nothing on SANCTUMREC touched",
+      "report_hash": "not committed",
+      "result": "PASS",
+      "serial": "not recorded",
+      "verification": "Read-back verification, signed certificate issued and verified, all PASS"
+    },
+    {
+      "artifacts": [
+        "docs/validation/volume-acquisition-2026-09-28/preflight-devices.json",
+        "docs/validation/volume-acquisition-2026-09-28/lsblk-sda.json",
+        "docs/validation/volume-acquisition-2026-09-28/udevadm-sda.txt",
+        "docs/validation/volume-acquisition-2026-09-28/job-acquire-16a2a4d41e5d.json",
+        "docs/validation/volume-acquisition-2026-09-28/acquire-16a2a4d41e5d.forensic.json",
+        "docs/validation/volume-acquisition-2026-09-28/acquire-16a2a4d41e5d.forensic.pdf",
+        "docs/validation/volume-acquisition-2026-09-28/independent-sha256.txt",
+        "docs/validation/volume-acquisition-2026-09-28/verify-report.txt"
+      ],
+      "capability": "volume_acquisition",
+      "commit": "a4fde30d15405537b8c773224d5e2998e2580f2e",
+      "date": "2026-09-28",
+      "device_class": "usb-flash",
+      "interface": "usb",
+      "ledger_entry": "acquire ledger entries for job acquire-16a2a4d41e5d in the report's audit_trail",
+      "limitations": "One USB flash stick only. The write block is BLKROSET at the block layer; no write was attempted to prove refusal. The volume was mounted read-write while read. Says nothing about other device classes or other platforms.",
+      "method": "O_RDONLY read of /dev/sda1 through the root helper after BLKROSET, flag read back (BLKROGET); raw, no compression; serial bound to the holding disk, size bound to the partition (7,758,413,824 bytes)",
+      "model": "TOSHIBA TransMemory",
+      "operation": "7,758,413,824 of 7,758,413,824 bytes read; write_blocked=true verified by flag_read_back; job acquire-16a2a4d41e5d",
+      "os": "Fedora Linux 44 (Forty Four), kernel 6.19.10-300.fc44.x86_64",
+      "platform": "linux",
+      "preflight": "Sanctum discovery row cross-checked against lsblk -O and udevadm (see lsblk-sda.json, udevadm-sda.txt); resolver state before the run: volume_acquisition IMPLEMENTED_NOT_PHYSICALLY_VALIDATED, helper running as root over the 0600 socket, /dev/sda1 mounted read-write vfat (a live volume; the report says it may change while read)",
+      "report_hash": "a1ca0f1b1c5048c5a7723fc0a51ad8b966bbae0aa3a6ef6f436126d19dc6f3ec",
+      "result": "PASS",
+      "serial": "B103B9C19DE1CCC1BD535ACB",
+      "verification": "Independent sha256sum of /dev/sda1 and of the image both equal the job's SHA-256 b748b4b5f7f679ff8c0b0e6f96c82f2d6afe78f62057e1d65cdfb5e758d80a0c (independent-sha256.txt); signed report verifies (verify-report.txt)"
+    },
+    {
+      "artifacts": [
+        "docs/validation/linux-file-erase-restore-2026-09-29/README.md",
+        "docs/validation/linux-file-erase-restore-2026-09-29/ledger-excerpt.jsonl",
+        "docs/validation/linux-file-erase-restore-2026-09-29/blobs/0787eef47cdd2b517688c49b8b27ab3b633bb5eba8e2a04193902e7482055664",
+        "docs/validation/linux-file-erase-restore-2026-09-29/blobs/8285b78311a50bcd97e3530e044fc1559e8c51ab78af54ac830d889f68254e90",
+        "docs/validation/linux-file-erase-restore-2026-09-29/blobs/0234e9bada91f6e446b3591ad3670b14bb16fb2e638a3a902e50199e5bbe378e"
+      ],
+      "capability": "file_erase",
+      "commit": "not recorded: unpackaged development tree, ledger records tool_version 0.0.0",
+      "date": "2026-09-28",
+      "device_class": "usb-flash",
+      "interface": "usb",
+      "ledger_entry": "seq 15-27 in ledger-excerpt.jsonl (job erase-files-9d78dbec154e)",
+      "limitations": "One file on one FAT32 USB stick. The overwrite could not be read back, so this run does not show the old bytes are gone from the medium; FILE_SLACK was reported and not reachable through a file handle. Flash wear-levelling may have kept older pages. Says nothing about ext4, btrfs, xfs or other device classes, or other platforms.",
+      "method": "M2 file erase through the app, in-process helper as uid 1000: JPEG metadata cleanse, overwrite, truncate 17229/11486/5743/0, 8-step rename chain, unlink, then a trace sweep that erased one thumbnail-cache copy",
+      "model": "TOSHIBA TransMemory",
+      "operation": "job erase-files-9d78dbec154e: 22,973 bytes overwritten, file unlinked, ok=true; an earlier job erase-files-d7d281692fb6 on a relative path failed with ENOENT and erased nothing",
+      "os": "Fedora Linux 44 (Forty Four), kernel 6.19.10-300.fc44.x86_64",
+      "platform": "linux",
+      "preflight": "One file, /run/media/v0idsai/SANCTUMREC/img01.jpg (vfat, 22,973 bytes, 4096-byte clusters), on the mounted test stick; the inspection recorded FILE_SLACK MEDIUM and that vfat answers no FIEMAP",
+      "report_hash": "not committed: no signed report was saved for this job; the result is in the ledger blob 0787eef4...",
+      "result": "PASS",
+      "serial": "B103B9C19DE1CCC1BD535ACB",
+      "verification": "NOT VERIFIED BY READ-BACK: verification.passed is null (strategy not_possible, 0 bytes and 0 extents checked) because vfat gives no extent map. The ledger chain (seq 15-27) is intact."
+    },
+    {
+      "artifacts": [
+        "docs/validation/linux-file-erase-restore-2026-09-29/README.md",
+        "docs/validation/linux-file-erase-restore-2026-09-29/ledger-excerpt.jsonl",
+        "docs/validation/linux-file-erase-restore-2026-09-29/blobs/8d3afa186bcd9d8f7a377e37696c517363fe5ecbef06e4ede21723c5a8de2334",
+        "docs/validation/linux-file-erase-restore-2026-09-29/blobs/5d9ba094325147fd776f1278b5f95cf4cac278a75ec8591a350a3e7376b04703"
+      ],
+      "capability": "backup_restore",
+      "commit": "not recorded: unpackaged development tree, ledger records tool_version 0.0.0",
+      "date": "2026-09-29",
+      "device_class": "usb-flash",
+      "interface": "usb",
+      "ledger_entry": "seq 172-206 in ledger-excerpt.jsonl (job restore-00b0e02a18df)",
+      "limitations": "One USB flash stick, same-device restore only. READ_BACK_THROUGH_OS: a volatile write cache can still answer the read, so this shows the bytes read back now, not that they survive power loss. The backup image is operator-supplied and its hashes are not proof of provenance. An earlier restore attempt (seq 138-169) has no completion entry. Says nothing about other device classes, cross-device restore, or other platforms.",
+      "method": "Whole-device restore of a backup image onto the device it was taken from (identity_relation same_device), authorised and typed-serial confirmed, written from offset 0",
+      "model": "TOSHIBA TransMemory",
+      "operation": "job restore-00b0e02a18df: 7,759,462,400 of 7,759,462,400 bytes written; result RESTORED_VERIFIED",
+      "os": "Fedora Linux 44 (Forty Four), kernel 6.19.10-300.fc44.x86_64",
+      "platform": "linux",
+      "preflight": "Target /dev/sda not mounted, not a system disk; backup bk-40549f6d27c0b9f8, image sha256 d4e1181b1d96783a97fdc44ae29d170a14c381d58d8176b523df6c572f630a91; plan digest d8f57928...",
+      "report_hash": "not committed: no signed report was saved for this job; the result is in the ledger blob 8d3afa18...",
+      "result": "PASS",
+      "serial": "B103B9C19DE1CCC1BD535ACB",
+      "verification": "Read-back of all 7,759,462,400 bytes through the OS after flush: actual sha256 equals expected sha256 d4e1181b...; 0 mismatched chunks, 0 unreadable chunks. Ledger chain (seq 172-206) intact."
+    }
+  ],
+  "suites": {
+    "linux": {
+      "api": {
+        "commit": "ba13a9a73bf8",
+        "counts": {
+          "errors": 0,
+          "failed": 0,
+          "passed": 208,
+          "skipped": 2
+        },
+        "date": "2026-09-22T08:51:25Z",
+        "exit_code": 0,
+        "os": "Ubuntu 24.04.5 LTS 6.17.0-1022-azure",
+        "paths": [
+          "tests/api"
+        ],
+        "python": "3.11.16",
+        "runner": "GitHub Actions Linux runner, run 35706589476",
+        "state": "PASS"
+      },
+      "file_erase": {
+        "commit": "ba13a9a73bf8",
+        "counts": {
+          "errors": 0,
+          "failed": 0,
+          "passed": 244,
+          "skipped": 30
+        },
+        "date": "2026-09-22T08:51:09Z",
+        "exit_code": 0,
+        "os": "Ubuntu 24.04.5 LTS 6.17.0-1022-azure",
+        "paths": [
+          "tests/erase/files",
+          "tests/platform"
+        ],
+        "python": "3.11.16",
+        "runner": "GitHub Actions Linux runner, run 35706589476",
+        "state": "PASS"
+      },
+      "recovery": {
+        "commit": "360b03ead72d",
+        "counts": {
+          "errors": 0,
+          "failed": 0,
+          "passed": 400,
+          "skipped": 1
+        },
+        "date": "2026-09-22T09:13:29Z",
+        "exit_code": 0,
+        "os": "Fedora Linux 44 (Forty Four) 6.19.10-300.fc44.x86_64",
+        "paths": [
+          "tests/carve"
+        ],
+        "python": "3.11.16",
+        "runner": "developer machine (Linux 6.19.10-300.fc44.x86_64)",
+        "state": "PASS"
+      },
+      "whole_drive": {
+        "commit": "360b03ead72d",
+        "counts": {
+          "errors": 0,
+          "failed": 0,
+          "passed": 393,
+          "skipped": 10
+        },
+        "date": "2026-09-22T09:13:41Z",
+        "exit_code": 0,
+        "os": "Fedora Linux 44 (Forty Four) 6.19.10-300.fc44.x86_64",
+        "paths": [
+          "tests/erase",
+          "tests/device",
+          "tests/helper"
+        ],
+        "python": "3.11.16",
+        "runner": "developer machine (Linux 6.19.10-300.fc44.x86_64)",
+        "state": "PASS"
+      }
+    },
+    "macos": {
+      "api": {
+        "commit": "ba13a9a73bf8",
+        "counts": {
+          "errors": 0,
+          "failed": 0,
+          "passed": 203,
+          "skipped": 7
+        },
+        "date": "2026-09-22T08:49:14Z",
+        "exit_code": 0,
+        "os": "macOS 14.8.9 23.6.0",
+        "paths": [
+          "tests/api"
+        ],
+        "python": "3.11.9",
+        "runner": "GitHub Actions macOS runner, run 35706589476",
+        "state": "PASS"
+      },
+      "file_erase": {
+        "commit": "ba13a9a73bf8",
+        "counts": {
+          "errors": 0,
+          "failed": 0,
+          "passed": 171,
+          "skipped": 103
+        },
+        "date": "2026-09-22T08:49:01Z",
+        "exit_code": 0,
+        "os": "macOS 14.8.9 23.6.0",
+        "paths": [
+          "tests/erase/files",
+          "tests/platform"
+        ],
+        "python": "3.11.9",
+        "runner": "GitHub Actions macOS runner, run 35706589476",
+        "state": "PASS"
+      }
+    },
+    "windows": {
+      "api": {
+        "commit": "ba13a9a73bf8",
+        "counts": {
+          "errors": 0,
+          "failed": 0,
+          "passed": 201,
+          "skipped": 9
+        },
+        "date": "2026-09-22T09:00:02Z",
+        "exit_code": 0,
+        "os": "Windows 11 10.0.26100",
+        "paths": [
+          "tests/api"
+        ],
+        "python": "3.11.9",
+        "runner": "GitHub Actions Windows runner, run 35706589476",
+        "state": "PASS"
+      },
+      "file_erase": {
+        "commit": "ba13a9a73bf8",
+        "counts": {
+          "errors": 0,
+          "failed": 0,
+          "passed": 203,
+          "skipped": 71
+        },
+        "date": "2026-09-22T08:59:17Z",
+        "exit_code": 0,
+        "os": "Windows 11 10.0.26100",
+        "paths": [
+          "tests/erase/files",
+          "tests/platform"
+        ],
+        "python": "3.11.9",
+        "runner": "GitHub Actions Windows runner, run 35706589476",
+        "state": "PASS"
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+verdict: VERIFIED_WITH_LIMITATIONS
+passed: True
+reason: the report declares a limitation: OPERATOR IDENTITY IS A LOCAL ACCOUNT, NOT A PERSON: the actor recorded in the ledger is the operating-syst
+reason: the report declares a limitation: WRITE_BLOCK_NOT_VERIFIED: BLKROSET was set and BLKROGET read it back as applied, which establishes that th

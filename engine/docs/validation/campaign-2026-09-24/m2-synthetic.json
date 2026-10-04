@@ -1,0 +1,215 @@
+{
+  "population": "SYNTHETIC",
+  "work": "/home/v0idsai/sanctum-validation-scratch/m2",
+  "seconds": 11.39,
+  "summary": {
+    "PASS": 24,
+    "FAIL": 0,
+    "INCONCLUSIVE": 0
+  },
+  "cases": [
+    {
+      "id": "M2-A-01",
+      "population": "SYNTHETIC",
+      "test": "default options are a dry run",
+      "expected": "nothing written, nothing removed",
+      "actual": "dry_run=True, records=9, files intact=True",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-02",
+      "population": "SYNTHETIC",
+      "test": "dry_run=False without confirm",
+      "expected": "refused (gate 2) as a recorded error; file untouched",
+      "actual": "ok=False kind=ConfirmationMismatch file present=True",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-03",
+      "population": "SYNTHETIC",
+      "test": "single file erase",
+      "expected": "ok, unlinked, file gone, residual findings listed",
+      "actual": "ok=True unlinked=True exists=False overwritten=4200 findings=['TRIM_REMAP', 'FS_JOURNAL', 'FILE_SLACK']",
+      "result": "PASS",
+      "verification": {
+        "passed": null,
+        "strategy": "not_possible",
+        "reason": "Raw read access to /dev/nvme1n1p1 was refused ([Errno 13] Permission denied: '/dev/nvme1n1p1'). Verifying a file erase requires reading the original physical blocks, which needs root or administrator. Nothing is claimed.",
+        "extents_checked": 0,
+        "bytes_checked": 0,
+        "failed_offsets": []
+      }
+    },
+    {
+      "id": "M2-A-04",
+      "population": "SYNTHETIC",
+      "test": "batch: empty file, spaces, unicode name",
+      "expected": "all ok, all gone, input order kept",
+      "actual": "ok=[True, True, True] order=['empty.bin', 'with space.txt', '\u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c-\u0444\u0430\u0439\u043b-\u6587\u4ef6-\ud83d\udd12.txt']",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-05",
+      "population": "SYNTHETIC",
+      "test": "large file (24 MiB)",
+      "expected": "ok, 24 MiB overwritten",
+      "actual": "ok=True overwritten=25165824 in 0.58s",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-06",
+      "population": "SYNTHETIC",
+      "test": "read-only (0444) file",
+      "expected": "either erased or a recorded error - never a silent pass",
+      "actual": "ok=False exists=True error=EACCES:[Errno 13] Permission denied: '/home/v0idsai/sanctum-validation-scratch/m2/c1/readonly.txt'",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-07",
+      "population": "SYNTHETIC",
+      "test": "recursive folder (4 levels, 4 files)",
+      "expected": "files erased then directories removed, tree gone",
+      "actual": "records=8 ok=8 failed=0 tree_exists=False files=['f0.txt', 'f1.txt', 'f2.txt', 'f3.txt']",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-08",
+      "population": "SYNTHETIC",
+      "test": "missing file",
+      "expected": "recorded error, no traceback, batch returns",
+      "actual": "ok=False kind=ENOENT error=[Errno 2] No such file or directory: '/home/v0idsai/sanctum-validation-scratch/m2/c1/does-not-exist.txt'",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-09",
+      "population": "SYNTHETIC",
+      "test": "already-deleted file",
+      "expected": "recorded error, not a success",
+      "actual": "ok=False kind=ENOENT",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-10",
+      "population": "SYNTHETIC",
+      "test": "directory with recursive=False",
+      "expected": "non-empty directory not removed",
+      "actual": "failed=1 tree_exists=True nested_files_remain=4",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-11",
+      "population": "SYNTHETIC",
+      "test": "hardlinked file, break_hardlinks=False",
+      "expected": "unlinked but not overwritten; other name intact; HARDLINK_SURVIVES reported",
+      "actual": "unlinked=True overwritten=0 other_name_intact=True findings=['HARDLINK_SURVIVES', 'TRIM_REMAP', 'FS_JOURNAL', 'FILE_SLACK']",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-12",
+      "population": "SYNTHETIC",
+      "test": "symlink",
+      "expected": "the link is handled; its target is not overwritten",
+      "actual": "target_exists=True target_intact=True link_exists=True ok=False",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-13",
+      "population": "SYNTHETIC",
+      "test": "unlinking blocked by directory permissions (0555)",
+      "expected": "recorded error; success is not claimed when the name survives",
+      "actual": "ok=False unlinked=False exists=True kind=EACCES error=[Errno 13] Permission denied: '/home/v0idsai/sanctum-validation-scratch/m2/c5/locked/victim.txt' -> '/home/v0idsai/sanctum-validation-scratch/m2/c5/locked/0ap6vn8f0v'",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-14a",
+      "population": "SYNTHETIC",
+      "test": "protected path / (dry run)",
+      "expected": "refused",
+      "actual": "records ok=[False] err=['SystemDiskRefused']",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-14b",
+      "population": "SYNTHETIC",
+      "test": "protected path /usr (dry run)",
+      "expected": "refused",
+      "actual": "records ok=[False] err=['SystemDiskRefused']",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-14c",
+      "population": "SYNTHETIC",
+      "test": "protected path /etc (dry run)",
+      "expected": "refused",
+      "actual": "records ok=[False] err=['SystemDiskRefused']",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-15",
+      "population": "SYNTHETIC",
+      "test": "interrupted batch (generator closed after first progress)",
+      "expected": "ledger records erase.file.cancelled; chain valid",
+      "actual": "ledger_ops=['GENESIS', 'erase.file.cancelled'] files_remaining=6 chain=VALID",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-A-16",
+      "population": "SYNTHETIC",
+      "test": "audit trail across the whole M2-A run",
+      "expected": "hash chain VALID, one entry per phase per record",
+      "actual": "status=VALID entries=314",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-B-01",
+      "population": "SYNTHETIC",
+      "test": "EXIF/GPS cleanse (JPEG)",
+      "expected": "all tags removed, image still decodes",
+      "actual": "fields=['Make', 'Software', 'GPSTag', 'GPSLatitudeRef', 'GPSLatitude'] removed=5 exif_after={}/{}",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-B-02",
+      "population": "SYNTHETIC",
+      "test": "OOXML properties cleanse (synthetic minimal .docx)",
+      "expected": "core/app props removed, body kept",
+      "actual": "fields=['dc:creator', 'dc:title', 'Company'] parts_left=['[Content_Types].xml', 'word/document.xml']",
+      "result": "PASS",
+      "limitation": "minimal hand-built package, not a Word-authored document"
+    },
+    {
+      "id": "M2-B-03",
+      "population": "SYNTHETIC",
+      "test": "PDF Info + XMP cleanse",
+      "expected": "both stores cleared",
+      "actual": "containers=['Info', 'XMP'] info_gone=True xmp_gone=True",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-B-04",
+      "population": "SYNTHETIC",
+      "test": "PNG text chunk cleanse",
+      "expected": "text chunks removed, image decodes",
+      "actual": "removed=1 gone=True",
+      "result": "PASS"
+    },
+    {
+      "id": "M2-B-05",
+      "population": "SYNTHETIC",
+      "test": "OLE property streams (LibreOffice-produced .doc)",
+      "expected": "streams named, removed=False, limitation stated",
+      "actual": "format=OLE parsed=True fields=[('\\x05DocumentSummaryInformation', False), ('\\x05SummaryInformation', False)] limits=['OLE property streams were identified but not removed: rewriting a comp']",
+      "result": "PASS",
+      "limitation": "OLE properties are reported, NOT removed, by design; the tool must not claim otherwise"
+    },
+    {
+      "id": "M2-B-06",
+      "population": "SYNTHETIC",
+      "test": "residual findings after a real erase on this host filesystem",
+      "expected": "findings enumerate what cannot be guaranteed; no claim of filesystem-metadata erasure",
+      "actual": "kinds=['FILE_SLACK', 'FS_JOURNAL', 'TRIM_REMAP'] limitations=[] verification={'passed': None, 'strategy': 'not_possible', 'reason': \"Raw read access to /dev/nvme1n1p1 was refused ([Errno 13] Permission denied: '/dev/nvme1n1p1'). Verifying a file erase requires reading the original physical blocks, which needs root or administrator. Nothing is claimed.\", 'extents_checked': 0, 'bytes_checked': 0, 'failed_offsets': []}",
+      "result": "PASS",
+      "filesystem_note": "host filesystem, not FAT32/NTFS; MFT/USN kinds only apply on NTFS and are not exercised here"
+    }
+  ]
+}

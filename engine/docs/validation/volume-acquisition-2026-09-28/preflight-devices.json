@@ -1,0 +1,444 @@
+[
+ {
+  "assessment": {
+   "alternatives": [],
+   "capabilities": [
+    {
+     "assurance": "NIST SP 800-88 Rev. 2 Clear of the addressable LBA range the OS reports. Not a Purge, not NAND-level destruction, and it does not reach an HPA/DCO hidden region unless that region was first restored through the HPA/DCO workflow.",
+     "capability": "whole_drive_clear",
+     "device_class": "usb-flash",
+     "evidence": [],
+     "label": "Whole-drive clear (addressable overwrite)",
+     "limitations": [
+      "On flash media an overwrite cannot reach blocks the controller has remapped or holds in over-provisioning. This is a Clear of the addressable storage, not NAND-level destruction."
+     ],
+     "mechanism": "O_DIRECT sequential overwrite of every LBA of the block device",
+     "module": "core.erase.drive",
+     "protocol": "block",
+     "reason": "A filesystem on this device is mounted (/run/media/v0idsai/SANCTUMREC); unmount or take the disk offline, then rescan.",
+     "required_privilege": "root",
+     "safety_restrictions": [
+      "A filesystem on this device is mounted (/run/media/v0idsai/SANCTUMREC); unmount or take the disk offline, then rescan."
+     ],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, whole_drive_clear]; safety policy (system disk, mounted filesystem, identity)",
+     "state": "BLOCKED_BY_SAFETY_POLICY",
+     "state_label": "BLOCKED FOR SAFETY",
+     "validated_classes": [],
+     "verification": "Read-back of every addressable block up to 64 GiB; above that the first and last GiB plus seeded random windows, with the detection probability stated."
+    },
+    {
+     "assurance": "NIST SP 800-88 Rev. 2 Purge when the drive executes the command as its specification requires. Completion is the drive's own claim; Sanctum reads the medium back as well and reports both.",
+     "capability": "ata_sanitize",
+     "device_class": "usb-flash",
+     "evidence": [],
+     "label": "ATA SANITIZE (device sanitize)",
+     "limitations": [],
+     "mechanism": "ATA SANITIZE DEVICE (B4h) BLOCK ERASE EXT or OVERWRITE EXT through SG_IO (hdparm --sanitize-*)",
+     "module": "core.erase.drive",
+     "protocol": "ATA",
+     "reason": "A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it.",
+     "required_privilege": "root",
+     "safety_restrictions": [],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, ata_sanitize] refused_classes",
+     "state": "UNSUPPORTED_BY_DEVICE",
+     "state_label": "DEVICE-DEPENDENT",
+     "validated_classes": [],
+     "verification": "The drive's completion status, then a sampled read-back of the medium. Attestation is evidence, not proof."
+    },
+    {
+     "assurance": "NIST SP 800-88 Rev. 2 Purge when the drive executes the command as its specification requires. Completion is the drive's own claim; Sanctum reads the medium back as well and reports both. NIST SP 800-88 Rev. 2 notes that some drives implement it poorly on flash; it is ranked below SANITIZE.",
+     "capability": "ata_security_erase",
+     "device_class": "usb-flash",
+     "evidence": [],
+     "label": "ATA SECURITY ERASE UNIT (device sanitize)",
+     "limitations": [],
+     "mechanism": "ATA SECURITY SET PASSWORD, ERASE PREPARE, ERASE UNIT (enhanced where supported) through SG_IO (hdparm)",
+     "module": "core.erase.drive",
+     "protocol": "ATA",
+     "reason": "A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it.",
+     "required_privilege": "root",
+     "safety_restrictions": [],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, ata_security_erase] refused_classes",
+     "state": "UNSUPPORTED_BY_DEVICE",
+     "state_label": "DEVICE-DEPENDENT",
+     "validated_classes": [],
+     "verification": "The drive's completion status, then a sampled read-back of the medium. Attestation is evidence, not proof."
+    },
+    {
+     "assurance": "NIST SP 800-88 Rev. 2 Purge when the drive executes the command as its specification requires. Completion is the drive's own claim; Sanctum reads the medium back as well and reports both.",
+     "capability": "nvme_sanitize",
+     "device_class": "usb-flash",
+     "evidence": [],
+     "label": "NVMe Sanitize (device sanitize)",
+     "limitations": [],
+     "mechanism": "NVMe Sanitize (84h), block-erase action, through the NVMe admin ioctl (nvme sanitize)",
+     "module": "core.erase.drive",
+     "protocol": "NVMe",
+     "reason": "Implemented; whether this device supports it is unknown. The device was not probed for this command",
+     "required_privilege": "root",
+     "safety_restrictions": [],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, nvme_sanitize]; probe: not run",
+     "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+     "state_label": "DEVICE-DEPENDENT",
+     "validated_classes": [],
+     "verification": "The drive's completion status, then a sampled read-back of the medium. Attestation is evidence, not proof."
+    },
+    {
+     "assurance": "NIST SP 800-88 Rev. 2 Purge when the drive executes the command as its specification requires. Completion is the drive's own claim; Sanctum reads the medium back as well and reports both.",
+     "capability": "nvme_format",
+     "device_class": "usb-flash",
+     "evidence": [],
+     "label": "NVMe Format NVM, user-data erase (device sanitize)",
+     "limitations": [],
+     "mechanism": "NVMe Format NVM (80h) with Secure Erase Settings = 1 (user-data erase) through the NVMe admin ioctl (nvme format --ses=1)",
+     "module": "core.erase.drive",
+     "protocol": "NVMe",
+     "reason": "Implemented; whether this device supports it is unknown. The device was not probed for this command",
+     "required_privilege": "root",
+     "safety_restrictions": [],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, nvme_format]; probe: not run",
+     "state": "IMPLEMENTED_DEVICE_DEPENDENT",
+     "state_label": "DEVICE-DEPENDENT",
+     "validated_classes": [],
+     "verification": "The drive's completion status, then a sampled read-back of the medium. Attestation is evidence, not proof."
+    },
+    {
+     "assurance": "Cryptographic erase: the media encryption key is replaced. The ciphertext remains on the medium; the guarantee is only as good as the drive's key management, which Sanctum cannot inspect.",
+     "capability": "crypto_erase",
+     "device_class": "usb-flash",
+     "evidence": [],
+     "label": "Cryptographic erase",
+     "limitations": [],
+     "mechanism": "ATA SANITIZE CRYPTO SCRAMBLE EXT where the drive reports it. A TCG Opal drive is recognised (sedutil-cli) but not reverted: this build cannot accept the PSID",
+     "module": "core.erase.drive",
+     "protocol": "ATA",
+     "reason": "A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it.",
+     "required_privilege": "root",
+     "safety_restrictions": [],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, crypto_erase] refused_classes",
+     "state": "UNSUPPORTED_BY_DEVICE",
+     "state_label": "DEVICE-DEPENDENT",
+     "validated_classes": [],
+     "verification": "The drive's completion status, then a sampled read-back of the medium. Attestation is evidence, not proof."
+    },
+    {
+     "assurance": "Forensic image of the addressable LBA range; software write block applied and verified at the block layer.",
+     "capability": "raw_acquisition",
+     "device_class": "usb-flash",
+     "evidence": [
+      "2026-09-05 TOSHIBA TransMemory (usb-flash, usb) at not recorded: hardware.md names the run directories results-20260905T081354Z, T082418Z and T082656Z, not a build commit"
+     ],
+     "label": "Raw physical-device acquisition",
+     "limitations": [
+      "A filesystem on this device is mounted, so its contents may change while it is read; the image is of a live device."
+     ],
+     "mechanism": "O_RDONLY block-device read after BLKROSET, with the read-only flag read back (BLKROGET)",
+     "module": "core.carve.acquire",
+     "protocol": "block",
+     "reason": "Available - O_RDONLY block-device read after BLKROSET, with the read-only flag read back (BLKROGET). Physically validated on this device class (usb-flash).",
+     "required_privilege": "root",
+     "safety_restrictions": [],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, raw_acquisition]; validation record physical_validations",
+     "state": "VALIDATED_PHYSICAL",
+     "state_label": "SUPPORTED",
+     "validated_classes": [],
+     "verification": "Read-only, sector-aligned chunked reads; SHA-256 and BLAKE3 computed in the same pass; unreadable sectors are filled, recorded by LBA and never abort the run."
+    },
+    {
+     "assurance": "Image of one partition; unallocated space outside it is not included.",
+     "capability": "volume_acquisition",
+     "device_class": "usb-flash",
+     "evidence": [],
+     "label": "Logical volume acquisition",
+     "limitations": [
+      "A filesystem on this device is mounted, so its contents may change while it is read; the image is of a live device."
+     ],
+     "mechanism": "O_RDONLY read of the partition block device after BLKROSET",
+     "module": "core.carve.acquire",
+     "protocol": "block",
+     "reason": "Available - O_RDONLY read of the partition block device after BLKROSET. No run on a physical usb-flash device is recorded, so it is implemented, not physically validated.",
+     "required_privilege": "root",
+     "safety_restrictions": [],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, volume_acquisition]; validation record: no physical run for this class",
+     "state": "IMPLEMENTED_NOT_PHYSICALLY_VALIDATED",
+     "state_label": "IMPLEMENTED / UNVALIDATED",
+     "validated_classes": [],
+     "verification": "Read-only, sector-aligned chunked reads; SHA-256 and BLAKE3 computed in the same pass; unreadable sectors are filled, recorded by LBA and never abort the run."
+    },
+    {
+     "assurance": "Discovery only. A bridge's answer is rejected rather than believed.",
+     "capability": "hpa_dco_discovery",
+     "device_class": "usb-flash",
+     "evidence": [],
+     "label": "HPA / DCO discovery",
+     "limitations": [],
+     "mechanism": "READ NATIVE MAX ADDRESS and DEVICE CONFIGURATION IDENTIFY (hdparm -N, hdparm --dco-identify)",
+     "module": "core.device.hidden_areas",
+     "protocol": "ATA",
+     "reason": "A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it.",
+     "required_privilege": "root",
+     "safety_restrictions": [],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, hpa_dco_discovery] refused_classes",
+     "state": "UNSUPPORTED_BY_DEVICE",
+     "state_label": "DEVICE-DEPENDENT",
+     "validated_classes": [],
+     "verification": "Read-only; the reported native maximum is checked for plausibility against the kernel size."
+    },
+    {
+     "assurance": "Changes the drive's configuration. Never done implicitly by an erase: an ordinary erase covers the accessible range only and reports the hidden bytes it did not reach.",
+     "capability": "hpa_dco_modify",
+     "device_class": "usb-flash",
+     "evidence": [],
+     "label": "HPA / DCO modification",
+     "limitations": [
+      "Only the HPA is changed. DCO RESTORE can make a drive report a different model's geometry and is not issued by this build.",
+      "A volatile change is lost at the next power cycle.",
+      "The kernel keeps the size it read at attach time; the device must be rescanned or re-attached before an erase sees the new size."
+     ],
+     "mechanism": "SET MAX ADDRESS to the native maximum: hdparm -N <native> (volatile, the default) or hdparm -N p<native> (permanent, only when explicitly requested and approved), only through the guarded HPA/DCO workflow; DCO RESTORE and DCO SET are never issued",
+     "module": "core.device.hidden_area_workflow",
+     "protocol": "ATA",
+     "reason": "A USB or card-reader bridge usually translates only reads and writes; ATA and NVMe sanitize commands do not reach the controller behind it.",
+     "required_privilege": "root",
+     "safety_restrictions": [],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, hpa_dco_modify] refused_classes",
+     "state": "UNSUPPORTED_BY_DEVICE",
+     "state_label": "DEVICE-DEPENDENT",
+     "validated_classes": [],
+     "verification": "hdparm -N is read again immediately before the change (a drifted plan is refused) and after it: the accessible maximum must equal the requested value and the native maximum must be unchanged."
+    },
+    {
+     "assurance": "The target holds the image's bytes over the restored range. A backup is not proof of where its bytes came from.",
+     "capability": "backup_restore",
+     "device_class": "usb-flash",
+     "evidence": [],
+     "label": "Backup restore",
+     "limitations": [],
+     "mechanism": "Sector-aligned O_SYNC writes of the verified image to the block device, then a hash of the written range",
+     "module": "core.restore",
+     "protocol": "block",
+     "reason": "A filesystem on this device is mounted (/run/media/v0idsai/SANCTUMREC); unmount or take the disk offline, then rescan.",
+     "required_privilege": "root",
+     "safety_restrictions": [
+      "A filesystem on this device is mounted (/run/media/v0idsai/SANCTUMREC); unmount or take the disk offline, then rescan."
+     ],
+     "source": "core.platform.capability.IMPLEMENTATIONS[linux, backup_restore]; safety policy (system disk, mounted filesystem, identity)",
+     "state": "BLOCKED_BY_SAFETY_POLICY",
+     "state_label": "BLOCKED FOR SAFETY",
+     "validated_classes": [],
+     "verification": "SHA-256 of the written range must equal the image's."
+    }
+   ],
+   "device_class": "usb-flash",
+   "device_id": "/dev/sda",
+   "flash_limitation": "SSD / flash limitation: an overwrite cannot address blocks the flash controller has remapped or held in over-provisioned space. Only a firmware sanitize or cryptographic erase reaches them, so an overwrite of flash is reported as Clear, never as Purge.",
+   "headline": "NOT AVAILABLE",
+   "platform": "linux",
+   "reason": "A filesystem on this device is in use (/run/media/v0idsai/SANCTUMREC). Erasing a mounted device would corrupt it under a running program and could not be verified.",
+   "recommended": null,
+   "recommended_action": "Unmount or eject every volume on this device, then rescan.",
+   "safety_checks": [
+    {
+     "detail": "/dev/sda was read from the OS by linux discovery.",
+     "key": "detected",
+     "label": "Device detected",
+     "passed": true
+    },
+    {
+     "detail": "Serial B103B9C19DE1CCC1BD535ACB.",
+     "key": "identity",
+     "label": "Identity readable",
+     "passed": true
+    },
+    {
+     "detail": "7759462400 bytes.",
+     "key": "capacity",
+     "label": "Capacity known",
+     "passed": true
+    },
+    {
+     "detail": "Holds no running system, boot, swap or page file.",
+     "key": "not_system",
+     "label": "Not the system or boot disk",
+     "passed": true
+    },
+    {
+     "detail": "Mounted at /run/media/v0idsai/SANCTUMREC.",
+     "key": "not_mounted",
+     "label": "No mounted filesystem",
+     "passed": false
+    },
+    {
+     "detail": "Decided because the device is on the usb bus (the kernel reports rotational=True, which a usb bridge routinely fails to clear; the transport is the stronger signal).",
+     "key": "media_type",
+     "label": "Media type identified",
+     "passed": true
+    },
+    {
+     "detail": "Privileged work runs in the separate helper process over its authenticated socket; this interface stays unprivileged.",
+     "key": "privilege",
+     "label": "Privilege available",
+     "passed": true
+    }
+   ],
+   "status": "UNSUPPORTED",
+   "unavailable": [
+    {
+     "assurance": "NIST SP 800-88 Rev. 2 Purge when the drive executes the command as its specification requires. Completion is the drive's own claim; Sanctum reads the medium back as well and reports both.",
+     "capability": "nvme_sanitize",
+     "level": "PURGE",
+     "limitations": [],
+     "mechanism": "NVMe Sanitize (84h), block-erase action, through the NVMe admin ioctl (nvme sanitize)",
+     "method": null,
+     "protocol": "NVMe",
+     "remediation": "Choose one of: CLEAR. To reach PURGE on this media, physical destruction is the remaining option.",
+     "state": "BLOCKED_BY_SAFETY_POLICY",
+     "state_label": "BLOCKED FOR SAFETY",
+     "status": "UNSUPPORTED",
+     "technical": [],
+     "title": "Hardware purge",
+     "verification": "The drive's completion status, then a sampled read-back of the medium. Attestation is evidence, not proof.",
+     "why": "PURGE is not achievable on this device. No mechanism was observed."
+    },
+    {
+     "assurance": "NIST SP 800-88 Rev. 2 Clear of the addressable LBA range the OS reports. Not a Purge, not NAND-level destruction, and it does not reach an HPA/DCO hidden region unless that region was first restored through the HPA/DCO workflow.",
+     "capability": "whole_drive_clear",
+     "level": "CLEAR",
+     "limitations": [
+      "On flash media an overwrite cannot reach blocks the controller has remapped or holds in over-provisioning. This is a Clear of the addressable storage, not NAND-level destruction."
+     ],
+     "mechanism": "O_DIRECT sequential overwrite of every LBA of the block device",
+     "method": "SINGLE_PASS_OVERWRITE",
+     "protocol": "block",
+     "remediation": "",
+     "state": "BLOCKED_BY_SAFETY_POLICY",
+     "state_label": "BLOCKED FOR SAFETY",
+     "status": "UNSUPPORTED",
+     "technical": [
+      "Method: SINGLE_PASS_OVERWRITE",
+      "SINGLE_PASS_OVERWRITE was selected because no firmware sanitize mechanism was observed on this device; host overwrite reaches CLEAR.",
+      "Clear is always delivered by one host overwrite pass over every addressable LBA. NIST SP 800-88r2 states that multi-pass overwrite is not needed for clear.",
+      "The device was determined to be flash because the device is on the usb bus (the kernel reports rotational=True, which a usb bridge routinely fails to clear; the transport is the stronger signal). A host overwrite cannot reach blocks the flash translation layer has remapped, over-provisioned capacity, or the write cache."
+     ],
+     "title": "Overwrite (Clear)",
+     "verification": "Every byte is read back after the overwrite and checked.",
+     "why": "Every addressable block is overwritten from this computer. On flash this cannot reach remapped or spare blocks, so the result is recorded as Clear. A filesystem on this device is mounted (/run/media/v0idsai/SANCTUMREC); unmount or take the disk offline, then rescan."
+    }
+   ],
+   "verification": "Every byte is read back after the overwrite and checked."
+  },
+  "capabilities": {
+   "achievable_levels": [
+    "CLEAR"
+   ],
+   "ata_enhanced_erase": false,
+   "ata_sanitize_ops": [],
+   "ata_security_erase": false,
+   "est_erase_seconds": 0,
+   "is_sed_opal": false,
+   "limitations": [],
+   "nvme_sanicap": {},
+   "security_frozen": false
+  },
+  "device": {
+   "by_id_path": "/dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0",
+   "is_system_disk": false,
+   "model": "TransMemory",
+   "mounted_at": [
+    "/run/media/v0idsai/SANCTUMREC"
+   ],
+   "path": "/dev/sda",
+   "pt_type": "dos",
+   "rotational": true,
+   "serial": "B103B9C19DE1CCC1BD535ACB",
+   "size_bytes": 7759462400,
+   "transport": "usb"
+  },
+  "erase_preview": {
+   "flash": true,
+   "flash_reason": "the device is on the usb bus (the kernel reports rotational=True, which a usb bridge routinely fails to clear; the transport is the stronger signal)",
+   "plans": [
+    {
+     "evidence": [
+      "Clear is always delivered by one host overwrite pass over every addressable LBA. NIST SP 800-88r2 states that multi-pass overwrite is not needed for clear.",
+      "The device was determined to be flash because the device is on the usb bus (the kernel reports rotational=True, which a usb bridge routinely fails to clear; the transport is the stronger signal). A host overwrite cannot reach blocks the flash translation layer has remapped, over-provisioned capacity, or the write cache."
+     ],
+     "executable": true,
+     "justification": "SINGLE_PASS_OVERWRITE was selected because no firmware sanitize mechanism was observed on this device; host overwrite reaches CLEAR.",
+     "level": "CLEAR",
+     "limitations": [],
+     "method": "SINGLE_PASS_OVERWRITE",
+     "not_executable_reason": "",
+     "reachable": true,
+     "refusal": "",
+     "remediation": ""
+    },
+    {
+     "evidence": [],
+     "executable": true,
+     "justification": "",
+     "level": "PURGE",
+     "limitations": [],
+     "method": null,
+     "not_executable_reason": "",
+     "reachable": false,
+     "refusal": "PURGE is not achievable on this device. No mechanism was observed.",
+     "remediation": "Choose one of: CLEAR. To reach PURGE on this media, physical destruction is the remaining option."
+    }
+   ],
+   "purge_mechanisms": [],
+   "purge_requires": "ATA SANITIZE block erase or crypto scramble. Enhanced SECURITY ERASE and SANITIZE overwrite do not count on flash. On the usb bus these ATA commands usually do not pass the bridge at all; connect the drive directly to a SATA port and re-probe. A TCG Opal cryptographic erase would also count, but this build cannot issue one: it has no way to accept the PSID printed on the drive label."
+  },
+  "hidden_areas": {
+   "accessible_sectors": 15155200,
+   "dco_present": false,
+   "hidden_bytes": 0,
+   "hpa_present": false,
+   "limitations": [
+    "/dev/sda is behind a usb bridge, where ATA pass-through is not dependable; HPA/DCO was not probed and hidden sectors, if any, were neither detected nor erased."
+   ],
+   "native_max_sectors": 15155200,
+   "probe_failed": true
+  },
+  "media": {
+   "flash": true,
+   "reason": "the device is on the usb bus (the kernel reports rotational=True, which a usb bridge routinely fails to clear; the transport is the stronger signal)"
+  },
+  "normalized": {
+   "capacity_bytes": 7759462400,
+   "filesystems": [
+    "vfat"
+   ],
+   "id": "/dev/sda",
+   "interface": "usb",
+   "internal": null,
+   "limitations": [],
+   "media_basis": "Decided because the device is on the usb bus (the kernel reports rotational=True, which a usb bridge routinely fails to clear; the transport is the stronger signal).",
+   "media_type": "flash",
+   "model": "TransMemory",
+   "mount_points": [
+    "/run/media/v0idsai/SANCTUMREC"
+   ],
+   "mounted": true,
+   "partitions": [
+    {
+     "filesystem": "vfat",
+     "id": "/dev/sda1",
+     "label": "SANCTUMREC",
+     "mount_points": [
+      "/run/media/v0idsai/SANCTUMREC"
+     ],
+     "size_bytes": 7758413824
+    }
+   ],
+   "path": "/dev/sda",
+   "platform": "linux",
+   "removable": true,
+   "serial": "B103B9C19DE1CCC1BD535ACB",
+   "stable_id": "/dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0",
+   "system_device": false,
+   "system_reasons": [],
+   "vendor": ""
+  }
+ }
+]

@@ -1,0 +1,59 @@
+# Desktop packages: AppImage + .deb (Linux), SanctumSetup.exe (Windows),
+# Sanctum.dmg (macOS). Manual or on a version tag.
+#
+# Each build first runs its platform's validation suites and bundles the
+# resulting record, so the capability screen in the shipped app shows what
+# was actually tested on that OS for that build - and UNVERIFIED for anything
+# that was not.
+#
+# Unsigned. Windows Authenticode and Apple Developer ID signing and Apple
+# notarization need credentials this workflow does not hold; see
+# docs/packaging.md for the remaining steps.
+name: release
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { os: ubuntu-22.04, script: "bash scripts/build-linux.sh", out: "dist/*.AppImage dist/*.deb dist/SHA256SUMS-linux.txt" }
+          - { os: windows-latest, script: "pwsh scripts/build-windows.ps1", out: "dist/SanctumSetup.exe" }
+          - { os: macos-14, script: "bash scripts/build-macos.sh", out: "dist/*.dmg dist/SHA256SUMS-macos.txt" }
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - uses: actions/setup-node@v4
+        with: { node-version: "22" }
+      - name: Inno Setup
+        if: runner.os == 'Windows'
+        run: if (-not (Get-Command iscc.exe -ErrorAction SilentlyContinue)) { choco install innosetup -y --no-progress }
+      - name: appimagetool prerequisites
+        if: runner.os == 'Linux'
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq desktop-file-utils file
+      - run: python scripts/ci_install.py dev
+      - name: Record this platform's validation into the build
+        run: python scripts/record_platform_validation.py file_erase
+      - run: ${{ matrix.script }}
+        env:
+          PYTHON: python
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sanctum-${{ runner.os }}
+          path: dist/
+      - name: Attach to the GitHub release
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$GITHUB_REF_NAME" ${{ matrix.out }} --clobber

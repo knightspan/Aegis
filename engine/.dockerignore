@@ -1,0 +1,28 @@
+# Keep the build context to what the image is built from.
+#
+# `ui/node_modules` and `ui/dist` matter most: the Dockerfile builds the bundle
+# in its own stage from the lockfile, and a host-built copy leaking in through
+# `COPY . .` would produce an image whose UI nobody can reproduce - the exact
+# failure mode "it works on my laptop" names.
+.git/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+ui/node_modules/
+ui/dist/
+
+# Operator state and evidence. None of it belongs in an image, and some of it
+# is a case file.
+evidence/
+ledger/
+reports/
+*.log
+*.dd
+*.E01
+docs/validation/results-*/

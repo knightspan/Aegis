@@ -1,0 +1,4 @@
+{
+ "refused": "/dev/disk/by-id/usb-TOSHIBA_TransMemory_B103B9C19DE1CCC1BD535ACB-0:0 has mounted filesystems: /run/media/v0idsai/SANCTUMREC. Unmount them yourself - if you did not know it was mounted, you do not yet know what is on it.",
+ "kind": "safety"
+}

@@ -1,0 +1,201 @@
+{
+  "schema": "sanctum.validation.evidence-reconciliation/1",
+  "date": "2026-09-28",
+  "repository_commit": "be9b346820ae",
+  "method": "Repository-wide search of docs/validation/, core/platform/validation_record.json (every committed version), docs/validation/physical-module-baseline.json, campaign and release evidence, every branch on origin, and the full git history including deleted files. No physical device was opened, written, erased, acquired or restored.",
+  "states": {
+    "PHYSICALLY VALIDATED": "A recorded run on real hardware, with its evidence in the repository.",
+    "SOFTWARE/SYNTHETIC ONLY": "Tested against fixtures, loop devices or synthetic images; the code is not claimed to exist on real media paths.",
+    "SUPPORTED BUT NOT PHYSICALLY VALIDATED": "The code path exists, is offered by the app and is fixture-tested; no recorded run on real hardware.",
+    "UNSUPPORTED / NOT IMPLEMENTED": "No code performs it. The app refuses with the reason.",
+    "EVIDENCE MISSING": "A physical run is reported by the owner but no record of it exists in the repository."
+  },
+  "validation_record_hardware_section": {
+    "value": {},
+    "history": "Empty in every committed version, from fab4986 (2026-09-21) to be9b346 (2026-09-28). hardware_passed() therefore returns False for every feature, and the app shows firmware Purge and HPA/DCO unlock as UNVERIFIED."
+  },
+  "capabilities": [
+    {
+      "id": "firmware_purge",
+      "capability": "Firmware Purge (umbrella)",
+      "status": "SUPPORTED BUT NOT PHYSICALLY VALIDATED",
+      "app_feature_key": "linux.whole_drive_purge",
+      "app_state": "UNVERIFIED",
+      "implementation": "core/device/capabilities.py selects; core/erase/drive.py dispatches; core/platform/linux.py:242 gates on hardware_passed('linux', 'whole_drive_purge')",
+      "physical_runs": [],
+      "owner_reported_runs": "EVIDENCE MISSING",
+      "notes": "The only physical drive on record (TOSHIBA TransMemory 7.76 GB, USB) probed ata_security_erase: false, ata_sanitize_ops: [], is_sed_opal: false (docs/validation/hardware.md, Phase A capability probe). No firmware Purge could run on it."
+    },
+    {
+      "id": "ata_sanitize",
+      "capability": "ATA SANITIZE",
+      "status": "SUPPORTED BUT NOT PHYSICALLY VALIDATED",
+      "app_feature_key": "linux.whole_drive_purge",
+      "app_state": "UNVERIFIED",
+      "physical_runs": [],
+      "owner_reported_runs": "EVIDENCE MISSING"
+    },
+    {
+      "id": "ata_security_erase",
+      "capability": "ATA SECURITY ERASE",
+      "status": "SUPPORTED BUT NOT PHYSICALLY VALIDATED",
+      "app_feature_key": "linux.whole_drive_purge",
+      "app_state": "UNVERIFIED",
+      "physical_runs": [],
+      "owner_reported_runs": "EVIDENCE MISSING"
+    },
+    {
+      "id": "nvme_sanitize",
+      "capability": "NVMe sanitize",
+      "status": "SUPPORTED BUT NOT PHYSICALLY VALIDATED",
+      "app_feature_key": "linux.whole_drive_purge",
+      "app_state": "UNVERIFIED",
+      "physical_runs": [],
+      "owner_reported_runs": "EVIDENCE MISSING"
+    },
+    {
+      "id": "nvme_format_crypto_erase",
+      "capability": "NVMe format / crypto erase (and Opal crypto erase)",
+      "status": "SUPPORTED BUT NOT PHYSICALLY VALIDATED",
+      "app_feature_key": "linux.whole_drive_purge",
+      "app_state": "UNVERIFIED",
+      "physical_runs": [],
+      "owner_reported_runs": "EVIDENCE MISSING"
+    },
+    {
+      "id": "hpa_dco_unlock",
+      "capability": "HPA/DCO unlock",
+      "status": "SUPPORTED BUT NOT PHYSICALLY VALIDATED",
+      "app_feature_key": "linux.hidden_area_unlock",
+      "app_state": "UNVERIFIED",
+      "implementation": "core/device/hidden_areas.py; core/platform/linux.py:604",
+      "physical_runs": [],
+      "owner_reported_runs": "EVIDENCE MISSING",
+      "notes": "On the TransMemory stick (2026-09-05) the probe was skipped behind the USB bridge by design: HPA/DCO 'Not probed - probe_failed' (docs/validation/hardware.md A.1). Detection is fixture-tested (tests/erase/test_hidden_area_phases.py)."
+    },
+    {
+      "id": "backup_creation",
+      "capability": "Backup creation and verification before a destructive write",
+      "status": "SOFTWARE/SYNTHETIC ONLY",
+      "app_state": "enforced gate (workflow BACKUP REQUIRED -> BACKUP VERIFIED)",
+      "implementation": "core/authorization.py; api workflow backup gate; scripts/media_benchmark.py verify_backup",
+      "physical_runs": [],
+      "owner_reported_runs": "EVIDENCE MISSING",
+      "notes": "The gate hashes and sizes an image the operator supplies. It does not create the image, and nothing proves the image is a copy of the device. Tests: tests/test_authorization_binding.py, tests/scripts/test_media_benchmark*.py. physical-module-baseline.json (2026-09-24) is a read-only snapshot of the stick, not a backup."
+    },
+    {
+      "id": "backup_restoration",
+      "capability": "Backup restoration",
+      "status": "UNSUPPORTED / NOT IMPLEMENTED",
+      "app_state": "not offered; listed under 'Not yet proven on hardware' as not implemented",
+      "implementation": "None in core/, api/, helper/ or ui/. scripts/media_benchmark.py only prints a manual 'sudo dd' restore_command and reports 'backup captured; restoration not validated'.",
+      "physical_runs": [],
+      "owner_reported_runs": "EVIDENCE MISSING"
+    },
+    {
+      "id": "registered_physical_benchmark",
+      "capability": "Registered physical recovery benchmark",
+      "status": "SUPPORTED BUT NOT PHYSICALLY VALIDATED",
+      "implementation": "scripts/media_benchmark.py (preflight, plan, verify-backup, write)",
+      "physical_runs": [],
+      "owner_reported_runs": "EVIDENCE MISSING",
+      "notes": "docs/validation/physical-benchmark-checklist.md: BLOCKED at gate 1 on 2026-09-24; no gate completed. The methodology decision (methodology-open-decision.md) is unrecorded. No result under the registered methodology exists."
+    },
+    {
+      "id": "phase_b_physical_recovery",
+      "capability": "Physical recovery after delete and quick format (not the registered benchmark)",
+      "status": "PHYSICALLY VALIDATED",
+      "physical_runs": [
+        {
+          "device": "TOSHIBA TransMemory 7.76 GB",
+          "serial": "B103B9C19DE1CCC1BD535ACB",
+          "interface": "USB",
+          "date": "2026-09-05",
+          "build": "earlier build, before ddaa68a follow-ups; see hardware.md run table",
+          "runs": ["results-20260905T081354Z", "results-20260905T082418Z", "results-20260905T082656Z"],
+          "method": "FAT32 delete; exFAT delete; FAT32 quick format; acquisition then carve",
+          "result": "456/456 and 460/460 byte-exact; 10 of 912 after quick format (10 of the 10 recoverable)",
+          "evidence": "docs/validation/hardware.md, Phase B results"
+        }
+      ]
+    },
+    {
+      "id": "linux_overwrite_clear",
+      "capability": "Linux whole-drive Clear by overwrite, with full read-back",
+      "status": "PHYSICALLY VALIDATED",
+      "physical_runs": [
+        {
+          "device": "TOSHIBA TransMemory 7.76 GB",
+          "serial": "B103B9C19DE1CCC1BD535ACB",
+          "interface": "USB",
+          "date": "2026-09-05",
+          "build": "earlier build (run results-20260905T033655Z)",
+          "method": "SINGLE_PASS_OVERWRITE, CLEAR, fill 0xA5, full_read verify",
+          "result": "7,759,462,400 of 7,759,462,400 bytes written and read back; report verified, one-byte tamper detected",
+          "evidence": "docs/validation/hardware.md, Phase A A.4/A.5 and A.7"
+        }
+      ]
+    },
+    {
+      "id": "trace_sweep_live_desktop",
+      "capability": "Trace sweep on a live desktop",
+      "status": "SUPPORTED BUT NOT PHYSICALLY VALIDATED",
+      "implementation": "core/erase/traces.py",
+      "physical_runs": [
+        {
+          "device": "physical Windows 11 Home machine, build 10.0.26200, own NTFS system disk",
+          "interface": "installed package API (sweep_traces: true)",
+          "date": "2026-09-27",
+          "build": "437081e",
+          "method": "file erase with trace sweep",
+          "result": "searched the machine's real C:\\$Recycle.Bin and Recent shortcuts, found nothing (the erased file had no traces), reported searched and not-searched locations",
+          "evidence": "docs/validation/windows-hardware-2026-09-27-fixes/README.md section 4; package-regression-extra.json"
+        }
+      ],
+      "owner_reported_runs": "EVIDENCE MISSING",
+      "notes": "Enumeration of real desktop locations ran on Windows. Removal of a real desktop trace (thumbnail, recent entry, Trash copy) has not been run on any platform. No Linux or macOS desktop run is recorded. Synthetic homes: tests/erase/files/test_trace_sweep.py."
+    },
+    {
+      "id": "macos_physical",
+      "capability": "macOS on a physical Mac / physical device",
+      "status": "SUPPORTED BUT NOT PHYSICALLY VALIDATED",
+      "app_state": "discovery, file erase and package CI-VALIDATED on macos-14 runners",
+      "physical_runs": [],
+      "owner_reported_runs": "EVIDENCE MISSING",
+      "notes": "docs/validation/windows-hardware-2026-09-27-fixes/README.md section 2 records 'no Mac hardware available'. platform-matrix.md: install by a human on a physical machine NOT RUN for macOS. Only CI evidence exists: platform-smoke-macOS.json, package-smoke-macOS.json, platform-ci-2026-09-27/*-macOS.json."
+    },
+    {
+      "id": "windows_physical",
+      "capability": "Windows install, discovery, mounted-device refusal, file/folder erase -> verify -> certificate",
+      "status": "PHYSICALLY VALIDATED",
+      "physical_runs": [
+        {
+          "device": "physical Windows 11 Home machine, build 10.0.26200; USB stick SANCTUMREC (discovery and refusal only)",
+          "interface": "installed SanctumSetup.exe",
+          "date": "2026-09-27",
+          "build": "437081e (first run at 2d00526)",
+          "method": "silent install; device discovery; mounted-device refusal; file/folder erase, read-back verify, certificate issue and verify on real NTFS",
+          "result": "23 of 23 packaged checks",
+          "evidence": "docs/validation/windows-hardware-2026-09-27-fixes/README.md; docs/validation/windows-hardware-2026-09-27/README.md"
+        }
+      ]
+    },
+    {
+      "id": "windows_whole_drive",
+      "capability": "Windows whole-drive sanitization",
+      "status": "UNSUPPORTED / NOT IMPLEMENTED",
+      "app_feature_key": "windows.whole_drive_sanitization",
+      "app_state": "UNSUPPORTED",
+      "implementation": "None. core/erase/drive.py is Linux-only (O_DIRECT, BLKGETSIZE64, hdparm/nvme-cli/sedutil-cli). core/platform/windows.py:437-460 refuses with the reason.",
+      "physical_runs": []
+    },
+    {
+      "id": "windows_raw_acquisition",
+      "capability": "Windows raw physical-device acquisition",
+      "status": "UNSUPPORTED / NOT IMPLEMENTED",
+      "app_state": "refused: 'raw physical-device acquisition is not implemented on Windows' (core/carve/acquire.py is_win32_device_path; api/routes/jobs.py acquire_image)",
+      "implementation": "None. Plain open() cannot address \\\\.\\PhysicalDriveN; no CreateFile path exists. Confirmed on the physical Windows machine, 2026-09-27 (windows-hardware-2026-09-27/README.md section 4).",
+      "physical_runs": []
+    }
+  ]
+}
