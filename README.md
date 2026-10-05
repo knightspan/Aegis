@@ -20,6 +20,14 @@
 </p>
 
 <p align="center">
+  <a href="https://www.youtube.com/@AegisDigitalForensics"><img alt="Prototype video on YouTube" src="https://img.shields.io/badge/prototype%20video-YouTube-C4302B?logo=youtube&logoColor=white"></a>
+  <img alt="SIH 2026" src="https://img.shields.io/badge/Smart%20India%20Hackathon-2026-F28C28">
+  <img alt="NTRO PS 26149" src="https://img.shields.io/badge/NTRO-problem%20statement%2026149-0F2747">
+</p>
+
+<p align="center">
+  <a href="#problem-statement-sih-2026--ntro">Problem statement</a> &middot;
+  <a href="#prototype-video">Prototype video</a> &middot;
   <a href="#features">Features</a> &middot;
   <a href="#screenshots">Screenshots</a> &middot;
   <a href="#safety-model">Safety model</a> &middot;
@@ -29,6 +37,35 @@
 </p>
 
 ---
+
+## Problem statement (SIH 2026 · NTRO)
+
+AEGIS is our solution to **Smart India Hackathon 2026, problem statement 26149**, set by the
+**National Technical Research Organisation (NTRO)**: *Design and Development of an Integrated Secure
+Data Erasure and Advanced File Recovery Tool for Digital Forensics and Data Sanitization*
+(category: Software; theme: Blockchain & Cybersecurity).
+
+Organisations, government agencies and law-enforcement units need to do two opposite things to
+storage: **destroy sensitive data beyond recovery** and **recover deleted data as evidence**. Today
+these need separate tools, each with its own process and its own reports. The problem statement asks
+for one platform with three modules. This is how AEGIS covers each one:
+
+| NTRO module | What the problem statement asks for | How AEGIS delivers it |
+|---|---|---|
+| **1. Secure Drive Eraser** | Sanitize HDDs, SSDs, USB drives, memory cards and external storage, with verification, audit logging, tamper-resistant reporting and compliance with data-destruction standards. | Device sanitization of removable **USB drives, memory cards (SD/MMC) and USB-attached external disks**. Methods are offered from the device's *probed* capabilities (whole-drive overwrite, ATA / NVMe sanitize where the controller supports it). Every run has typed-serial authorization, identity re-binding before the first write, read-back verification and an Ed25519-signed report in **NIST SP 800-88 Rev. 2** terms (Clear / Purge). Internal system drives are refused by design. |
+| **2. Secure File & Folder Eraser** | Selective deletion of files and folders, removal of associated metadata and residual traces, batch operations, verification of erasure and audit reporting across file systems. | Verified overwrite of files and whole folder trees by the native AEGIS sanitizer: slack-space overwrite, TRIM, flush, read-back check and metadata scrub. **Deep Forensic Purge** removes the traces Windows keeps of an erased file (Recent shortcuts, jump lists, Recycle Bin copies). Every operation lands in a hash-chained case ledger and a signed report. |
+| **3. Advanced File Carving & Recovery** | Recover deleted files from formatted, damaged or corrupted media using signature-based, structure-based and intelligent carving, without file-system metadata and including fragmented files. | **Filesystem-aware undelete** (NTFS, FAT, exFAT, ext), **signature carving** (24 signatures) and **structure parsing** (16 formats) that work without file-system metadata, **bifragment reassembly** of split JPEG/PNG files, decoder validation and an explainable evidence score per object. Forensic **RAW / E01 acquisition** with SHA-256 and BLAKE3, and AI enhancement of recovered photos on labelled derivatives only. |
+
+Across all three modules, AEGIS keeps everything inside one case. Evidence is only ever read, every
+action goes into a tamper-evident ledger, and every result can be verified, either inside the app or
+independently.
+
+## Prototype video
+
+▶️ **Watch the AEGIS prototype walkthrough on our YouTube channel:
+[youtube.com/@AegisDigitalForensics](https://www.youtube.com/@AegisDigitalForensics)**
+
+The channel hosts the prototype demonstration of AEGIS built for the NTRO problem statement above.
 
 ## Why AEGIS
 
