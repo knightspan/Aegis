@@ -4,12 +4,12 @@
 
 | Component | Technology | Location | Role |
 |---|---|---|---|
-| AEGIS desktop shell | Java 17, Swing, NetBeans Platform | `desktop/aegis-module` | Product UI: Home, Disk Imager, Recovery, Sanitization, Reports, ORACLE, sidebar, top bar, status |
-| Analysis suite | Autopsy 4.23.1 + The Sleuth Kit 4.15.0 | upstream + `desktop/autopsy-overlay` | Cases, data sources, ingest, file views, search, timeline, artifacts |
-| Engine bridge | Java (`EngineBridge`, `AegisEngine`) | `desktop/aegis-module/.../engine` | Starts the engine process, streams progress, cancellation, timeouts |
+| AEGIS desktop shell | Java 17, Swing, NetBeans Platform | Desktop (not published) | Product UI: Home, Disk Imager, Recovery, Sanitization, Reports, ORACLE, sidebar, top bar, status |
+| Analysis suite | Autopsy 4.23.1 + The Sleuth Kit 4.15.0 | Upstream + AEGIS changes (not published) | Cases, data sources, ingest, file views, search, timeline, artifacts |
+| Engine bridge | Java (`EngineBridge`, `AegisEngine`) | Desktop (not published) | Starts the engine process, streams progress, cancellation, timeouts |
 | AEGIS engine | Python 3.11 | `engine/` | Acquisition, recovery, device sanitization, trace purge, ledger, reports, enhancement |
 | Native sanitizer | C++ (MinGW) | `sanitizer/` | File and folder overwrite with read-back verification |
-| Launcher | C++ | `desktop/launcher` | `AEGIS.exe`: bundled Java runtime, AEGIS profile |
+| Launcher | C++ | Desktop (not published) | `AEGIS.exe`: bundled Java runtime, AEGIS profile |
 
 ```mermaid
 flowchart TB

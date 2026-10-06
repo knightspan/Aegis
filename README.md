@@ -31,9 +31,9 @@
 
 <p align="center">
   <a href="#solution-scope">Solution scope</a> &middot;
-  <a href="#prototype-video">Prototype video</a> &middot;
   <a href="#features">Features</a> &middot;
   <a href="#screenshots">Screenshots</a> &middot;
+  <a href="#how-aegis-works">How it works</a> &middot;
   <a href="#safety-model">Safety model</a> &middot;
   <a href="#architecture">Architecture</a> &middot;
   <a href="#getting-started">Getting started</a> &middot;
@@ -58,19 +58,6 @@ platform with three modules:
 Across all three modules, AEGIS keeps everything inside one case. Evidence is only ever read, every
 action goes into a tamper-evident ledger, and every result can be verified, either inside the app or
 independently.
-
-## Prototype video
-
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=hDIUGWyab3A">
-    <img src="https://img.youtube.com/vi/hDIUGWyab3A/maxresdefault.jpg" alt="AEGIS demo video on YouTube (click to play)" width="80%">
-  </a>
-</p>
-
-<p align="center">
-  ▶️ <strong><a href="https://www.youtube.com/watch?v=hDIUGWyab3A">Watch the AEGIS demo video on YouTube</a></strong><br>
-  More videos on the channel: <a href="https://www.youtube.com/@AegisDigitalForensics">youtube.com/@AegisDigitalForensics</a>
-</p>
 
 ## Why AEGIS
 
@@ -127,6 +114,47 @@ edited. AEGIS does all of it in one application, under one case, with one audit 
 
 > Screenshots were captured from the packaged application running on a synthetic demo image
 > (`tools/make-demo-evidence.py`); no real case data is shown.
+
+## How AEGIS works
+
+One case, one pipeline. Every arrow below is a recorded step: hashed, written to the case ledger and
+covered by a signed report.
+
+```mermaid
+flowchart LR
+    CASE([Case]) --> ACQ["Acquire<br/>RAW / E01<br/>SHA-256 + BLAKE3"]
+    ACQ --> REC["Recover<br/>undelete · carve · reassemble"]
+    REC --> ENH["Enhance<br/>labelled derivatives"]
+    REC --> ORA["ORACLE<br/>provenance graph"]
+    CASE --> SAN["Sanitize<br/>verify · purge traces"]
+    ACQ --> REP["Signed report<br/>Ed25519"]
+    REC --> REP
+    SAN --> REP
+    REP --> LED[("Hash-chained<br/>case ledger")]
+```
+
+## At a glance
+
+<table>
+  <tr>
+    <td align="center" width="33%"><h3>61.5 GB</h3><sub>USB stick acquired to E01 on real hardware<br>0 unreadable sectors, read-back verified</sub></td>
+    <td align="center" width="33%"><h3>8,380</h3><sub>objects recovered and scored<br>from a real 8.6 GB pendrive image</sub></td>
+    <td align="center" width="33%"><h3>24 + 16</h3><sub>carving signatures<br>+ structure parsers</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><h3>2 hashes, 1 pass</h3><sub>SHA-256 and BLAKE3<br>computed while the evidence is read</sub></td>
+    <td align="center"><h3>Ed25519</h3><sub>signature on every acquisition,<br>recovery and sanitization report</sub></td>
+    <td align="center"><h3>100% offline</h3><sub>no cloud, no telemetry;<br>evidence never leaves the workstation</sub></td>
+  </tr>
+</table>
+
+## Built for
+
+| | Who | What AEGIS gives them |
+|---|---|---|
+| 🛡️ | **Law enforcement and forensic labs** | Read-only acquisition, recovery of deleted evidence and reports that can be verified in court. |
+| 🏢 | **Enterprises and government IT** | Verified sanitization of files, folders and removable media before reuse or disposal, with a signed certificate per job. |
+| 🚨 | **Incident response teams** | One tool to image, recover, analyse and then securely clean up, all in a single audited case. |
 
 ## Safety model
 
@@ -211,31 +239,18 @@ Uninstalling keeps your cases and `%APPDATA%\AEGIS` (profile and report-signing 
 | Disk | ~3 GB for AEGIS, plus space for images and recovered files |
 | Privileges | Standard user; administrator only for raw device access |
 
-### Build from source
+### Source availability
 
-AEGIS is built on a clean Autopsy 4.23.1 checkout plus the AEGIS overlay in this repository.
-The short version (full instructions in [`docs/building.md`](docs/building.md)):
-
-```powershell
-git clone https://github.com/knightspan/Aegis.git
-git clone --branch autopsy-4.23.1 --depth 1 https://github.com/sleuthkit/autopsy.git autopsy
-powershell -ExecutionPolicy Bypass -File Aegis\tools\apply-autopsy-overlay.ps1 -Autopsy autopsy
-powershell -ExecutionPolicy Bypass -File Aegis\tools\fetch-models.ps1
-# then build the suite with JDK 17 + Ant, the engine runtime with Python 3.11, and stage the package
-```
+The engine (Python) and the native file sanitizer (C++) are published in this repository. The
+AEGIS desktop application source is proprietary and not published; use the installer from Releases.
 
 ## Repository layout
 
 ```
-desktop/
-  aegis-module/       AEGIS NetBeans module (Java): shell, pages, engine bridge, tests
-  autopsy-overlay/    files AEGIS adds to or modifies in Autopsy 4.23.1 (see OVERLAY_FILES.txt)
-  branding/           splash, window icons, title
-  launcher/           AEGIS.exe launcher (C++)
 engine/               AEGIS engine (Python): acquisition, recovery, sanitization, ledger, reports
 sanitizer/            native file/folder sanitizer (C++)
 installer/            Inno Setup script and artwork for AEGIS-1.0.0-Setup.exe
-tools/                build, staging, branding, test and demo scripts
+tools/                test, demo and helper scripts
 docs/                 documentation and screenshots
 ```
 
@@ -247,7 +262,6 @@ docs/                 documentation and screenshots
 | [Safety model](docs/safety-model.md) | What AEGIS will and will not do to a device, and where each rule is enforced |
 | [Architecture](docs/architecture.md) | Components, process protocol, data flow, case workspace |
 | [Engine reference](docs/engine-reference.md) | Engine commands, options and result fields |
-| [Building](docs/building.md) | Building the desktop, engine runtime, sanitizer and package |
 | [Testing](docs/testing.md) | Test suites, how to run them, latest results |
 | [Demo runbook](docs/demo-runbook.md) | A scripted walkthrough for live demonstrations |
 | [Integration provenance](docs/integration-provenance.md) | Where each component comes from and what was changed |
