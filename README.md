@@ -112,41 +112,6 @@ edited. AEGIS does all of it in one application, under one case, with one audit 
   </tr>
 </table>
 
-> Screenshots were captured from the packaged application running on a synthetic demo image
-> (`tools/make-demo-evidence.py`); no real case data is shown.
-
-## How AEGIS works
-
-One case, one pipeline. Every arrow below is a recorded step: hashed, written to the case ledger and
-covered by a signed report.
-
-```mermaid
-flowchart LR
-    CASE([Case]) --> ACQ["Acquire<br/>RAW / E01<br/>SHA-256 + BLAKE3"]
-    ACQ --> REC["Recover<br/>undelete · carve · reassemble"]
-    REC --> ENH["Enhance<br/>labelled derivatives"]
-    REC --> ORA["ORACLE<br/>provenance graph"]
-    CASE --> SAN["Sanitize<br/>verify · purge traces"]
-    ACQ --> REP["Signed report<br/>Ed25519"]
-    REC --> REP
-    SAN --> REP
-    REP --> LED[("Hash-chained<br/>case ledger")]
-```
-
-## At a glance
-
-<table>
-  <tr>
-    <td align="center" width="33%"><h3>61.5 GB</h3><sub>USB stick acquired to E01 on real hardware<br>0 unreadable sectors, read-back verified</sub></td>
-    <td align="center" width="33%"><h3>8,380</h3><sub>objects recovered and scored<br>from a real 8.6 GB pendrive image</sub></td>
-    <td align="center" width="33%"><h3>24 + 16</h3><sub>carving signatures<br>+ structure parsers</sub></td>
-  </tr>
-  <tr>
-    <td align="center"><h3>2 hashes, 1 pass</h3><sub>SHA-256 and BLAKE3<br>computed while the evidence is read</sub></td>
-    <td align="center"><h3>Ed25519</h3><sub>signature on every acquisition,<br>recovery and sanitization report</sub></td>
-    <td align="center"><h3>100% offline</h3><sub>no cloud, no telemetry;<br>evidence never leaves the workstation</sub></td>
-  </tr>
-</table>
 
 ## Built for
 
@@ -271,8 +236,7 @@ docs/                 documentation and screenshots
 
 AEGIS 1.0.0 is feature-complete for its demonstration scope. The full acquisition &rarr; recovery
 &rarr; enhancement &rarr; sanitization &rarr; report &rarr; ORACLE flow passes an automated end-to-end
-rehearsal inside the packaged application; a 61.5 GB USB stick was acquired to E01 and verified on
-real hardware, and recovery was validated on a real 8.6 GB pendrive image (8,380 objects).
+rehearsal inside the packaged application.
 
 ## License
 
