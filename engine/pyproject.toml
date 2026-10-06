@@ -5,13 +5,13 @@ build-backend = "hatchling.build"
 [project]
 name = "sanctum-forensics"
 version = "0.1.2"
-description = "Integrated secure data sanitization and forensic file recovery (SIH 26149, NTRO)"
+description = "Integrated secure data sanitization and forensic file recovery"
 readme = "README.md"
 requires-python = "==3.11.*"
 license = { text = "Proprietary" }
 
 # Runtime dependencies. Exact pins; see constraints.txt for the full locked set.
-# NOTE: the SIH prompt named "pyewf-python"; that project does not exist on PyPI.
+# NOTE: the original specification named "pyewf-python"; that project does not exist on PyPI.
 # The libewf Python bindings (module `import pyewf`) ship as `libewf-python`.
 dependencies = [
     "pytsk3==20260715",

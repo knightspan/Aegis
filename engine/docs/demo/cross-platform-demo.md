@@ -1,4 +1,4 @@
-# Cross-platform demo (SIH 26149)
+# Cross-platform demo
 
 The point to land: **one sanitization platform, not three applications.** The
 same screens, the same capability model and the same certificate on every OS;

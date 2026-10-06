@@ -1,4 +1,4 @@
-# Twenty-nine questions an NTRO panel asks, and the answers
+# Twenty-nine questions an evaluation panel asks, and the answers
 
 Every number here is traceable to a file in this repository. Where the answer is
 "we cannot", the answer includes the measurement that shows why — those are the

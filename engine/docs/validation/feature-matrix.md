@@ -1,4 +1,4 @@
-# Feature matrix: SIH 26149 requirements against what the code does
+# Feature matrix: project requirements against what the code does
 
 **Audit date:** 2026-09-23, starting from `761dffe`; updated 2026-09-24 after the
 upgrade waves, and again after the release-quality wave that browser-checked
@@ -32,7 +32,7 @@ acquisition on one `usb-flash` stick (2026-09-05); Windows discovery on a
 `usb-flash` stick and Windows file erase on the host system disk (device class
 not recorded), both 2026-09-27.
 
-The SIH 26149 problem statement text is not in this repository. The rows below
+The original requirement text is not in this repository. The rows below
 follow the three modules named in `README.md` and `CLAUDE.md`, plus the
 requirement areas (A to P) in the upgrade brief dated 2026-09-23.
 
@@ -56,7 +56,7 @@ Evidence populations are kept apart everywhere in this file: **SYNTHETIC**
 
 ## A1. Secure Drive Eraser (M1)
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | Device capability discovery | `core/device/capabilities.py:probe` reads `hdparm -I`, NVMe Identify (SANICAP, FNA), `sedutil-cli --scan`, sysfs | IMPLEMENTED + TESTED + DEMONSTRABLE | `tests/device/`; Devices screen `CLEAR ONLY` badge | A capability that was not observed is reported as not supported; a privilege failure is raised, not treated as "unsupported" |
 | Method selection with rationale | `recommend_method` picks the strongest probed mechanism; the justification and the probed flags go into report section 3 | IMPLEMENTED + TESTED + DEMONSTRABLE | `tests/erase/`, `tests/device/`; report `method.justification`, `method.capability_evidence` | Never downgrades silently: NOT AUTHORIZED when the requested level is not reachable |
@@ -79,7 +79,7 @@ Evidence populations are kept apart everywhere in this file: **SYNTHETIC**
 
 ## A2. Secure File and Folder Eraser (M2)
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | Single file, recursive folder, batch | `core/erase/files.py` | IMPLEMENTED + TESTED + DEMONSTRABLE | `tests/erase/files/`; CI on three OSes (`docs/platform-support.md`) | Hard-linked files are not overwritten by default |
 | Document metadata cleanse | EXIF, OOXML `docProps`, PDF info, OLE summary (`core/erase/metadata.py`) | IMPLEMENTED + TESTED + DEMONSTRABLE | `tests/erase/` | Runs before the overwrite; never claims a false clean |
@@ -92,7 +92,7 @@ Evidence populations are kept apart everywhere in this file: **SYNTHETIC**
 
 ## A3. Advanced File Recovery and Carving (M3)
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | Signature carving | 24 signatures (`core/carve/signature.py`) | IMPLEMENTED + TESTED + DEMONSTRABLE | `docs/supported-formats.md` (generated), `tests/carve/signature/` | none recorded |
 | Structure validation, footer bounds | 16 structure parsers derive the exact end from length fields (`core/carve/structure.py`) | IMPLEMENTED + TESTED + DEMONSTRABLE | `tests/carve/`; footer bound fixes (`tests/carve/signature/test_footer_bound.py`) | Footerless formats are bounded by the next header of any type |
@@ -112,7 +112,7 @@ Evidence populations are kept apart everywhere in this file: **SYNTHETIC**
 
 ## A4. Filesystem and format support
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | FAT/FAT32, exFAT | undelete, carve, file erase, free-space wipe (Linux) | IMPLEMENTED + TESTED + DEMONSTRABLE | `docs/platform-support.md` | File erase unverifiable by extents |
 | NTFS | undelete, carve, file erase | IMPLEMENTED + TESTED + DEMONSTRABLE | same | Resident files and journal copies are reported, not removed |
@@ -122,7 +122,7 @@ Evidence populations are kept apart everywhere in this file: **SYNTHETIC**
 
 ## B/C. Forensic integrity and tamper-evident reporting
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | Hash-chained ledger | entry N holds SHA-256 of N-1; BROKEN vs INCOMPLETE_TAIL (`core/ledger/chain.py`) | IMPLEMENTED + TESTED + DEMONSTRABLE | `tests/ledger/` | An insider with the whole state directory can rebuild it; only an external anchor prevents that, and none is configured by default |
 | Evidence hashing | SHA-256 and BLAKE3 at acquisition; SHA-256 per carved object | IMPLEMENTED + TESTED + DEMONSTRABLE | `tests/carve/` | none recorded |
@@ -139,14 +139,14 @@ Evidence populations are kept apart everywhere in this file: **SYNTHETIC**
 
 ## D. Certificate
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | Sanitization certificate | the signed erase report is the certificate: device, serial, capacity, method, rationale, verification, residual risk, limitations, tool version, chain status, signature; it names its category, one of FILE ERASE, ADDRESSABLE WHOLE-DRIVE CLEAR, DEVICE SANITIZE, CRYPTO ERASE, PHYSICAL DESTRUCTION ATTESTATION (`core/report/semantics.py`) | IMPLEMENTED + TESTED + DEMONSTRABLE | `core/report/render.py`, `tests/report/test_semantics.py`, `docs/compliance.md` (Sec. 4.6 / Appendix C mapping) | Signed with a local Ed25519 key, not a PKI. Label: "cryptographically integrity-protected", never "government-signed" |
 | Verifier identity (second person) | none | UNSUPPORTED | none | Only the operator's local account is recorded |
 
 ## E. Safety of destructive operations
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | Stable identity, independent serial sources | by-id path; `lsblk` vs sysfs serial cross-check | IMPLEMENTED + TESTED + DEMONSTRABLE (PHYSICAL preflight) | `scripts/media_benchmark.py`, preflight run 2026-09-23 | Both sources report what the firmware says |
 | Mounted, root and system refusal | preflight and `core/device/guard.py` | IMPLEMENTED + TESTED + DEMONSTRABLE (PHYSICAL) | preflight refusal on the attached stick, 2026-09-23 | none recorded |
@@ -165,7 +165,7 @@ historical record of what existed; test doubles (fixture devices, recording
 helpers, `testkit/fake_*.py`) remain as CI infrastructure and are never counted
 as physical validation.
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | Real-device workflow on a disposable device | [`docs/demo/runbook.md`](../demo/runbook.md) real-device procedure: discovery → preflight → identity → backup → plan → approval → final revalidation → real execution → verification → certificate | IMPLEMENTED / UNVALIDATED | `tests/api/test_sanitize_ui_chain.py`, `tests/erase/test_drive_loopback.py` (root-only), adapter doubles | One stick's run is not a device-class validation until recorded |
 | *(historical)* Full workflow with no device | `scripts/demo_simulation.py`: DISCOVER → PREFLIGHT (a mounted medium BLOCKED by `core.device.guard` and `core.workflow.derive`) → PLAN (`select_method`) → SIMULATED SANITIZATION (`core.erase.drive.execute`, a real overwrite of a host file) → SIMULATED VERIFICATION (the same run's full read-back) → FORENSIC REPORT (`build_report`, graded) → CERTIFICATE (Ed25519, then a changed copy is rejected) | REMOVED 2026-09-28 (was IMPLEMENTED + TESTED + DEMONSTRABLE (SIMULATION)) | was `tests/scripts/test_demo_simulation.py` (every stage bannered, the blocked medium byte-identical, nothing under `/dev` opened, the engine refuses any target that is not its own file); run 2026-09-24 in 0.4 s | The media are host files. Two engine calls are substituted because a file cannot answer them (BLKGETSIZE64, the sysfs serial re-read), and the journey says so in its report. Capability is declared for the simulated medium, not probed. Terminal only, not a UI mode |
@@ -173,7 +173,7 @@ as physical validation.
 
 ## G/H/I. Benchmarking, demo corpus, performance
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | Precision, recall, false positives, corrupt recoveries | `testkit/benchmark.py`, `testkit/calibrate.py` | IMPLEMENTED + TESTED + DEMONSTRABLE (SYNTHETIC) | `docs/performance/benchmark.md`, `calibration-pooled.md` | Synthetic images only |
 | Physical benchmark | `scripts/media_benchmark.py` | PARTIAL | preflight only; run blocked on the methodology decision (`methodology-open-decision.md`) and the gates in `physical-benchmark-checklist.md` | No result under the registered methodology exists. Three Phase B physical recovery passes on one stick are recorded separately in `hardware.md` and are not this benchmark |
@@ -184,7 +184,7 @@ as physical validation.
 
 See `docs/platform-support.md` for the full matrix.
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | Whole-drive clear on Windows and macOS | `core/erase/blockclear.py` through each adapter; Windows needs an elevated process and an offline disk, macOS root and an unmounted external disk | IMPLEMENTED + TESTED, not physically validated (IMPLEMENTED / UNVALIDATED) | `tests/erase/test_blockclear.py`, `tests/platform/test_windows_engine.py`, `tests/platform/test_macos_engine.py` (adapter doubles); CI read-only native smoke | Internal Apple storage BLOCKED FOR SAFETY (Erase All Content and Settings recommended); a virtual or Storage Spaces disk is refused |
 | Device sanitize on Windows and macOS | Windows ATA SANITIZE and NVMe Sanitize (block, crypto) when IDENTIFY reports them | HARDWARE-UNVERIFIED (DEVICE-DEPENDENT) | `tests/device/test_windows_native.py`, `tests/platform/test_windows_engine.py` | Windows ATA SECURITY ERASE NOT IMPLEMENTED; Windows NVMe Format PLATFORM-LIMITED; every macOS device sanitize PLATFORM-LIMITED |
@@ -194,7 +194,7 @@ See `docs/platform-support.md` for the full matrix.
 
 ## K/L/M. UI, demo, judge questions
 
-| SIH requirement | Capability | Status | Evidence | Limitation |
+| Requirement | Capability | Status | Evidence | Limitation |
 |---|---|---|---|---|
 | Device card with capability and blocked reason | Devices and Sanitize screens; a locked row reads `BLOCKED · WHY BLOCKED:` and the reason, with the human remedy | IMPLEMENTED + TESTED + DEMONSTRABLE | `ui/src/screens/Devices.tsx`, `Sanitize.tsx`; browser `06-devices-fixture.png` | Browser-checked on fixture devices; the live host's devices were not offered to the browser |
 | Landing screen with the workflows | Overview screen: Drive eraser, File & folder eraser and Recovery cards, each with the resolver's live state (the 2026-09-24 browser run showed an earlier four-card layout) | IMPLEMENTED + TESTED + DEMONSTRABLE | `ui/src/screens/Home.tsx`; browser `01-overview-case-open.png` on the real API | none recorded |

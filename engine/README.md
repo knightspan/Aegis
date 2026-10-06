@@ -2,7 +2,7 @@
 
 **Secure sanitization, forensic recovery and tamper-evident verification in one offline workflow.**
 
-Built for SIH 26149 (NTRO): one tool that erases storage by a method the
+One tool that erases storage by a method the
 device itself supports, recovers evidence without writing to it, and signs a
 record of both that a third party can check on their own machine.
 

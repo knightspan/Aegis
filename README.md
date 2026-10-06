@@ -20,13 +20,17 @@
 </p>
 
 <p align="center">
-  <a href="https://www.youtube.com/@AegisDigitalForensics"><img alt="Prototype video on YouTube" src="https://img.shields.io/badge/prototype%20video-YouTube-C4302B?logo=youtube&logoColor=white"></a>
-  <img alt="SIH 2026" src="https://img.shields.io/badge/Smart%20India%20Hackathon-2026-F28C28">
-  <img alt="NTRO PS 26149" src="https://img.shields.io/badge/NTRO-problem%20statement%2026149-0F2747">
+  <img src="docs/assets/aegis-demo.gif" alt="AEGIS demo: home, cases, disk imager, file recovery, sanitization, ORACLE and case creation" width="100%">
 </p>
 
 <p align="center">
-  <a href="#problem-statement-sih-2026--ntro">Problem statement</a> &middot;
+  <a href="https://www.youtube.com/watch?v=hDIUGWyab3A"><img alt="Watch the full AEGIS demo on YouTube" src="https://img.shields.io/badge/%E2%96%B6%20Watch%20the%20full%20demo-YouTube-C4302B?style=for-the-badge&logo=youtube&logoColor=white"></a>
+  <br>
+  <sub>The GIF above is a short preview. The full walkthrough is on YouTube.</sub>
+</p>
+
+<p align="center">
+  <a href="#solution-scope">Solution scope</a> &middot;
   <a href="#prototype-video">Prototype video</a> &middot;
   <a href="#features">Features</a> &middot;
   <a href="#screenshots">Screenshots</a> &middot;
@@ -38,19 +42,14 @@
 
 ---
 
-## Problem statement (SIH 2026 · NTRO)
-
-AEGIS is our solution to **Smart India Hackathon 2026, problem statement 26149**, set by the
-**National Technical Research Organisation (NTRO)**: *Design and Development of an Integrated Secure
-Data Erasure and Advanced File Recovery Tool for Digital Forensics and Data Sanitization*
-(category: Software; theme: Blockchain & Cybersecurity).
+## Solution scope
 
 Organisations, government agencies and law-enforcement units need to do two opposite things to
 storage: **destroy sensitive data beyond recovery** and **recover deleted data as evidence**. Today
-these need separate tools, each with its own process and its own reports. The problem statement asks
-for one platform with three modules. This is how AEGIS covers each one:
+these need separate tools, each with its own process and its own reports. AEGIS brings both into one
+platform with three modules:
 
-| NTRO module | What the problem statement asks for | How AEGIS delivers it |
+| Module | What it needs to do | How AEGIS delivers it |
 |---|---|---|
 | **1. Secure Drive Eraser** | Sanitize HDDs, SSDs, USB drives, memory cards and external storage, with verification, audit logging, tamper-resistant reporting and compliance with data-destruction standards. | Device sanitization of removable **USB drives, memory cards (SD/MMC) and USB-attached external disks**. Methods are offered from the device's *probed* capabilities (whole-drive overwrite, ATA / NVMe sanitize where the controller supports it). Every run has typed-serial authorization, identity re-binding before the first write, read-back verification and an Ed25519-signed report in **NIST SP 800-88 Rev. 2** terms (Clear / Purge). Internal system drives are refused by design. |
 | **2. Secure File & Folder Eraser** | Selective deletion of files and folders, removal of associated metadata and residual traces, batch operations, verification of erasure and audit reporting across file systems. | Verified overwrite of files and whole folder trees by the native AEGIS sanitizer: slack-space overwrite, TRIM, flush, read-back check and metadata scrub. **Deep Forensic Purge** removes the traces Windows keeps of an erased file (Recent shortcuts, jump lists, Recycle Bin copies). Every operation lands in a hash-chained case ledger and a signed report. |
@@ -62,10 +61,16 @@ independently.
 
 ## Prototype video
 
-▶️ **Watch the AEGIS prototype walkthrough on our YouTube channel:
-[youtube.com/@AegisDigitalForensics](https://www.youtube.com/@AegisDigitalForensics)**
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=hDIUGWyab3A">
+    <img src="https://img.youtube.com/vi/hDIUGWyab3A/maxresdefault.jpg" alt="AEGIS demo video on YouTube (click to play)" width="80%">
+  </a>
+</p>
 
-The channel hosts the prototype demonstration of AEGIS built for the NTRO problem statement above.
+<p align="center">
+  ▶️ <strong><a href="https://www.youtube.com/watch?v=hDIUGWyab3A">Watch the AEGIS demo video on YouTube</a></strong><br>
+  More videos on the channel: <a href="https://www.youtube.com/@AegisDigitalForensics">youtube.com/@AegisDigitalForensics</a>
+</p>
 
 ## Why AEGIS
 

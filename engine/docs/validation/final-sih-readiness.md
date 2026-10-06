@@ -1,4 +1,4 @@
-# SIH 26149 readiness — what is implemented, measured, and not verified
+# Release readiness — what is implemented, measured, and not verified
 
 > **Current state (2026-09-28).** Current product execution no longer exposes
 > a user-facing simulation/dry-run mode: every operation runs against the

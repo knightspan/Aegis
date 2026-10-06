@@ -77,7 +77,7 @@ wipe *starting* — the plan, the write calibration completing, the elision
 finding landing, the residual-risk panel — on a stick that then keeps running in
 the background for the rest of the talk. The stick that gets carved against was
 wiped before the session with the same command, and **you say so out loud.** An
-NTRO panel will forgive a wipe that takes sixteen minutes. It will not forgive
+An evaluation panel will forgive a wipe that takes sixteen minutes. It will not forgive
 one that appears to take forty-five seconds.
 
 ---

@@ -265,8 +265,8 @@ line of our design document."
 
 ## 10 · Team
 
-> # SIH 26149
-> **NTRO. Integrated secure data sanitization and forensic file recovery.**
+> # AEGIS
+> **Integrated secure data sanitization and forensic file recovery.**
 
 - Names, roles, contact.
 - One line each on what each person owns, matched to the module numbers on
