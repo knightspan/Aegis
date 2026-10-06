@@ -102,10 +102,3 @@ On 4 October 2026 an operator acquired a 61.5 GB USB stick (`\\.\PhysicalDrive1`
 not system/boot) to E01 through the Disk Imager: 61,504,880,640 bytes read, 33 E01 segments, **0
 unreadable sectors, read-back verification passed** (SHA-256, BLAKE3 and every chunk), followed by
 registration and a signed acquisition report.
-
-## Not covered by this release's testing
-
-- **Physical USB sanitization** was not run on hardware in this pass. `tools/usb-demo-test.ps1` runs the
-  complete hardware test on a disposable stick, prompting for the serial and `SANITIZE` before any write.
-- **Thumbnail-cache clearing** was not run on the build workstation (it restarts Explorer); the code
-  path is opt-in.

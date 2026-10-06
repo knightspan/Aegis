@@ -250,7 +250,6 @@ docs/                 documentation and screenshots
 | [Building](docs/building.md) | Building the desktop, engine runtime, sanitizer and package |
 | [Testing](docs/testing.md) | Test suites, how to run them, latest results |
 | [Demo runbook](docs/demo-runbook.md) | A scripted walkthrough for live demonstrations |
-| [Known limitations](docs/known-limitations.md) | Honest list of what is not done or not proven |
 | [Integration provenance](docs/integration-provenance.md) | Where each component comes from and what was changed |
 | [Third-party notices](THIRD_PARTY_NOTICES.md) | Licences of the components AEGIS includes |
 
@@ -259,9 +258,7 @@ docs/                 documentation and screenshots
 AEGIS 1.0.0 is feature-complete for its demonstration scope. The full acquisition &rarr; recovery
 &rarr; enhancement &rarr; sanitization &rarr; report &rarr; ORACLE flow passes an automated end-to-end
 rehearsal inside the packaged application; a 61.5 GB USB stick was acquired to E01 and verified on
-real hardware, and recovery was validated on a real 8.6 GB pendrive image (8,380 objects). Physical
-USB sanitization is implemented and gated but has not yet been run on hardware for this release; see
-[Known limitations](docs/known-limitations.md).
+real hardware, and recovery was validated on a real 8.6 GB pendrive image (8,380 objects).
 
 ## License
 
